@@ -53,7 +53,7 @@ max_price = 200 # maximum restriciton enzyme price
 # steps
 
 try:
-	opts, args = getopt.getopt(sys.argv[1:], "i:p:s:l:g:r:o:m:v:f:a:e:c:b:d:h", ["help"])
+	opts, args = getopt.getopt(sys.argv[1:], "i:a:t:o:l:p:b:h", ["help"])
 except getopt.GetoptError as err:
 	# print help information and exit:
 	print str(err)  # will print something like "option -a not recognized"

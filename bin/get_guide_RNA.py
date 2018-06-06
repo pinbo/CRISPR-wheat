@@ -118,12 +118,13 @@ REs = parse_RE_file(RE_file) # get the list of restriction enzymes
 # step 2: get the list of enzymes that can be used
 caps_list_forward = []
 caps_list_reverse = []
-for k in REs:
-	enzyme = REs[k]
-	if enzyme.price > max_price:
+for k in REs: # k is enzyme name + price, such as BccI,66
+	enzyme_seq = REs[k]
+	price = int(k.split(',')[-1])
+	if price > max_price:
 		continue
-	enzyme1 = test_enzyme(enzyme, wild_seq)
-	enzyme2 = test_enzyme(enzyme, wild_seq_RC)
+	enzyme1 = test_enzyme(k, enzyme_seq, wild_seq)
+	enzyme2 = test_enzyme(k, enzyme_seq, wild_seq_RC)
 	if enzyme1.caps == "Yes":
 		caps_list_forward.append(enzyme1)
 	if enzyme2.caps == "Yes":

@@ -99,7 +99,8 @@ def parse_RE_file(RE_file):
 	with open(RE_file) as file_one:
 		for line in file_one:
 			enzyme, seq = line.rstrip().split("\t")
-			REs[enzyme] = Restriction_Enzyme(enzyme, seq.strip("N")) # remove leading and ending Ns
+			#REs[enzyme] = Restriction_Enzyme(enzyme, seq.strip("N")) # remove leading and ending Ns
+			REs[enzyme] = seq.strip("N")
 	return REs
 
 def find_substring(substring, string): # find all the starting index of a substring
@@ -129,11 +130,9 @@ def seq2pattern(seq):
 	return seq2.lower()
 
 # test whether an enzyme can be modifed to fit a dCAPS
-def test_enzyme(enzyme_class, seq): # enzyme is an Restriction_Enzyme object
-	enzyme = copy.copy(enzyme_class)
-	enzyme_seq = enzyme.seq
+def test_enzyme(enzyme_name, enzyme_seq, seq):
+	enzyme = Restriction_Enzyme(enzyme_name, enzyme_seq)
 	enzyme_seq_RC = ReverseComplement(enzyme_seq) # 1
-	enzyme_name = enzyme.name
 	wild_seq = seq.lower()
 	wild_allpos = find_substring(seq2pattern(enzyme_seq), wild_seq)
 	wild_allpos += find_substring(seq2pattern(enzyme_seq_RC), wild_seq) # also check reverse complement sequences of enzyme

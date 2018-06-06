@@ -69,7 +69,7 @@ for o, a in opts:
 		target_all = int(a)
 	elif o in ("-t"):
 		targets = a.split(",")
-		if targets:
+		if a:
 			target_all = 0
 		print targets
 	elif o in ("-o"):
@@ -92,6 +92,7 @@ for k in fasta_raw_RC:
 	fasta_raw_RC[k] = ReverseComplement(fasta_raw_RC[k])
 
 seq_names = fasta_raw.keys()
+print "target_all is", target_all
 if target_all == 1:
 	targets = seq_names
 

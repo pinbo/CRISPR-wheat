@@ -51,10 +51,11 @@ class gRNA(object):
 		self.template = ""
 		self.REs = [] # list of restriction enzymes
 		self.seq4score = "" # 30 nt for calculating on target score
+		self.on_target_score = 0.0
 		#self.on_target_score = get_on_target_score(self.seq4score)
-	@property
-	def on_target_score(self):
-		return get_on_target_score(self.seq4score)
+	#@property
+	#def on_target_score(self):
+	#	return get_on_target_score(self.seq4score)
 
 
 class Restriction_Enzyme(object):

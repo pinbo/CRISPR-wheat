@@ -160,6 +160,7 @@ print "Specific reverse gRNA number ", len(specific_reverse_grnas)
 ## only REs with recognization site overlap with the 4th position from the end of sg-RNA
 for i in specific_forward_grnas:
 	cut_pos = i.end - 3
+	i.on_target_score = get_on_target_score(i.seq4score) # just to add score here to save time
 	#print "cut pos is ", cut_pos, i.seq
 	for j in caps_list_forward:
 		allpos = j.allpos
@@ -171,6 +172,7 @@ for i in specific_forward_grnas:
 
 for i in specific_reverse_grnas:
 	cut_pos = i.end - 3
+	i.on_target_score = get_on_target_score(i.seq4score)
 	for j in caps_list_reverse:
 		allpos = j.allpos
 		for k in allpos:

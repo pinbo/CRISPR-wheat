@@ -187,7 +187,7 @@ for i in specific_reverse_grnas:
 
 # write to file
 outfile = open(out, 'w')
-outfile.write("Start\tEnd\tStrand\tLength\tSequence\tGC_content\tForward_Seq\tPAM\tTemplate\tOn_target_score\tRestriction_Enzyme\n")
+outfile.write("Start\tEnd\tStrand\tLength\tSequence (5' -> 3')\tGC_content\tSequence on forward strand (5' -> 3')\tPAM\tTemplate used\tOn_target_score\tRestriction_Enzyme\n")
 template_length = len(wild_seq)
 for i in specific_forward_grnas:
 	outfile.write("\t".join([str(i.start + 1), str(i.end + 1), i.direction, str(i.length), i.seq, str(i.gc), "\t", i.pam, mainID, "{0:.2f}".format(i.on_target_score), ";".join(i.REs)]) + "\n")

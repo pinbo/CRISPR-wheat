@@ -1,10 +1,10 @@
 <tool id="Get_gRNA" name="gRNAs from Wheat Homeologs">
   <description>for homeolog sequences in a fasta file</description>
-  <command>python '$__tool_directory__/bin/get_guide_RNA.py' -i $input -t $targets -p $pam -o selected_gRNAs.txt</command>
+  <command>/usr/local/bin/python '$__tool_directory__/bin/get_guide_RNA.py' -i $input -t $targets -p $pam -o selected_gRNAs.txt</command>
   
   <inputs>
     <param format="fasta" name="input" type="data" label="Homeolog sequences (a fasta file with all the homeolog sequences)"/>
-    <param name="targets" size="100" type="text" value="" label="gRNA target sequence name(s) (Separated with commas). If not provided, will target all sequences!"/>
+    <param name="targets" size="100" type="text" value="ALL" label="gRNA target sequence name(s) (Separated with commas). If not provided, will target all sequences!"/>
     <param name="pam" type="select" label="PAM sequence" help="Default NGG">
         <option value="NGG">NGG</option>
     </param>

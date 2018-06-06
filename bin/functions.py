@@ -22,14 +22,18 @@
 #  
 #  
 
-import getopt, sys, os, re, copy
+import getopt, sys, os, re, copy, pickle
+from Rule_Set_2_scoring_v1 import model_comparison
 
+
+
+###############
 def main(args):
-    return 0
+	return 0
 
 if __name__ == '__main__':
-    import sys
-    sys.exit(main(sys.argv))
+	import sys
+	sys.exit(main(sys.argv))
 
 ##################### CLASSES   ######################
 # guide RNA object
@@ -46,6 +50,12 @@ class gRNA(object):
 		self.direction = ""
 		self.template = ""
 		self.REs = [] # list of restriction enzymes
+		self.seq4score = "" # 30 nt for calculating on target score
+		#self.on_target_score = get_on_target_score(self.seq4score)
+	@property
+	def on_target_score(self):
+		return get_on_target_score(self.seq4score)
+
 
 class Restriction_Enzyme(object):
 	def __init__(self, name, seq):
@@ -150,7 +160,7 @@ def Calc_GC(seq):
 	return t / len(seq) * 100
 
 # find PAM positions
-def find_pam(seq, pam, grna_length, direction):
+def find_pam(seq, pam, grna_length, direction): # seq is the template
 	allpos = find_substring(seq2pattern(pam), seq)
 	grna_list = []
 	for i in allpos:
@@ -159,11 +169,15 @@ def find_pam(seq, pam, grna_length, direction):
 		grna.length = grna_length
 		grna.start = i - grna_length
 		grna.end = i - 1
-		if grna.start < 0:
+		seq4score_start = i - grna_length - 4
+		seq4score_end = i + 5
+		#if grna.start < 0:
+		if seq4score_start < 0 or seq4score_end >= len(seq):
 			continue
 		grna.seq = seq[grna.start:i].upper()
 		grna.gc = Calc_GC(grna.seq)
 		grna.pam = seq[i:(i+len(pam))].upper()
+		grna.seq4score = seq[seq4score_start:(seq4score_end + 1)].upper()
 		grna_list.append(grna)
 	return grna_list
 
@@ -190,4 +204,23 @@ def test_spec(seq, targets, non_targets, fasta_raw):
 			spec = 0
 			break
 	return spec
+
+# on target score calculation based on machine learning trained model
+# Doench et al. 2006. Optimized sgRNA design to maximize activity and minimize off-target effects of CRISPR-Cas9
+def get_on_target_score(seq): #30mer nucleotide sequence, which should be of the form NNNN20merNGGNNN
+	current_path = os.path.dirname(os.path.realpath(__file__))
+	if not seq:
+		return 0.0
+	model_file = current_path + '/saved_models/V3_model_nopos.pickle'
+	seq = seq.upper()
+	if len(seq)!=30: 
+		print "Please enter a 30mer sequence."
+		sys.exit(1)
+	aa_cut = -1
+	per_peptide = -1
+	with open(model_file, 'rb') as f:
+		model = pickle.load(f)
+	if seq[25:27] == 'GG':
+		score = model_comparison.predict(seq, aa_cut, per_peptide, model=model)
+	return score
 

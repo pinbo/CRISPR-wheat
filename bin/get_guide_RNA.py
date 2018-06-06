@@ -69,7 +69,8 @@ for o, a in opts:
 		target_all = int(a)
 	elif o in ("-t"):
 		targets = a.split(",")
-		target_all = 0
+		if targets:
+			target_all = 0
 		print targets
 	elif o in ("-o"):
 		out = a

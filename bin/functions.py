@@ -24,7 +24,7 @@
 
 import getopt, sys, os, re, copy, pickle
 from Rule_Set_2_scoring_v1 import model_comparison
-
+from CFD_Score import cfd_score_calculator as cfd
 
 
 ###############
@@ -52,6 +52,7 @@ class gRNA(object):
 		self.REs = [] # list of restriction enzymes
 		self.seq4score = "" # 30 nt for calculating on target score
 		self.on_target_score = 0.0
+		self.off_target_score = ""
 		#self.on_target_score = get_on_target_score(self.seq4score)
 	#@property
 	#def on_target_score(self):
@@ -225,3 +226,15 @@ def get_on_target_score(seq): #30mer nucleotide sequence, which should be of the
 		score = model_comparison.predict(seq, aa_cut, per_peptide, model=model)
 	return score
 
+# off target score
+def get_off_target_score(wt, off):
+	# 20mer sgRNA + PAM sequence for both wt and off sequences
+	m_wt = re.search('[^ATCG]',wt)
+	m_off = re.search('[^ATCG]',off)
+	if (m_wt is None) and (m_off is None):
+		pam = off[-2:]
+		sg = off[:-3]
+		cfd_score = cfd.calc_cfd(wt,sg,pam)
+		return cfd_score
+
+#print get_off_target_score("CCAGGATGGGGCATTTCTAGAGG", "CCAGGATGGGGCATTTCTAAAGG")

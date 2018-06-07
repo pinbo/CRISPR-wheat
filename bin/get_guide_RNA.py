@@ -187,13 +187,14 @@ for i in specific_reverse_grnas:
 
 # write to file
 outfile = open(out, 'w')
-outfile.write("Start\tEnd\tStrand\tLength\tSequence (5' -> 3')\tGC_content\tSequence on forward strand (5' -> 3')\tPAM\tTemplate used\tOn_target_score\tRestriction_Enzyme\n")
+outfile.write("Start\tEnd\tStrand\tLength\tSequence (5' -> 3')\tGC_content\tReverse Complement (5' -> 3')\tPAM\tTemplate used\tOn_target_score\tRestriction Enzyme\n")
 template_length = len(wild_seq)
 for i in specific_forward_grnas:
-	outfile.write("\t".join([str(i.start + 1), str(i.end + 1), i.direction, str(i.length), i.seq, str(i.gc), "", i.pam, mainID, "{0:.2f}".format(i.on_target_score), ";".join(i.REs)]) + "\n")
+	outfile.write("\t".join([str(i.start + 1), str(i.end + 1), i.direction, str(i.length), i.seq, str(i.gc), ReverseComplement(i.seq), i.pam, mainID, "{0:.2f}".format(i.on_target_score), ";".join(i.REs)]) + "\n")
 
 for i in specific_reverse_grnas:
 	outfile.write("\t".join([str(template_length - i.start), str(template_length - i.end), i.direction, str(i.length), i.seq, str(i.gc), ReverseComplement(i.seq), i.pam, mainID, "{0:.2f}".format(i.on_target_score), ";".join(i.REs)]) + "\n")
 
 
-print get_on_target_score("ATGGGGAACAGAATAGGAGGGAGGAGGAAG")
+print "example score for on target ", get_on_target_score("ATGGGGAACAGAATAGGAGGGAGGAGGAAG")
+print "example score for off target ", get_off_target_score("CCAGGATGGGGCATTTCTAGAGG", "CCAGGATGGGGCATTTCTAAAGG")

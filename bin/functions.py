@@ -21,7 +21,7 @@
 #  MA 02110-1301, USA.
 #  
 #  
-
+from subprocess import call
 import getopt, sys, os, re, copy, pickle
 from Rule_Set_2_scoring_v1 import model_comparison
 from CFD_Score import cfd_score_calculator as cfd
@@ -53,6 +53,7 @@ class gRNA(object):
 		self.seq4score = "" # 30 nt for calculating on target score
 		self.on_target_score = 0.0
 		self.off_target_score = ""
+		self.blast = "" # blast hits
 		#self.on_target_score = get_on_target_score(self.seq4score)
 	#@property
 	#def on_target_score(self):
@@ -116,6 +117,8 @@ def parse_RE_file(RE_file):
 	return REs
 
 def find_substring(substring, string): # find all the starting index of a substring
+	substring = substring.lower()
+	string = string.lower()
 	return [m.start() for m in re.finditer(substring, string)]
 
 def seq2pattern(seq):
@@ -167,6 +170,7 @@ def find_pam(seq, pam, grna_length, direction): # seq is the template
 	grna_list = []
 	for i in allpos:
 		grna = gRNA()
+		grna.name = "gRNA_" + str(i) + "_" + direction
 		grna.direction = direction
 		grna.length = grna_length
 		grna.start = i - grna_length
@@ -207,6 +211,35 @@ def test_spec(seq, targets, non_targets, fasta_raw):
 			break
 	return spec
 
+
+# test specificity of a gRNA
+# based on alignment
+def test_spec2(seq, targets, non_targets, fasta, template, a2t, t2a): # template is the one that was used to search potential gRNAs
+	seq = seq.lower()
+	template_start_pos = find_substring(seq2pattern(seq), template)[0]
+	template_end_pos = template_start_pos + len(seq) - 1
+	alignment_end_pos = t2a[template_end_pos]
+	spec = 1 # whether specific
+	# seq should be in all targets
+	for j in targets:
+		tt = fasta[j].lower().replace("-","")
+		#if seq not in tt:
+		if not find_substring(seq2pattern(seq), tt):
+			spec = 0
+			break
+	if not spec:
+		return spec
+	# seq should NOT be in any non-targets
+	# for non-target, I think I only need to test the last 12 bp
+	# with confirm with Yanpeng
+	for k in non_targets:
+		tt2 = fasta[k].lower().replace("-","")
+		#if seq in tt2:
+		if find_substring(seq2pattern(seq), tt2):
+			spec = 0
+			break
+	return spec
+
 # on target score calculation based on machine learning trained model
 # Doench et al. 2006. Optimized sgRNA design to maximize activity and minimize off-target effects of CRISPR-Cas9
 def get_on_target_score(seq): #30mer nucleotide sequence, which should be of the form NNNN20merNGGNNN
@@ -238,3 +271,51 @@ def get_off_target_score(wt, off):
 		return cfd_score
 
 #print get_off_target_score("CCAGGATGGGGCATTTCTAGAGG", "CCAGGATGGGGCATTTCTAAAGG")
+
+# Get software path
+#from sys import platform
+def get_software_path(base_path):
+	if sys.platform.startswith('linux'): # linux
+		#primer3_path = base_path + "/primer3_core"
+		muscle_path = base_path + "/muscle"
+	elif sys.platform == "win32" or sys.platform == "cygwin": # Windows...
+		#primer3_path = base_path + "/primer3_core.exe"
+		muscle_path = base_path + "/muscle.exe"
+	elif sys.platform == "darwin": # MacOSX
+		#primer3_path = base_path + "/primer3_core_darwin64"
+		muscle_path = base_path + "/muscle3.8.31_i86darwin64"
+	#return primer3_path, muscle_path
+	return muscle_path
+
+# function to blast and parse the output of each primer in the wheat genome
+def blast_check(primer_list, reference):
+	# primer_list is a list of primer objects
+	# reference is the blastdb
+	forblast = open("for_blast.fa", 'w') # for blast against the gnome
+	primer_for_blast = {} # dict of all primers with name and seq
+	for pp in primer_list:
+		if pp.REs: # only blast those with retriction enzymes
+			forblast.write(">" + pp.name + "\n" + pp.seq + pp.pam + "\n")
+			primer_for_blast[pp.name] = pp
+	forblast.close()
+	### for blast
+	num_threads = 2
+	#cmd2 = 'blastn -task blastn -db ' + reference + ' -query for_blast.fa -outfmt "6 std qseq sseq qlen slen" -num_threads 3 -word_size 7 -out blast_out.txt'
+	#cmd2 = "blastn -task blastn-short -db " + reference + " -query for_blast.fa -evalue 30000 -word_size 7 -gapopen 2 -gapextend 1 -reward 1 -penalty -1 -perc_identity 70 -max_target_seqs 13 -max_hsps 20 -num_threads " + str(num_threads) + " -dust no  -outfmt '6 std qseq sseq qlen slen' -out blast_out.txt"
+	cmd2 = "blastn -task blastn-short -db " + reference + " -query for_blast.fa -ungapped -perc_identity 70 -word_size 8 -max_target_seqs 10 -max_hsps 2 -num_threads " + str(num_threads) + " -outfmt '7 std qseq sseq qlen slen' -out blast_out.txt"
+	print "Step 2: Blast command:\n", cmd2
+	call(cmd2, shell=True)
+	# blast fields
+	# 1: query id, subject id, % identity, alignment length, mismatches, gap opens, 
+	# 7: q. start, q. end, s. start, s. end, evalue, bit score
+	# 13: q. sequence, s. sequence, q. length s. length
+	for line in open("blast_out.txt"):
+		if line.startswith("#"):
+			continue
+		fields = line.split("\t")
+		query, subject, pct_identity, align_length, mismatches = fields[:5]
+		qstart, qstop, sstart, sstop = fields[6:10]
+		primer = primer_for_blast[query]
+		primer.blast += subject + ": " + mismatches + ", " qstart + "-" + qstop + "; "
+
+	return(primer_list) # I think the primers should be changed

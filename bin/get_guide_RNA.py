@@ -22,7 +22,7 @@
 #  
 #  
 ### Imported
-#from subprocess import call
+from subprocess import call
 import getopt, sys, os, re
 from functions import *
 
@@ -34,11 +34,12 @@ get_guide_RNA.py
 	-i <sequence.fa>
 	-t <seqID1,seqID2>
 	-o <output file name>
-	-b <blast all produced primers against the genomes: 1 for YES and 0 for NO, default is NO>
+	-b <blast all produced gRNAs against the genomes: 1 for YES and 0 for NO, default is NO>
 	-l <sgRNA length, default is 20>
 	-a <whether to target all homeologs: 1 for YES and 0 for NO. default is 1>
 	-p <PAM sequence. default is NGG>
 	-h <print the help>
+	-r <reference location>
 """
 
 # parameters
@@ -50,10 +51,19 @@ targets = [] # target sequence names
 out = "" # output file
 mainID = "" # the one used as template to search sgRNAs
 max_price = 200 # maximum restriciton enzyme price
+blast = 0 # whether to blast
+chrom = "" # chromosome name if target only one specific chromosome; seprated with comma, such as 1A,1B
+chr_group = 0 # chromsome group, such as 1, meaning 1A, 1B, 1D
+
+reference = "/Library/WebServer/Documents/blast/db/nucleotide/161010_Chinese_Spring_v1.0_pseudomolecules.fasta"
+
+
+
+
 # steps
 
 try:
-	opts, args = getopt.getopt(sys.argv[1:], "i:a:t:o:l:p:b:h", ["help"])
+	opts, args = getopt.getopt(sys.argv[1:], "i:a:t:o:l:p:b:r:h", ["help"])
 except getopt.GetoptError as err:
 	# print help information and exit:
 	print str(err)  # will print something like "option -a not recognized"
@@ -80,6 +90,9 @@ for o, a in opts:
 		pam = a
 	elif o in ("-b"):
 		blast = int(a)
+	elif o in ("-r"):
+		blast = 1
+		reference = a
 	else:
 		assert False, "unhandled option"
 print "Options done"
@@ -108,10 +121,35 @@ if not out:
 
 getcaps_path = os.path.dirname(os.path.realpath(__file__))
 
-
 # software path
-#primer3_path, muscle_path = get_software_path(getcaps_path)
+muscle_path = get_software_path(getcaps_path)
+## STEP 0: create alignment file and primer3output file
+RawAlignFile = "alignment_raw.fa"
+alignmentcmd = muscle_path + " -in " + seqfile + " -out " + RawAlignFile + " -quiet"
+print "Alignment command: ", alignmentcmd
+call(alignmentcmd, shell=True)
 
+## parse alignment file
+#fasta = get_fasta(RawAlignFile)
+#alignlen = len(fasta[mainID])
+#print "Alignment length: ", alignlen
+
+## get the target ID template base coordinate in the alignment
+#t2a = {} # template to alignment
+#a2t = {} # alignment to target
+#ngap = 0 # gaps
+#for i in range(alignlen):
+	#if fasta[mainID][i] == "-":
+		#ngap += 1
+		#continue
+	#t2a[i - ngap] = i
+	#a2t[i] = i - ngap
+
+#print "last key of t2a", i - ngap
+#print "last key of a2t", i
+
+#wild_seq = fasta[mainID].replace("-","") # remove all gaps
+#wild_seq_RC = ReverseComplement(wild_seq)
 
 ## Get restriciton enzyme information
 # step 1: read the enzyme file
@@ -182,18 +220,23 @@ for i in specific_reverse_grnas:
 			if cut_pos in rr:
 				i.REs.append(j.name + "," + j.seq)
 
+## blast against the genome
+if blast:
+	specific_forward_grnas = blast_check(specific_forward_grnas, reference)
+	specific_reverse_grnas = blast_check(specific_reverse_grnas, reference)
+
 
 ## Print output files
 
 # write to file
 outfile = open(out, 'w')
-outfile.write("Start\tEnd\tStrand\tLength\tSequence (5' -> 3')\tGC_content\tReverse Complement (5' -> 3')\tPAM\tTemplate used\tOn_target_score\tRestriction Enzyme\n")
+outfile.write("ID\tStart\tEnd\tStrand\tLength\tSequence (5' -> 3')\tGC_content\tReverse Complement (5' -> 3')\tPAM\tTemplate used\tOn_target_score\tRestriction Enzyme\nBLAST hits\n")
 template_length = len(wild_seq)
 for i in specific_forward_grnas:
-	outfile.write("\t".join([str(i.start + 1), str(i.end + 1), i.direction, str(i.length), i.seq, str(i.gc), ReverseComplement(i.seq), i.pam, mainID, "{0:.2f}".format(i.on_target_score), ";".join(i.REs)]) + "\n")
+	outfile.write("\t".join([i.name, str(i.start + 1), str(i.end + 1), i.direction, str(i.length), i.seq, str(i.gc), ReverseComplement(i.seq), i.pam, mainID, "{0:.2f}".format(i.on_target_score), ";".join(i.REs), i.blast]) + "\n")
 
 for i in specific_reverse_grnas:
-	outfile.write("\t".join([str(template_length - i.start), str(template_length - i.end), i.direction, str(i.length), i.seq, str(i.gc), ReverseComplement(i.seq), i.pam, mainID, "{0:.2f}".format(i.on_target_score), ";".join(i.REs)]) + "\n")
+	outfile.write("\t".join([i.name, str(template_length - i.start), str(template_length - i.end), i.direction, str(i.length), i.seq, str(i.gc), ReverseComplement(i.seq), i.pam, mainID, "{0:.2f}".format(i.on_target_score), ";".join(i.REs), i.blast]) + "\n")
 
 
 print "example score for on target ", get_on_target_score("ATGGGGAACAGAATAGGAGGGAGGAGGAAG")

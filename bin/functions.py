@@ -300,12 +300,12 @@ def blast_check(primer_list, reference, blastoutfile):
 	forblast = open("for_blast.fa", 'w') # for blast against the gnome
 	primer_for_blast = {} # dict of all primers with name and seq
 	for pp in primer_list:
-		if pp.REs: # only blast those with retriction enzymes
-			forblast.write(">" + pp.name + "\n" + pp.seq + pp.pam + "\n")
-			primer_for_blast[pp.name] = pp
+		#if pp.REs: # only blast those with retriction enzymes
+		forblast.write(">" + pp.name + "\n" + pp.seq + pp.pam + "\n")
+		primer_for_blast[pp.name] = pp
 	forblast.close()
 	### for blast
-	num_threads = 2
+	num_threads = 4
 	#cmd2 = 'blastn -task blastn -db ' + reference + ' -query for_blast.fa -outfmt "6 std qseq sseq qlen slen" -num_threads 3 -word_size 7 -out blast_out.txt'
 	#cmd2 = "blastn -task blastn-short -db " + reference + " -query for_blast.fa -evalue 30000 -word_size 7 -gapopen 2 -gapextend 1 -reward 1 -penalty -1 -perc_identity 70 -max_target_seqs 13 -max_hsps 20 -num_threads " + str(num_threads) + " -dust no  -outfmt '6 std qseq sseq qlen slen' -out blast_out.txt"
 	cmd2 = "blastn -task blastn-short -db " + reference + " -query for_blast.fa -ungapped -perc_identity 70 -word_size 8 -max_target_seqs 10 -max_hsps 2 -num_threads " + str(num_threads) + " -outfmt '6 std qseq sseq qlen slen' -out " + blastoutfile

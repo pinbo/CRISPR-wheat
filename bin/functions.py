@@ -21,7 +21,7 @@
 #  MA 02110-1301, USA.
 #  
 #  
-from subprocess import call
+from subprocess import call, check_output
 import getopt, sys, os, re, copy, pickle
 from Rule_Set_2_scoring_v1 import model_comparison
 from CFD_Score import cfd_score_calculator as cfd
@@ -45,6 +45,7 @@ class gRNA(object):
 		self.end = 0 # 0 based
 		self.length = 0
 		self.gc = 0.0
+		self.gc10 = 0.0
 		self.seq = "" # sequence without PAM
 		self.pam = "" # PAM
 		self.direction = ""
@@ -182,6 +183,7 @@ def find_pam(seq, pam, grna_length, direction): # seq is the template
 			continue
 		grna.seq = seq[grna.start:i].upper()
 		grna.gc = Calc_GC(grna.seq)
+		grna.gc10 = Calc_GC(grna.seq[-10:])
 		grna.pam = seq[i:(i+len(pam))].upper()
 		grna.seq4score = seq[seq4score_start:(seq4score_end + 1)].upper()
 		grna_list.append(grna)
@@ -262,6 +264,8 @@ def get_on_target_score(seq): #30mer nucleotide sequence, which should be of the
 # off target score
 def get_off_target_score(wt, off):
 	# 20mer sgRNA + PAM sequence for both wt and off sequences
+	wt = wt.upper()
+	off = off.upper()
 	m_wt = re.search('[^ATCG]',wt)
 	m_off = re.search('[^ATCG]',off)
 	if (m_wt is None) and (m_off is None):
@@ -271,6 +275,8 @@ def get_off_target_score(wt, off):
 		return cfd_score
 
 #print get_off_target_score("CCAGGATGGGGCATTTCTAGAGG", "CCAGGATGGGGCATTTCTAAAGG")
+#print get_off_target_score("CCAGGATGGGGCATTTCTAGAGG", "CCAGGATGGGGCATTTCTAAAGT")
+#print get_off_target_score("CCAGGATGGCGCATTTCTAGAGG", "CCAGGATGGGGCATTTCTAAAGG")
 
 # Get software path
 #from sys import platform
@@ -288,7 +294,7 @@ def get_software_path(base_path):
 	return muscle_path
 
 # function to blast and parse the output of each primer in the wheat genome
-def blast_check(primer_list, reference):
+def blast_check(primer_list, reference, blastoutfile):
 	# primer_list is a list of primer objects
 	# reference is the blastdb
 	forblast = open("for_blast.fa", 'w') # for blast against the gnome
@@ -302,20 +308,56 @@ def blast_check(primer_list, reference):
 	num_threads = 2
 	#cmd2 = 'blastn -task blastn -db ' + reference + ' -query for_blast.fa -outfmt "6 std qseq sseq qlen slen" -num_threads 3 -word_size 7 -out blast_out.txt'
 	#cmd2 = "blastn -task blastn-short -db " + reference + " -query for_blast.fa -evalue 30000 -word_size 7 -gapopen 2 -gapextend 1 -reward 1 -penalty -1 -perc_identity 70 -max_target_seqs 13 -max_hsps 20 -num_threads " + str(num_threads) + " -dust no  -outfmt '6 std qseq sseq qlen slen' -out blast_out.txt"
-	cmd2 = "blastn -task blastn-short -db " + reference + " -query for_blast.fa -ungapped -perc_identity 70 -word_size 8 -max_target_seqs 10 -max_hsps 2 -num_threads " + str(num_threads) + " -outfmt '7 std qseq sseq qlen slen' -out blast_out.txt"
+	cmd2 = "blastn -task blastn-short -db " + reference + " -query for_blast.fa -ungapped -perc_identity 70 -word_size 8 -max_target_seqs 10 -max_hsps 2 -num_threads " + str(num_threads) + " -outfmt '6 std qseq sseq qlen slen' -out " + blastoutfile
 	print "Step 2: Blast command:\n", cmd2
 	call(cmd2, shell=True)
 	# blast fields
 	# 1: query id, subject id, % identity, alignment length, mismatches, gap opens, 
 	# 7: q. start, q. end, s. start, s. end, evalue, bit score
 	# 13: q. sequence, s. sequence, q. length s. length
-	for line in open("blast_out.txt"):
+	sortcmd = "sort -k1,1 -k12,12nr " + blastoutfile + " | awk 'a[$1]++ < 4' > sorted_blast_out_top4.txt"
+	call(sortcmd, shell=True)
+	for line in open("sorted_blast_out_top4.txt"):
 		if line.startswith("#"):
 			continue
 		fields = line.split("\t")
-		query, subject, pct_identity, align_length, mismatches = fields[:5]
-		qstart, qstop, sstart, sstop = fields[6:10]
-		primer = primer_for_blast[query]
-		primer.blast += subject + ": " + qstart + "-" + qstop + ", " + mismatches + "; "
+		#query, subject, pct_identity, align_length, mismatches = fields[:5]
+		#qstart, qstop, sstart, sstop = fields[6:10]
+		query, subject = fields[:2]
+		if query in primer_for_blast:
+			primer = primer_for_blast[query]
+		else:
+			continue
+		align_length, mismatches, ngap, qstart, qstop, sstart, sstop = [int(x) for x in fields[3:10]]
+		qlen = int(fields[14]) # query length
+		if sstart > sstop: # plus:minus
+			sleft = sstart + (qstart - 1)
+			sright = sstop - (qlen - qstop)
+		else: # plus:plus
+			sleft = sstart - (qstart - 1)
+			sright = sstop + (qlen - qstop)
+		if align_length == qlen and mismatches == 0:
+			off_target_score = 1
+		else:
+			extended_subject_algn = extractseq(reference, subject, sleft, sright)
+			print query
+			print primer.seq + primer.pam
+			print extended_subject_algn
+			off_target_score = get_off_target_score(primer.seq + primer.pam, extended_subject_algn)
+		#primer.blast += subject + ": " + qstart + "-" + qstop + ", " + mismatches + "; "
+		primer.blast += subject + ": " + "{0:.1f}".format(off_target_score) + "; "
 
 	return(primer_list) # I think the primers should be changed
+
+## function to extract sequences from the refernce
+def extractseq(reference, chromosome, start, end):
+	strand = "plus"
+	if start > end:
+		strand = "plus"
+		start, end = end, start
+	cmd = "blastdbcmd -db " + reference + " -entry " + chromosome + " -range " + str(start) + "-" + str(end) + " -strand " + strand
+	output = check_output(cmd, shell=True)
+	#>chr7D 
+	#AGGGTTTAGGG
+	seq = output.splitlines()[1] # only the 2nd line
+	return seq

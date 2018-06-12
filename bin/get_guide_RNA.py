@@ -222,22 +222,25 @@ for i in specific_reverse_grnas:
 
 ## blast against the genome
 if blast:
-	specific_forward_grnas = blast_check(specific_forward_grnas, reference)
-	specific_reverse_grnas = blast_check(specific_reverse_grnas, reference)
+	specific_forward_grnas = blast_check(specific_forward_grnas, reference, "blast_out_forward.txt")
+	specific_reverse_grnas = blast_check(specific_reverse_grnas, reference, "blast_out_reverse.txt")
 
+## merge two blast results
+merge_blast = "cat blast_out_forward.txt blast_out_reverse.txt > blast_out.txt"
+call(merge_blast, shell=True)
 
 ## Print output files
 
 # write to file
 outfile = open(out, 'w')
-outfile.write("ID\tStart\tEnd\tStrand\tLength\tSequence (5' -> 3')\tGC_content\tReverse Complement (5' -> 3')\tPAM\tTemplate used\tOn_target_score\tRestriction Enzyme\tBLAST hits\n")
+outfile.write("ID\tStart\tEnd\tStrand\tLength\tSequence (5' -> 3')\tGC_content_All\tGC_content_first_10nt\tReverse Complement (5' -> 3')\tPAM\tTemplate used\tOn_target_score\tRestriction Enzyme\tOff target score of BLAST top 4 hits\n")
 template_length = len(wild_seq)
 for i in specific_forward_grnas:
-	outfile.write("\t".join([i.name, str(i.start + 1), str(i.end + 1), i.direction, str(i.length), i.seq, str(i.gc), ReverseComplement(i.seq), i.pam, mainID, "{0:.2f}".format(i.on_target_score), ";".join(i.REs), i.blast]) + "\n")
+	outfile.write("\t".join([i.name, str(i.start + 1), str(i.end + 1), i.direction, str(i.length), i.seq, str(i.gc), str(i.gc), ReverseComplement(i.seq), i.pam, mainID, "{0:.2f}".format(i.on_target_score), ";".join(i.REs), i.blast]) + "\n")
 
 for i in specific_reverse_grnas:
-	outfile.write("\t".join([i.name, str(template_length - i.start), str(template_length - i.end), i.direction, str(i.length), i.seq, str(i.gc), ReverseComplement(i.seq), i.pam, mainID, "{0:.2f}".format(i.on_target_score), ";".join(i.REs), i.blast]) + "\n")
+	outfile.write("\t".join([i.name, str(template_length - i.start), str(template_length - i.end), i.direction, str(i.length), i.seq, str(i.gc), str(i.gc), ReverseComplement(i.seq), i.pam, mainID, "{0:.2f}".format(i.on_target_score), ";".join(i.REs), i.blast]) + "\n")
 
 
 print "example score for on target ", get_on_target_score("ATGGGGAACAGAATAGGAGGGAGGAGGAAG")
-print "example score for off target ", get_off_target_score("CCAGGATGGGGCATTTCTAGAGG", "CCAGGATGGGGCATTTCTAAAGG")
+print "example score for off target ", get_off_target_score("CCAGGATGGGGCATTTCGAGAGG", "CCAGGATGGGGCATTTCTAAAGG")

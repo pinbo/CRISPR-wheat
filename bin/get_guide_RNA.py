@@ -222,12 +222,12 @@ for i in specific_reverse_grnas:
 
 ## blast against the genome
 # create a blank blast output file for galaxy output
-call("touch blast_out.txt", shell=True)
+call('echo -e "query id\tsubject id\t% identity\talignment length\tmismatches\tgap opens\tq. start\tq. end\ts. start\ts. end\tevalue\tbit score\tq. sequence\ts. sequence\tq. length\ts. length" > blast_out.txt', shell=True)
 if blast:
 	specific_forward_grnas = blast_check(specific_forward_grnas, reference, "blast_out_forward.txt")
 	specific_reverse_grnas = blast_check(specific_reverse_grnas, reference, "blast_out_reverse.txt")
 	## merge two blast results
-	merge_blast = "cat blast_out_forward.txt blast_out_reverse.txt > blast_out.txt"
+	merge_blast = "cat blast_out_forward.txt blast_out_reverse.txt >> blast_out.txt"
 	call(merge_blast, shell=True)
 
 ## Print output files

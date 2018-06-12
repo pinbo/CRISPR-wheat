@@ -316,6 +316,6 @@ def blast_check(primer_list, reference):
 		query, subject, pct_identity, align_length, mismatches = fields[:5]
 		qstart, qstop, sstart, sstop = fields[6:10]
 		primer = primer_for_blast[query]
-		primer.blast += subject + ": " + qstart + "-" + qstop + ", " mismatches + "; "
+		primer.blast += subject + ": " + qstart + "-" + qstop + ", " + mismatches + "; "
 
 	return(primer_list) # I think the primers should be changed

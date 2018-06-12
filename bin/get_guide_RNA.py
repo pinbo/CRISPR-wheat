@@ -221,13 +221,14 @@ for i in specific_reverse_grnas:
 				i.REs.append(j.name + "," + j.seq)
 
 ## blast against the genome
+# create a blank blast output file for galaxy output
+call("touch blast_out.txt", shell=True)
 if blast:
 	specific_forward_grnas = blast_check(specific_forward_grnas, reference, "blast_out_forward.txt")
 	specific_reverse_grnas = blast_check(specific_reverse_grnas, reference, "blast_out_reverse.txt")
-
-## merge two blast results
-merge_blast = "cat blast_out_forward.txt blast_out_reverse.txt > blast_out.txt"
-call(merge_blast, shell=True)
+	## merge two blast results
+	merge_blast = "cat blast_out_forward.txt blast_out_reverse.txt > blast_out.txt"
+	call(merge_blast, shell=True)
 
 ## Print output files
 

@@ -1,6 +1,6 @@
 <tool id="Get_gRNA" name="gRNAs from Wheat Homeologs">
   <description>for homeolog sequences in a fasta file</description>
-  <command>/usr/local/bin/python '$__tool_directory__/bin/get_guide_RNA.py' -i $input -t $targets -p $pam -o selected_gRNAs.txt</command>
+  <command>/usr/local/bin/python '$__tool_directory__/bin/get_guide_RNA.py' -i $input -t $targets -p $pam -o selected_gRNAs.txt -b $blast</command>
   
   <inputs>
     <param format="fasta" name="input" type="data" label="Homeolog sequences (a fasta file with all the homeolog sequences)"/>
@@ -8,10 +8,15 @@
     <param name="pam" type="select" label="PAM sequence" help="Default NGG">
         <option value="NGG">NGG</option>
     </param>
+    <param name="blast" type="select" label="Blast the output gRNAs in the wheat genome?" help="If yes, will blast against Chinese_Spring_v1.0_pseudomolecules for those with restriction enzyme site to save time.">
+        <option value="0">No</option>
+	    <option value="1">Yes</option>
+    </param>
   </inputs>
 
   <outputs>
-	  <data format="tabular" name="gRNA" from_work_dir="selected_gRNAs.txt" label="${tool.id} gRNAs output"/>
+	  <data format="tabular" name="gRNA" from_work_dir="selected_gRNAs.txt" label="${tool.id} output"/>
+	  <data format="tabular" name="blast_out" from_work_dir="blast_out.txt" label="${tool.id} BLAST output"/>
   </outputs>
 
   <help>

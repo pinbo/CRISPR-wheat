@@ -40,6 +40,7 @@ get_guide_RNA.py
 	-p <PAM sequence. default is NGG>
 	-h <print the help>
 	-r <reference location>
+	-c <Cas9 etc cut position, for testing restriction enzymes>
 """
 
 # parameters
@@ -55,15 +56,16 @@ blast = 0 # whether to blast
 chrom = "" # chromosome name if target only one specific chromosome; seprated with comma, such as 1A,1B
 chr_group = 0 # chromsome group, such as 1, meaning 1A, 1B, 1D
 
-reference = "/Library/WebServer/Documents/blast/db/nucleotide/161010_Chinese_Spring_v1.0_pseudomolecules.fasta"
+#reference = "/Library/WebServer/Documents/blast/db/nucleotide/161010_Chinese_Spring_v1.0_pseudomolecules.fasta"
+reference = "/Volumes/DATA3/users/junli/wheat_Refseqv1/" # the batmis indexed chromosomes locations
 
-
+cut_pos = 3 # NGG is 3, TTN is about 18
 
 
 # steps
 
 try:
-	opts, args = getopt.getopt(sys.argv[1:], "i:a:t:o:l:p:b:r:h", ["help"])
+	opts, args = getopt.getopt(sys.argv[1:], "i:a:t:o:l:p:b:r:c:h", ["help"])
 except getopt.GetoptError as err:
 	# print help information and exit:
 	print str(err)  # will print something like "option -a not recognized"
@@ -93,6 +95,8 @@ for o, a in opts:
 	elif o in ("-r"):
 		blast = 1
 		reference = a
+	elif o in ("-c"):
+		cut_pos = int(a)
 	else:
 		assert False, "unhandled option"
 print "Options done"
@@ -199,49 +203,61 @@ print "Specific reverse gRNA number ", len(specific_reverse_grnas)
 ## find whether there are restrction enzymes (REs) on the selected sequences with PAM
 ## only REs with recognization site overlap with the 4th position from the end of sg-RNA
 for i in specific_forward_grnas:
-	cut_pos = i.end - 3
-	i.on_target_score = get_on_target_score(i.seq4score) # just to add score here to save time
+	cut_pos2 = i.end - cut_pos
+	#i.on_target_score = get_on_target_score(i.seq4score) # just to add score here to save time
 	#print "cut pos is ", cut_pos, i.seq
 	for j in caps_list_forward:
 		allpos = j.allpos
 		for k in allpos:
 			rr = range(k, k + j.length)
-			if cut_pos in rr:
+			if cut_pos2 in rr:
 				#print j.name, j.seq, j.allpos
 				i.REs.append(j.name + "," + j.seq)
 
 for i in specific_reverse_grnas:
-	cut_pos = i.end - 3
-	i.on_target_score = get_on_target_score(i.seq4score)
+	cut_pos2 = i.end - cut_pos
+	#i.on_target_score = get_on_target_score(i.seq4score)
 	for j in caps_list_reverse:
 		allpos = j.allpos
 		for k in allpos:
 			rr = range(k, k + j.length)
-			if cut_pos in rr:
+			if cut_pos2 in rr:
 				i.REs.append(j.name + "," + j.seq)
 
 ## blast against the genome
 # create a blank blast output file for galaxy output
-call('echo -e "query id\tsubject id\t% identity\talignment length\tmismatches\tgap opens\tq. start\tq. end\ts. start\ts. end\tevalue\tbit score\tq. sequence\ts. sequence\tq. length\ts. length" > blast_out.txt', shell=True)
+#call('echo -e "query id\tsubject id\t% identity\talignment length\tmismatches\tgap opens\tq. start\tq. end\ts. start\ts. end\tevalue\tbit score\tq. sequence\ts. sequence\tq. length\ts. length" > blast_out.txt', shell=True)
+#if blast:
+	#specific_forward_grnas = blast_check(specific_forward_grnas, reference, "blast_out_forward.txt")
+	#specific_reverse_grnas = blast_check(specific_reverse_grnas, reference, "blast_out_reverse.txt")
+	### merge two blast results
+	#merge_blast = "cat blast_out_forward.txt blast_out_reverse.txt >> blast_out.txt"
+	#call(merge_blast, shell=True)
+
+call('echo -e "gRNA	Chromosome\tStrand\tPosition\tMismatches\tPotential_target" > blast_out.txt', shell=True)
 if blast:
-	specific_forward_grnas = blast_check(specific_forward_grnas, reference, "blast_out_forward.txt")
-	specific_reverse_grnas = blast_check(specific_reverse_grnas, reference, "blast_out_reverse.txt")
-	## merge two blast results
-	merge_blast = "cat blast_out_forward.txt blast_out_reverse.txt >> blast_out.txt"
-	call(merge_blast, shell=True)
+	grna_dict = prepare_blast_file(specific_forward_grnas + specific_reverse_grnas) # output is for_blast.fa
+	off_target_check("for_blast.fa", reference, getcaps_path + "/mybatmap") # output is out-test-whole.txt
+	parse_mismatches("out-test-whole.txt", pam, pam_pos, grna_dict)
+
 
 ## Print output files
 
 # write to file
 outfile = open(out, 'w')
-outfile.write("ID\tStart\tEnd\tStrand\tLength\tSequence (5' -> 3')\tGC_content_All\tGC_content_first_10nt\tReverse Complement (5' -> 3')\tPAM\tTemplate used\tOn_target_score\tRestriction Enzyme\tOff target score of BLAST top 4 hits\n")
+#outfile.write("ID\tStart\tEnd\tStrand\tLength\tSequence (5' -> 3')\tGC_content_All\tGC_content_first_10nt\tReverse Complement (5' -> 3')\tPAM\tTemplate used\tOn_target_score\tRestriction Enzyme\tOff target score of BLAST top 4 hits\n")
+#template_length = len(wild_seq)
+#for i in specific_forward_grnas:
+	#outfile.write("\t".join([i.name, str(i.start + 1), str(i.end + 1), i.direction, str(i.length), i.seq, str(i.gc), str(i.gc10), ReverseComplement(i.seq), i.pam, mainID, "{0:.2f}".format(i.on_target_score), ";".join(i.REs), i.blast]) + "\n")
+#for i in specific_reverse_grnas:
+	#outfile.write("\t".join([i.name, str(template_length - i.start), str(template_length - i.end), i.direction, str(i.length), i.seq, str(i.gc), str(i.gc10), ReverseComplement(i.seq), i.pam, mainID, "{0:.2f}".format(i.on_target_score), ";".join(i.REs), i.blast]) + "\n")
+
+outfile.write("ID\tStart\tEnd\tStrand\tLength\tSequence (5' -> 3')\tGC_content_All\tGC_content_first_10nt\tReverse Complement (5' -> 3')\tPAM\tTemplate used\tRestriction Enzyme\t" + "\t".join(["gRNA", "Chromosome", "Strand", "Position", "Mismatches", "Potential_target"]) + "\n")
 template_length = len(wild_seq)
-for i in specific_forward_grnas:
-	outfile.write("\t".join([i.name, str(i.start + 1), str(i.end + 1), i.direction, str(i.length), i.seq, str(i.gc), str(i.gc10), ReverseComplement(i.seq), i.pam, mainID, "{0:.2f}".format(i.on_target_score), ";".join(i.REs), i.blast]) + "\n")
-
-for i in specific_reverse_grnas:
-	outfile.write("\t".join([i.name, str(template_length - i.start), str(template_length - i.end), i.direction, str(i.length), i.seq, str(i.gc), str(i.gc10), ReverseComplement(i.seq), i.pam, mainID, "{0:.2f}".format(i.on_target_score), ";".join(i.REs), i.blast]) + "\n")
+for i in specific_forward_grnas + specific_reverse_grnas:
+	outfile.write("\t".join([i.name, str(i.start + 1), str(i.end + 1), i.direction, str(i.length), i.seq, str(i.gc), str(i.gc10), ReverseComplement(i.seq), i.pam, mainID, ";".join(i.REs), i.blast]) + "\n")
 
 
-print "example score for on target ", get_on_target_score("ATGGGGAACAGAATAGGAGGGAGGAGGAAG")
-print "example score for off target ", get_off_target_score("CCAGGATGGGGCATTTCGAGAGG", "CCAGGATGGGGCATTTCTAAAGG")
+
+#print "example score for on target ", get_on_target_score("ATGGGGAACAGAATAGGAGGGAGGAGGAAG")
+#print "example score for off target ", get_off_target_score("CCAGGATGGGGCATTTCGAGAGG", "CCAGGATGGGGCATTTCTAAAGG")

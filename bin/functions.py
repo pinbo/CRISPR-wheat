@@ -28,12 +28,12 @@ from CFD_Score import cfd_score_calculator as cfd
 
 
 ###############
-def main(args):
-	return 0
+#def main(args):
+	#return 0
 
-if __name__ == '__main__':
-	import sys
-	sys.exit(main(sys.argv))
+#if __name__ == '__main__':
+	#import sys
+	#sys.exit(main(sys.argv))
 
 ##################### CLASSES   ######################
 # guide RNA object
@@ -48,6 +48,8 @@ class gRNA(object):
 		self.gc10 = 0.0
 		self.seq = "" # sequence without PAM
 		self.pam = "" # PAM
+		self.pam_pos = "" # left or right
+		self.forblast = "" # seq + pam or pam + seq for blast
 		self.direction = ""
 		self.template = ""
 		self.REs = [] # list of restriction enzymes
@@ -166,7 +168,10 @@ def Calc_GC(seq):
 	return t / len(seq) * 100
 
 # find PAM positions
-def find_pam(seq, pam, grna_length, direction): # seq is the template
+def find_pam(seq, pam, pam_pos, grna_length, direction):
+	# seq is the template, direction is the seq orientation
+	# pam is the pam seqeuence
+	# pam_pos is the postion of the pam, left or right
 	allpos = find_substring(seq2pattern(pam), seq)
 	grna_list = []
 	for i in allpos:
@@ -174,18 +179,27 @@ def find_pam(seq, pam, grna_length, direction): # seq is the template
 		grna.name = "gRNA_" + str(i) + "_" + direction
 		grna.direction = direction
 		grna.length = grna_length
-		grna.start = i - grna_length
-		grna.end = i - 1
-		seq4score_start = i - grna_length - 4
-		seq4score_end = i + 5
-		#if grna.start < 0:
-		if seq4score_start < 0 or seq4score_end >= len(seq):
+		if pam_pos == "left":
+			grna.start = i - grna_length
+			grna.end = i - 1
+			#seq4score_start = i - grna_length - 4
+			#seq4score_end = i + 5
+		else:
+			grna.start = i + len(pam)
+			grna.end = i + len(pam) + gran_length - 1
+		if grna.start < 0 or grna.end > len(seq):
+		#if seq4score_start < 0 or seq4score_end >= len(seq):
 			continue
 		grna.seq = seq[grna.start:i].upper()
 		grna.gc = Calc_GC(grna.seq)
 		grna.gc10 = Calc_GC(grna.seq[-10:])
 		grna.pam = seq[i:(i+len(pam))].upper()
-		grna.seq4score = seq[seq4score_start:(seq4score_end + 1)].upper()
+		grna.pam_pos = pam_pos
+		if pam_pos == "left":
+			grna.forblast = grna.pam + grna.seq
+		else:
+			grna.forblast = grna.seq + grna.pam
+		#grna.seq4score = seq[seq4score_start:(seq4score_end + 1)].upper()
 		grna_list.append(grna)
 	return grna_list
 
@@ -294,14 +308,17 @@ def get_software_path(base_path):
 	return muscle_path
 
 # function to blast and parse the output of each primer in the wheat genome
-def blast_check(primer_list, reference, blastoutfile):
+def blast_check(primer_list, reference, blastoutfile, pam):
 	# primer_list is a list of primer objects
 	# reference is the blastdb
 	forblast = open("for_blast.fa", 'w') # for blast against the gnome
 	primer_for_blast = {} # dict of all primers with name and seq
 	for pp in primer_list:
 		#if pp.REs: # only blast those with retriction enzymes
-		forblast.write(">" + pp.name + "\n" + pp.seq + pp.pam + "\n")
+		if pp.pam_pos == "left":
+			forblast.write(">" + pp.name + "\n" + pp.seq + pp.pam + "\n")
+		else:
+			forblast.write(">" + pp.name + "\n"  + pp.pam + pp.seq + "\n")
 		primer_for_blast[pp.name] = pp
 	forblast.close()
 	### for blast
@@ -340,9 +357,9 @@ def blast_check(primer_list, reference, blastoutfile):
 			off_target_score = 1
 		else:
 			extended_subject_algn = extractseq(reference, subject, sleft, sright)
-			print query
-			print primer.seq + primer.pam
-			print extended_subject_algn
+			#print query
+			#print primer.seq + primer.pam
+			#print extended_subject_algn
 			off_target_score = get_off_target_score(primer.seq + primer.pam, extended_subject_algn)
 		#primer.blast += subject + ": " + qstart + "-" + qstop + ", " + mismatches + "; "
 		primer.blast += subject + ": " + "{0:.1f}".format(off_target_score) + "; "
@@ -361,3 +378,88 @@ def extractseq(reference, chromosome, start, end):
 	#AGGGTTTAGGG
 	seq = output.splitlines()[1] # only the 2nd line
 	return seq
+
+# prepare blast file
+# function to blast and parse the output of each primer in the wheat genome
+def prepare_blast_file(primer_list):
+	# primer_list is a list of primer objects
+	# reference is the blastdb
+	forblast = open("for_blast.fa", 'w') # for blast against the gnome
+	primer_for_blast = {} 
+	for pp in primer_list:
+		forblast.write(">" + pp.name + "\n" + forblast + "\n")
+		primer_for_blast[pp.name] = pp
+	forblast.close()
+	return primer_for_blast
+
+## find mismatches
+def off_target_check(query, reference, mybatmap):
+	# default is 4 mismatches
+	cmd = mybatmap + " -q " + query + " -d " + reference + " -o out-test-whole.txt -n4 -mall"
+	call(cmd, shell=True)
+	return 0
+
+## parse batmis output for mismatch search
+def parse_mismatches(infile, pam, pam_pos, grna_dict):
+	# 1. reformat the output
+	# 2. filter out these without intact pam
+	grna_name = ""
+	outfile="out.temp.txt"
+	out = open(outfile, 'w')
+	with open(infile) as file_one:
+		for line in file_one:
+			li=line.strip()
+			if li.startswith("@"):
+				continue
+			if li.startswith(">"):
+				li = li.lstrip(">")
+				grna_name, grna_seq = li.split("\t")[0:2]
+				grna_seq = grna_seq.lower()
+				continue
+			cols = li.split("\t")
+			chrom, strand, pos, nmis = cols[1:5]
+			#out.write("\t".join([grna_name] + cols[1:5]))
+			if int(nmis) == 0:
+				out.write("\t".join([grna_name] + cols[1:5]))
+				out.write("\t" + grna_seq + "\n")
+			else:
+				ll = list(grna_seq) # conver to list for replace nth nt
+				isindel = 0
+				for i in cols[7:]:
+					pos, nt = i.split(">")
+					if nt == nt.upper() or nt == "D": # insertion or deletion
+						break
+						isindel = 1
+					ll[int(pos)] = nt.upper()
+				if isindel:
+					continue
+				mism = "".join(ll) # convert to string
+				# check whether intact pam
+				if pam_pos == "left":
+					current_pam = mism[0:len(pam)]
+				else:
+					current_pam = mism[-len(pam):]
+				current_pam
+				allpos = find_substring(seq2pattern(pam), current_pam)
+				if allpos: # if intact pam
+					out.write("\t".join([grna_name] + cols[1:5]))
+					out.write("\t" + mism + "\n")
+	out.close()
+	# extract top 10 mismatches of each gRNAs
+	outfile2 = "sorted_" + outfile
+	#out2 = open(outfile2, 'w')
+	#out2.write("\t".join(["gRNA", "Chromosome", "Strand", "Position", "Mismatches", "Potential_target"]) + "\n")
+	#out2.close()
+	cmd1 = "sort -k1,1 -k5,5n " + outfile + " | awk 'a[$1]++ < 10' >> " + outfile2
+	call(cmd1, shell=True)
+	# get the list of off targets for gRNA objects
+	with open(outfile2) as file_two:
+		for line in file_two:
+			li = line.strip()
+			grna_name = li.split("\t")[0]
+			pp = grna_dict[grna_name]
+			pp.blast = "\t" * 12 + li
+	return 0
+
+## test parse_mismatches
+#temp = parse_mismatches("../mismatches/out-test-whole.txt", "NGG", "right")

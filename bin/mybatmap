@@ -1,0 +1,39 @@
+#!/bin/bash
+SCRPATH=$(cd ${0%/*} && echo $PWD/${0##*/})
+CPATH=`dirname "$SCRPATH"`
+
+while getopts 'q:o:n:m:d:' OPTION
+do
+  case $OPTION in
+  q)	query="$OPTARG"	
+		;;
+  o)	out="$OPTARG"	
+		;;
+  n)	mismatches="$OPTARG"	
+		;;
+  m)	numhits="$OPTARG"	
+		;;
+  d)	folder="$OPTARG"	
+		;;
+  ?)	printf "Usage: %s: -q Reads_File -o Output_File -n Number_Of_Mismatches -m Number_Of_Hits \n" $(basename $0) >&2
+		exit 2
+		;;
+  esac
+done
+shift $(($OPTIND - 1))
+echo "query is $query, out is $out, mismatches is $mismatches, numhits is $numhits"
+END=22
+for i in $(seq 1 $END); do
+  echo $i;
+  genome=$(head -n $i $CPATH/chrlist.txt | tail -n1)
+  RAND=out.$RANDOM.temp
+  cmd="batmap -g $folder/$genome -q $query -o $RAND -n $mismatches -m $numhits"
+  echo $cmd
+  eval $cmd
+  wait
+done
+
+echo "Single chromosome map done!"
+cat out.*.temp > $out
+rm out.*.temp
+echo "Everything is done!"    

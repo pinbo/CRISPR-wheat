@@ -28,12 +28,12 @@ from CFD_Score import cfd_score_calculator as cfd
 
 
 ###############
-#def main(args):
-	#return 0
+def main(args):
+	return 0
 
-#if __name__ == '__main__':
-	#import sys
-	#sys.exit(main(sys.argv))
+if __name__ == '__main__':
+	import sys
+	sys.exit(main(sys.argv))
 
 ##################### CLASSES   ######################
 # guide RNA object
@@ -179,18 +179,18 @@ def find_pam(seq, pam, pam_pos, grna_length, direction):
 		grna.name = "gRNA_" + str(i) + "_" + direction
 		grna.direction = direction
 		grna.length = grna_length
-		if pam_pos == "left":
+		if pam_pos == "right":
 			grna.start = i - grna_length
 			grna.end = i - 1
 			#seq4score_start = i - grna_length - 4
 			#seq4score_end = i + 5
 		else:
 			grna.start = i + len(pam)
-			grna.end = i + len(pam) + gran_length - 1
+			grna.end = i + len(pam) + grna_length - 1
 		if grna.start < 0 or grna.end > len(seq):
 		#if seq4score_start < 0 or seq4score_end >= len(seq):
 			continue
-		grna.seq = seq[grna.start:i].upper()
+		grna.seq = seq[grna.start:(grna.end + 1)].upper()
 		grna.gc = Calc_GC(grna.seq)
 		grna.gc10 = Calc_GC(grna.seq[-10:])
 		grna.pam = seq[i:(i+len(pam))].upper()
@@ -387,7 +387,7 @@ def prepare_blast_file(primer_list):
 	forblast = open("for_blast.fa", 'w') # for blast against the gnome
 	primer_for_blast = {} 
 	for pp in primer_list:
-		forblast.write(">" + pp.name + "\n" + forblast + "\n")
+		forblast.write(">" + pp.name + "\n" + pp.forblast + "\n")
 		primer_for_blast[pp.name] = pp
 	forblast.close()
 	return primer_for_blast
@@ -446,7 +446,7 @@ def parse_mismatches(infile, pam, pam_pos, grna_dict):
 					out.write("\t" + mism + "\n")
 	out.close()
 	# extract top 10 mismatches of each gRNAs
-	outfile2 = "sorted_" + outfile
+	outfile2 = "sorted." + outfile
 	#out2 = open(outfile2, 'w')
 	#out2.write("\t".join(["gRNA", "Chromosome", "Strand", "Position", "Mismatches", "Potential_target"]) + "\n")
 	#out2.close()
@@ -455,10 +455,9 @@ def parse_mismatches(infile, pam, pam_pos, grna_dict):
 	# get the list of off targets for gRNA objects
 	with open(outfile2) as file_two:
 		for line in file_two:
-			li = line.strip()
-			grna_name = li.split("\t")[0]
+			grna_name = line.split("\t")[0]
 			pp = grna_dict[grna_name]
-			pp.blast = "\t" * 12 + li
+			pp.blast +=  line + "\t" * 12
 	return 0
 
 ## test parse_mismatches

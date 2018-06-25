@@ -1,12 +1,16 @@
 <tool id="Get_gRNA" name="gRNAs from Wheat Homeologs">
   <description>for homeolog sequences in a fasta file</description>
-  <command>/usr/local/bin/python '$__tool_directory__/bin/get_guide_RNA.py' -i $input -t $targets -p $pam -o selected_gRNAs.txt -b $blast</command>
+  <command>/usr/local/bin/python '$__tool_directory__/bin/get_guide_RNA.py' -i $input -t $targets -p $pam -q $pam_pos $l $grna_length -c $cut_pos -o selected_gRNAs.txt -b $blast</command>
   
   <inputs>
     <param format="fasta" name="input" type="data" label="Homeolog sequences (a fasta file with all the homeolog sequences)"/>
     <param name="targets" size="100" type="text" value="ALL" label="gRNA target sequence name(s) (Separated with commas, for example, GW2A,GW2B ). Default targeting all sequences!"/>
-    <param name="pam" type="select" label="PAM sequence" help="Default NGG">
-        <option value="NGG">NGG</option>
+    <param name="pam" size="100" type="text" value="NGG" label="PAM sequence, such as NGG, TTN etc"/>
+    <param name="grna_length" size="100" type="text" value="20" label="sgRNA length, default 20 for NGG"/>
+    <param name="cut_pos" size="100" type="text" value="17" label="Potential cut position for cas9/cpf1 etc for restriction enzyme selection"/>
+    <param name="pam_pos" type="select" label="PAM location: left or right of the sgRNA" help="Default right for NGG">
+        <option value="right">right</option>
+        <option value="left">left</option>
     </param>
     <param name="blast" type="select" label="Blast the output gRNAs in the wheat genome?" help="If yes, will blast against Chinese_Spring_v1.0_pseudomolecules">
         <option value="0">No</option>

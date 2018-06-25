@@ -22,7 +22,8 @@ do
 done
 shift $(($OPTIND - 1))
 echo "query is $query, out is $out, mismatches is $mismatches, numhits is $numhits"
-END=22
+END=1
+echo $END
 for i in $(seq 1 $END); do
   echo $i;
   genome=$(head -n $i $CPATH/chrlist.txt | tail -n1)

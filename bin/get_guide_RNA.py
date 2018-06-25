@@ -38,6 +38,7 @@ get_guide_RNA.py
 	-l <sgRNA length, default is 20>
 	-a <whether to target all homeologs: 1 for YES and 0 for NO. default is 1>
 	-p <PAM sequence. default is NGG>
+	-q <PAM position: left or right>
 	-h <print the help>
 	-r <reference location>
 	-c <Cas9 etc cut position, for testing restriction enzymes>
@@ -45,6 +46,7 @@ get_guide_RNA.py
 
 # parameters
 pam = "NGG"
+pam_pos = "right"
 grna_length = 20
 target_all = 1 # whether to design sg-RNA for all targets
 seqfile = "sequence.fa" # input is a fasta file with homeologs
@@ -59,13 +61,13 @@ chr_group = 0 # chromsome group, such as 1, meaning 1A, 1B, 1D
 #reference = "/Library/WebServer/Documents/blast/db/nucleotide/161010_Chinese_Spring_v1.0_pseudomolecules.fasta"
 reference = "/Volumes/DATA3/users/junli/wheat_Refseqv1/" # the batmis indexed chromosomes locations
 
-cut_pos = 3 # NGG is 3, TTN is about 18
+cut_pos = 17 # NGG is 17, TTN is about 18
 
 
 # steps
 
 try:
-	opts, args = getopt.getopt(sys.argv[1:], "i:a:t:o:l:p:b:r:c:h", ["help"])
+	opts, args = getopt.getopt(sys.argv[1:], "i:a:t:o:l:p:q:b:r:c:h", ["help"])
 except getopt.GetoptError as err:
 	# print help information and exit:
 	print str(err)  # will print something like "option -a not recognized"
@@ -90,6 +92,8 @@ for o, a in opts:
 		grna_length = int(a)
 	elif o in ("-p"):
 		pam = a
+	elif o in ("-q"):
+		pam_pos = a
 	elif o in ("-b"):
 		blast = int(a)
 	elif o in ("-r"):
@@ -177,8 +181,8 @@ for k in REs: # k is enzyme name + price, such as BccI,66
 #print "RE list is ", caps_list_forward + caps_list_reverse
 
 ## find all potential gRNAs in the sequences and RC sequence
-forward_grnas = find_pam(wild_seq, pam, grna_length, "Forward")
-reverse_grnas = find_pam(wild_seq_RC, pam, grna_length, "Reverse")
+forward_grnas = find_pam(wild_seq, pam, pam_pos, grna_length, "Forward")
+reverse_grnas = find_pam(wild_seq_RC, pam, pam_pos, grna_length, "Reverse")
 
 print "RAW forward gRNA number ", len(forward_grnas)
 print "RAW reverse gRNA number ", len(reverse_grnas)
@@ -188,13 +192,13 @@ specific_forward_grnas = []
 specific_reverse_grnas = []
 
 for i in forward_grnas:
-	seq = i.seq + i.pam
-	if test_spec(seq, targets, non_targets, fasta_raw):
+	#seq = i.seq + i.pam
+	if test_spec(i.forblast, targets, non_targets, fasta_raw):
 		specific_forward_grnas.append(i)
 
 for i in reverse_grnas:
-	seq = i.seq + i.pam
-	if test_spec(seq, targets, non_targets, fasta_raw_RC):
+	#seq = i.seq + i.pam
+	if test_spec(i.forblast, targets, non_targets, fasta_raw_RC):
 		specific_reverse_grnas.append(i)
 
 print "Specific forward gRNA number ", len(specific_forward_grnas)
@@ -203,7 +207,7 @@ print "Specific reverse gRNA number ", len(specific_reverse_grnas)
 ## find whether there are restrction enzymes (REs) on the selected sequences with PAM
 ## only REs with recognization site overlap with the 4th position from the end of sg-RNA
 for i in specific_forward_grnas:
-	cut_pos2 = i.end - cut_pos
+	cut_pos2 = i.start + cut_pos - 1
 	#i.on_target_score = get_on_target_score(i.seq4score) # just to add score here to save time
 	#print "cut pos is ", cut_pos, i.seq
 	for j in caps_list_forward:
@@ -215,7 +219,7 @@ for i in specific_forward_grnas:
 				i.REs.append(j.name + "," + j.seq)
 
 for i in specific_reverse_grnas:
-	cut_pos2 = i.end - cut_pos
+	cut_pos2 = i.start + cut_pos - 1
 	#i.on_target_score = get_on_target_score(i.seq4score)
 	for j in caps_list_reverse:
 		allpos = j.allpos
@@ -234,12 +238,12 @@ for i in specific_reverse_grnas:
 	#merge_blast = "cat blast_out_forward.txt blast_out_reverse.txt >> blast_out.txt"
 	#call(merge_blast, shell=True)
 
-call('echo -e "gRNA	Chromosome\tStrand\tPosition\tMismatches\tPotential_target" > blast_out.txt', shell=True)
+call('echo -e "gRNA\tChromosome\tStrand\tPosition\tMismatches\tPotential_target" > blast_out.txt', shell=True)
 if blast:
 	grna_dict = prepare_blast_file(specific_forward_grnas + specific_reverse_grnas) # output is for_blast.fa
 	off_target_check("for_blast.fa", reference, getcaps_path + "/mybatmap") # output is out-test-whole.txt
 	parse_mismatches("out-test-whole.txt", pam, pam_pos, grna_dict)
-
+call('cat sorted.out.temp.txt >> blast_out.txt', shell=True)
 
 ## Print output files
 
@@ -255,7 +259,7 @@ outfile = open(out, 'w')
 outfile.write("ID\tStart\tEnd\tStrand\tLength\tSequence (5' -> 3')\tGC_content_All\tGC_content_first_10nt\tReverse Complement (5' -> 3')\tPAM\tTemplate used\tRestriction Enzyme\t" + "\t".join(["gRNA", "Chromosome", "Strand", "Position", "Mismatches", "Potential_target"]) + "\n")
 template_length = len(wild_seq)
 for i in specific_forward_grnas + specific_reverse_grnas:
-	outfile.write("\t".join([i.name, str(i.start + 1), str(i.end + 1), i.direction, str(i.length), i.seq, str(i.gc), str(i.gc10), ReverseComplement(i.seq), i.pam, mainID, ";".join(i.REs), i.blast]) + "\n")
+	outfile.write("\t".join([i.name, str(i.start + 1), str(i.end + 1), i.direction, str(i.length), i.seq, str(i.gc), str(i.gc10), ReverseComplement(i.seq), i.pam, mainID, ";".join(i.REs), i.blast.strip()]) + "\n")
 
 
 

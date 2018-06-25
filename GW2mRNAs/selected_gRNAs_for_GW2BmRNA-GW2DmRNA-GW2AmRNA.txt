@@ -1,82 +1,780 @@
-ID	Start	End	Strand	Length	Sequence (5' -> 3')	GC_content_All	GC_content_first_10nt	Reverse Complement (5' -> 3')	PAM	Template used	On_target_score	Restriction Enzyme	BLAST hits
-gRNA_24_Forward	5	24	Forward	20	GGAACAGAATAGGAGGGAGG	55.0	55.0	CCTCCCTCCTATTCTGTTCC	AGG	GW2BmRNA	0.54	MnlI,132,cctc	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr3B: 0.0; 
-gRNA_28_Forward	9	28	Forward	20	CAGAATAGGAGGGAGGAGGA	55.0	55.0	TCCTCCTCCCTCCTATTCTG	AGG	GW2BmRNA	0.46		
-gRNA_32_Forward	13	32	Forward	20	ATAGGAGGGAGGAGGAAGGC	60.0	60.0	GCCTTCCTCCTCCCTCCTAT	CGG	GW2BmRNA	0.43		
-gRNA_37_Forward	18	37	Forward	20	AGGGAGGAGGAAGGCCGGGG	75.0	75.0	CCCCGGCCTTCCTCCTCCCT	TGG	GW2BmRNA	0.40	ScrFI,StyD4I,66,ccngg;MspI,HpaII,13,ccgg;BsaJI,66,ccnngg;NciI,32,ccsgg	chr2A: 1.0; chr3A: 1.0; chr6A: 1.0; chr6B: 1.0; 
-gRNA_40_Forward	21	40	Forward	20	GAGGAGGAAGGCCGGGGTGG	75.0	75.0	CCACCCCGGCCTTCCTCCTC	AGG	GW2BmRNA	0.25	BsaJI,66,ccnngg	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr2A: 1.0; 
-gRNA_45_Forward	26	45	Forward	20	GGAAGGCCGGGGTGGAGGAG	75.0	75.0	CTCCTCCACCCCGGCCTTCC	CGG	GW2BmRNA	0.37	MnlI,132,cctc	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr2D: 0.0; 
-gRNA_54_Forward	35	54	Forward	20	GGGTGGAGGAGCGGTACACG	70.0	70.0	CGTGTACCGCTCCTCCACCC	AGG	GW2BmRNA	0.65	CviQI,RsaI,34,gtac;Hpy166II,68,gtnnac;Nb.BssSI,BssSαI,68,cacgag	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr2D: 0.0; 
-gRNA_61_Forward	42	61	Forward	20	GGAGCGGTACACGAGGCCGC	75.0	75.0	GCGGCCTCGTGTACCGCTCC	AGG	GW2BmRNA	0.43	HaeIII,20,ggcc	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr2D: 0.0; 
-gRNA_118_Forward	99	118	Forward	20	GCTACGCAAGTTGATCCTCG	55.0	55.0	CGAGGATCAACTTGCGTAGC	AGG	GW2BmRNA	0.73	AlwI,Nt.AlwI,132,ggatc;XhoI,PaeR7I,14,ctcgag;MnlI,132,cctc;BsoBI,AvaI,6,cycgrg;SmlI,132,ctyrag	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr1A: 0.0; 
-gRNA_142_Forward	123	142	Forward	20	CAAGCTCGCGCCCTGCTACC	70.0	70.0	GGTAGCAGGGCGCGAGCTTG	CGG	GW2BmRNA	0.41		
-gRNA_145_Forward	126	145	Forward	20	GCTCGCGCCCTGCTACCCGG	80.0	80.0	CCGGGTAGCAGGGCGCGAGC	GGG	GW2BmRNA	0.64	ScrFI,StyD4I,66,ccngg;MspI,HpaII,13,ccgg;BsaJI,66,ccnngg;BsoBI,AvaI,6,cycgrg;SmaI,XmaI,TspMI,31,cccggg;NciI,32,ccsgg	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr4D: 0.0; 
-gRNA_160_Forward	141	160	Forward	20	CCCGGGGGCTGACGACGCCG	85.0	85.0	CGGCGTCGTCAGCCCCCGGG	CGG	GW2BmRNA	0.48	MwoI,136,gcnnnnnnngc;BsaHI,32,grcgyc	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr1A: 0.0; 
-gRNA_163_Forward	144	163	Forward	20	GGGGGCTGACGACGCCGCGG	85.0	85.0	CCGCGGCGTCGTCAGCCCCC	GGG	GW2BmRNA	0.39	BsaJI,66,ccnngg;BstUI,60,cgcg;BtgI,63,ccrygg;MspA1I,136,cmgckg;SacII,31,ccgcgg	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr7B: 0.0; 
-gRNA_172_Forward	153	172	Forward	20	CGACGCCGCGGGGGGTGACC	85.0	85.0	GGTCACCCCCCGCGGCGTCG	TGG	GW2BmRNA	0.42	BstEII,30,ggtnacc;BstZ17I,67,ggtnacc;HphI,63,ggtga	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr5D: 0.0; 
-gRNA_175_Forward	156	175	Forward	20	CGCCGCGGGGGGTGACCTGG	85.0	85.0	CCAGGTCACCCCCCGCGGCG	AGG	GW2BmRNA	0.61	BstNI,PspGI,19,ccwgg;ScrFI,StyD4I,66,ccngg;BstEII,30,ggtnacc;BstZ17I,67,ggtnacc	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr7B: 0.0; 
-gRNA_236_Forward	217	236	Forward	20	CGATCAAAATGTTGCTCGAA	40.0	40.0	TTCGAGCAACATTTTGATCG	AGG	GW2BmRNA	0.54	TaqαI,15,tcga	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr5A: 0.9; 
-gRNA_328_Forward	309	328	Forward	20	CAAAACCCCCAACTATGCTG	50.0	50.0	CAGCATAGTTGGGGGTTTTG	TGG	GW2BmRNA	0.62	XcmI,66,ccannnnnnnnntgg	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr5D: 0.0; 
-gRNA_360_Forward	341	360	Forward	20	GTGTAAAGACAAAGGAGGAA	40.0	40.0	TTCCTCCTTTGTCTTTACAC	AGG	GW2BmRNA	0.61	MnlI,132,cctc	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr1A: 0.3; 
-gRNA_408_Forward	389	408	Forward	20	AAGTCATTGAAGCACAGATG	40.0	40.0	CATCTGTGCTTCAATGACTT	AGG	GW2BmRNA	0.64		
-gRNA_439_Forward	420	439	Forward	20	GCAAGCACTTCAAGACGAAG	50.0	50.0	CTTCGTCTTGAAGTGCTTGC	AGG	GW2BmRNA	0.61	EarI,126,ctcttc	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr2A: 0.0; 
-gRNA_465_Forward	446	465	Forward	20	AGATGAAAAGAAAACAGAGT	30.0	30.0	ACTCTGTTTTCTTTTCATCT	AGG	GW2BmRNA	0.59		
-gRNA_505_Forward	486	505	Forward	20	AATCGCTCCAACAACAGAAG	45.0	45.0	CTTCTGTTGTTGGAGCGATT	TGG	GW2BmRNA	0.60	CspCI,130,caannnnngtgg	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr3B: 0.0; 
-gRNA_607_Forward	588	607	Forward	20	TGAGCCTTCATGTTCTGCTC	50.0	50.0	GAGCAGAACATGAAGGCTCA	AGG	GW2BmRNA	0.52		
-gRNA_618_Forward	599	618	Forward	20	GTTCTGCTCAGGCTAACATG	50.0	50.0	CATGTTAGCCTGAGCAGAAC	CGG	GW2BmRNA	0.73	NlaIII,CviAII,FatI,132,catg	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; 
-gRNA_633_Forward	614	633	Forward	20	ACATGCGGTCTTTCCATTCT	45.0	45.0	AGAATGGAAAGACCGCATGT	AGG	GW2BmRNA	0.26		
-gRNA_670_Forward	651	670	Forward	20	TAACATAGACATGAACATAG	30.0	30.0	CTATGTTCATGTCTATGTTA	AGG	GW2BmRNA	0.60		
-gRNA_679_Forward	660	679	Forward	20	CATGAACATAGAGGACATGA	40.0	40.0	TCATGTCCTCTATGTTCATG	TGG	GW2BmRNA	0.50	NlaIII,CviAII,FatI,132,catg	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr2A: 0.0; 
-gRNA_685_Forward	666	685	Forward	20	CATAGAGGACATGATGGTTA	40.0	40.0	TAACCATCATGTCCTCTATG	TGG	GW2BmRNA	0.37	BccI,66,ccatc	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr2A: 0.2; 
-gRNA_696_Forward	677	696	Forward	20	TGATGGTTATGGAAGCGATT	40.0	40.0	AATCGCTTCCATAACCATCA	TGG	GW2BmRNA	0.33		
-gRNA_709_Forward	690	709	Forward	20	AGCGATTTGGCGTTCAATTC	45.0	45.0	GAATTGAACGCCAAATCGCT	AGG	GW2BmRNA	0.29	MluCI,63,aatt	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr6A: 0.0; 
-gRNA_716_Forward	697	716	Forward	20	TGGCGTTCAATTCAGGAGCA	50.0	50.0	TGCTCCTGAATTGAACGCCA	AGG	GW2BmRNA	0.58	Hpy188III,132,tcnnga	chr2A: 0.0; chr5B: 0.0; chr5D: 0.0; 
-gRNA_725_Forward	706	725	Forward	20	ATTCAGGAGCAAGGAAGTAT	40.0	40.0	ATACTTCCTTGCTCCTGAAT	AGG	GW2BmRNA	0.56		
-gRNA_850_Forward	831	850	Forward	20	TTCTTGTGCTGTTGCTGCTA	45.0	45.0	TAGCAGCAACAGCACAAGAA	TGG	GW2BmRNA	0.35	MwoI,136,gcnnnnnnngc	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr1D: 0.0; 
-gRNA_893_Forward	874	893	Forward	20	ATGGATTTCTCTTACATGAC	35.0	35.0	GTCATGTAAGAGAAATCCAT	TGG	GW2BmRNA	0.47	NlaIII,CviAII,FatI,132,catg	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; 
-gRNA_947_Forward	928	947	Forward	20	CGCCGACCGTGCAACATTGC	65.0	65.0	GCAATGTTGCACGGTCGGCG	TGG	GW2BmRNA	0.41	Nb.BsrDI,BsrDI,68,gcaatg	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr2A: 0.0; 
-gRNA_950_Forward	931	950	Forward	20	CGACCGTGCAACATTGCTGG	60.0	60.0	CCAGCAATGTTGCACGGTCG	TGG	GW2BmRNA	0.64	Nb.BsrDI,BsrDI,68,gcaatg	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr2A: 0.0; 
-gRNA_992_Forward	973	992	Forward	20	AGTTCACCAGATAGCTGGAG	50.0	50.0	CTCCAGCTATCTGGTGAACT	CGG	GW2BmRNA	0.63	BstXI,66,ccannnnnntgg	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr7A: 0.0; 
-gRNA_1024_Forward	1005	1024	Forward	20	AAGTTGCAGCAGAAGGGAAG	50.0	50.0	CTTCCCTTCTGCTGCAACTT	TGG	GW2BmRNA	0.53		
-gRNA_1033_Forward	1014	1033	Forward	20	CAGAAGGGAAGTGGTAAGAG	50.0	50.0	CTCTTACCACTTCCCTTCTG	AGG	GW2BmRNA	0.56		
-gRNA_1037_Forward	1018	1037	Forward	20	AGGGAAGTGGTAAGAGAGGA	50.0	50.0	TCCTCTCTTACCACTTCCCT	AGG	GW2BmRNA	0.46	MnlI,132,cctc	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr4A: 0.0; 
-gRNA_1213_Forward	1194	1213	Forward	20	AGAACAAATGATGTATTCCA	30.0	30.0	TGGAATACATCATTTGTTCT	TGG	GW2BmRNA	0.50		
-gRNA_1238_Forward	1219	1238	Forward	20	GTTTCTTTAGCAGAAGCTCA	40.0	40.0	TGAGCTTCTGCTAAAGAAAC	TGG	GW2BmRNA	0.54	AluI,66,agct	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr2A: 0.0; 
-gRNA_1256_Forward	1237	1256	Forward	20	CATGGTAGAACGCACACGCA	55.0	55.0	TGCGTGTGCGTTCTACCATG	AGG	GW2BmRNA	0.57		
-gRNA_1261_Forward	1242	1261	Forward	20	TAGAACGCACACGCAAGGGT	55.0	55.0	ACCCTTGCGTGTGCGTTCTA	TGG	GW2BmRNA	0.59		
-gRNA_1266_Forward	1247	1266	Forward	20	CGCACACGCAAGGGTTGGCA	65.0	65.0	TGCCAACCCTTGCGTGTGCG	TGG	GW2BmRNA	0.56		
-gRNA_1359_Forward	1340	1359	Forward	20	CTTTTTTGCCACCCCGTGTT	50.0	50.0	AACACGGGGTGGCAAAAAAG	CGG	GW2BmRNA	0.35	DraIII,67,cacnnngtg;BslI,63,ccnnnnnnngg	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr3A: 0.0; 
-gRNA_25_Reverse	1370	1351	Reverse	20	CAAAACGGCCGAACACGGGG	65.0	65.0	CCCCGTGTTCGGCCGTTTTG	TGG	GW2BmRNA	0.58	DraIII,67,cacnnngtg;BslI,63,ccnnnnnnngg	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; 
-gRNA_42_Reverse	1353	1334	Reverse	20	GGGTGGCAAAAAAGAGCAGA	50.0	50.0	TCTGCTCTTTTTTGCCACCC	AGG	GW2BmRNA	0.53		
-gRNA_74_Reverse	1321	1302	Reverse	20	CAACGATAGTGCGGGAGAGA	55.0	55.0	TCTCTCCCGCACTATCGTTG	AGG	GW2BmRNA	0.51		
-gRNA_162_Reverse	1233	1214	Reverse	20	TTCTGCTAAAGAAACAGCCA	40.0	40.0	TGGCTGTTTCTTTAGCAGAA	TGG	GW2BmRNA	0.62		
-gRNA_193_Reverse	1202	1183	Reverse	20	ATTTGTTCTTCGATGCTCTC	40.0	40.0	GAGAGCATCGAAGAACAAAT	AGG	GW2BmRNA	0.38		
-gRNA_197_Reverse	1198	1179	Reverse	20	GTTCTTCGATGCTCTCAGGA	50.0	50.0	TCCTGAGAGCATCGAAGAAC	CGG	GW2BmRNA	0.60	DdeI,66,ctnag;Hpy188III,132,tcnnga	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr4B: 0.0; 
-gRNA_203_Reverse	1192	1173	Reverse	20	CGATGCTCTCAGGACGGAAA	55.0	55.0	TTTCCGTCCTGAGAGCATCG	TGG	GW2BmRNA	0.33		
-gRNA_394_Reverse	1001	982	Reverse	20	GCTATCCCGCTCCAGCTATC	60.0	60.0	GATAGCTGGAGCGGGATAGC	TGG	GW2BmRNA	0.35	BstXI,66,ccannnnnntgg;AluI,66,agct	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr7D: 0.0; 
-gRNA_439_Reverse	956	937	Reverse	20	CTTCCACCAGCAATGTTGCA	50.0	50.0	TGCAACATTGCTGGTGGAAG	CGG	GW2BmRNA	0.68		
-gRNA_443_Reverse	952	933	Reverse	20	CACCAGCAATGTTGCACGGT	55.0	55.0	ACCGTGCAACATTGCTGGTG	CGG	GW2BmRNA	0.54	MwoI,136,gcnnnnnnngc;BsiEI,66,cgrycg	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr2A: 0.0; 
-gRNA_446_Reverse	949	930	Reverse	20	CAGCAATGTTGCACGGTCGG	60.0	60.0	CCGACCGTGCAACATTGCTG	CGG	GW2BmRNA	0.60	MwoI,136,gcnnnnnnngc;BsiEI,66,cgrycg	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr2A: 0.0; 
-gRNA_463_Reverse	932	913	Reverse	20	CGGCGGAACATGTCAAAGAC	55.0	55.0	GTCTTTGACATGTTCCGCCG	TGG	GW2BmRNA	0.46		
-gRNA_553_Reverse	842	823	Reverse	20	ACAGCACAAGAAAATCCACC	45.0	45.0	GGTGGATTTTCTTGTGCTGT	AGG	GW2BmRNA	0.60	BstXI,66,ccannnnnntgg;MslI,136,caynnnnrtg	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr5A: 0.0; 
-gRNA_557_Reverse	838	819	Reverse	20	CACAAGAAAATCCACCAGGA	45.0	45.0	TCCTGGTGGATTTTCTTGTG	TGG	GW2BmRNA	0.48	BstNI,PspGI,19,ccwgg;ScrFI,StyD4I,66,ccngg;BstXI,66,ccannnnnntgg;MslI,136,caynnnnrtg;BslI,63,ccnnnnnnngg	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr2D: 0.0; 
-gRNA_746_Reverse	649	630	Reverse	20	CATCACGAGTATGCCTAGAA	45.0	45.0	TTCTAGGCATACTCGTGATG	TGG	GW2BmRNA	0.47	BfaI,142,ctag	chr5B: 0.1; chr6A: 0.0; chr6B: 0.0; chr6D: 0.0; 
-gRNA_781_Reverse	614	595	Reverse	20	TTAGCCTGAGCAGAACATGA	45.0	45.0	TCATGTTCTGCTCAGGCTAA	AGG	GW2BmRNA	0.54	NlaIII,CviAII,FatI,132,catg	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr3D: 0.1; 
-gRNA_840_Reverse	555	536	Reverse	20	TTGGTACGATGGCACTGAAT	45.0	45.0	ATTCAGTGCCATCGTACCAA	AGG	GW2BmRNA	0.46	TspRI,72,castg	chr1B: 0.0; chr1B: 0.0; chr3B: 0.0; chr4B: 0.0; 
-gRNA_880_Reverse	515	496	Reverse	20	CGATACTCCACTTCTGTTGT	45.0	45.0	ACAACAGAAGTGGAGTATCG	TGG	GW2BmRNA	0.28	CspCI,130,caannnnngtgg	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr1B: 0.0; 
-gRNA_1059_Reverse	336	317	Reverse	20	ATACTCCACAGCATAGTTGG	45.0	45.0	CCAACTATGCTGTGGAGTAT	GGG	GW2BmRNA	0.68	XcmI,66,ccannnnnnnnntgg	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; 
-gRNA_1072_Reverse	323	304	Reverse	20	TAGTTGGGGGTTTTGCAGAA	45.0	45.0	TTCTGCAAAACCCCCAACTA	TGG	GW2BmRNA	0.38	MwoI,136,gcnnnnnnngc	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr7A: 0.6; 
-gRNA_1084_Reverse	311	292	Reverse	20	TTGCAGAATGGGCATTGTGT	45.0	45.0	ACACAATGCCCATTCTGCAA	AGG	GW2BmRNA	0.58		
-gRNA_1102_Reverse	293	274	Reverse	20	GTAGGTCGAGCAGTATGAGT	50.0	50.0	ACTCATACTGCTCGACCTAC	TGG	GW2BmRNA	0.58		
-gRNA_1157_Reverse	238	219	Reverse	20	CTTTCGAGCAACATTTTGAT	35.0	35.0	ATCAAAATGTTGCTCGAAAG	CGG	GW2BmRNA	0.52		
-gRNA_1163_Reverse	232	213	Reverse	20	AGCAACATTTTGATCGGTTA	35.0	35.0	TAACCGATCAAAATGTTGCT	AGG	GW2BmRNA	0.30		
-gRNA_1168_Reverse	227	208	Reverse	20	CATTTTGATCGGTTAAGGCT	40.0	40.0	AGCCTTAACCGATCAAAATG	TGG	GW2BmRNA	0.44		
-gRNA_1178_Reverse	217	198	Reverse	20	GGTTAAGGCTTGGGTAGTAC	50.0	50.0	GTACTACCCAAGCCTTAACC	AGG	GW2BmRNA	0.53	CviQI,RsaI,34,gtac	chr6A: 0.0; chr6B: 0.0; chr6D: 0.0; chr4A: 0.0; 
-gRNA_1188_Reverse	207	188	Reverse	20	TGGGTAGTACAGGAAGCAGA	50.0	50.0	TCTGCTTCCTGTACTACCCA	TGG	GW2BmRNA	0.48	MwoI,136,gcnnnnnnngc	chr1B: 0.0; chr2B: 0.2; chr2D: 0.0; chr3B: 0.0; 
-gRNA_1202_Reverse	193	174	Reverse	20	AGCAGATGGGGCACTCCTCC	65.0	65.0	GGAGGAGTGCCCCATCTGCT	AGG	GW2BmRNA	0.47	MnlI,132,cctc	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr4A: 0.0; 
-gRNA_1215_Reverse	180	161	Reverse	20	CTCCTCCAGGTCACCCCCCG	75.0	75.0	CGGGGGGTGACCTGGAGGAG	CGG	GW2BmRNA	0.61		
-gRNA_1231_Reverse	164	145	Reverse	20	CCCGCGGCGTCGTCAGCCCC	85.0	85.0	GGGGCTGACGACGCCGCGGG	CGG	GW2BmRNA	0.32	MwoI,136,gcnnnnnnngc	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr3D: 0.0; 
-gRNA_1239_Reverse	156	137	Reverse	20	GTCGTCAGCCCCCGGGTAGC	75.0	75.0	GCTACCCGGGGGCTGACGAC	AGG	GW2BmRNA	0.35		
-gRNA_1251_Reverse	144	125	Reverse	20	CGGGTAGCAGGGCGCGAGCT	75.0	75.0	AGCTCGCGCCCTGCTACCCG	TGG	GW2BmRNA	0.37	MwoI,136,gcnnnnnnngc;AluI,66,agct	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr7B: 0.0; 
-gRNA_1259_Reverse	136	117	Reverse	20	AGGGCGCGAGCTTGGCCTCG	75.0	75.0	CGAGGCCAAGCTCGCGCCCT	AGG	GW2BmRNA	0.59	XhoI,PaeR7I,14,ctcgag;MnlI,132,cctc;HaeIII,20,ggcc;BsoBI,AvaI,6,cycgrg;SmlI,132,ctyrag	chr6A: 1.0; chr6B: 1.0; chr6D: 1.0; chr7B: 1.0; 
-gRNA_1283_Reverse	112	93	Reverse	20	TCAACTTGCGTAGCTTCTTC	45.0	45.0	GAAGAAGCTACGCAAGTTGA	TGG	GW2BmRNA	0.33		
-gRNA_1341_Reverse	54	35	Reverse	20	CGTGTACCGCTCCTCCACCC	70.0	70.0	GGGTGGAGGAGCGGTACACG	CGG	GW2BmRNA	0.62		
+ID	Start	End	Strand	Length	Sequence (5' -> 3')	GC_content_All	GC_content_first_10nt	Reverse Complement (5' -> 3')	PAM	Template used	Restriction Enzyme	gRNA	Chromosome	Strand	Position	Mismatches	Potential_target
+gRNA_21_Forward	2	21	Forward	20	TGGGGAACAGAATAGGAGGG	55.0	50.0	CCCTCCTATTCTGTTCCCCA	AGG	GW2BmRNA	MnlI,132,cctc	gRNA_21_Forward	chr2D	+	125307166	3	GggggaaGaAaataggagggagg
+												gRNA_21_Forward	chr2D	+	362921157	3	tTgggaacagaatTggaggTagg
+												gRNA_21_Forward	chr2A	-	13618565	4	tggggaaGGAaaGaggagggagg
+												gRNA_21_Forward	chr2A	-	233829436	4	tggAgaaGagaaGaggaAggagg
+												gRNA_21_Forward	chr2A	-	412679508	4	CggggaaGGAaataggagggagg
+												gRNA_21_Forward	chr2A	+	44798692	4	tggggaaGagaaAagAaggAagg
+												gRNA_21_Forward	chr2A	-	513206222	4	tggggaaAagaaAaggagAAagg
+												gRNA_21_Forward	chr2A	-	513206222	4	tggggGacagaGtaAgaAggagg
+												gRNA_21_Forward	chr2A	+	638429461	4	tgggTaTcagaaGaggGgggagg
+												gRNA_21_Forward	chr2B	+	121137542	4	tgTggaacagaaGagCagggCgg
+gRNA_24_Forward	5	24	Forward	20	GGAACAGAATAGGAGGGAGG	55.0	70.0	CCTCCCTCCTATTCTGTTCC	AGG	GW2BmRNA	MnlI,132,cctc	gRNA_24_Forward	chr2D	+	125307166	2	ggaacagaataTgaTggaggagg
+												gRNA_24_Forward	chr2D	+	125307166	2	ggaaGaAaataggagggaggagg
+												gRNA_24_Forward	chr2A	-	412679505	3	ggaaGGAaataggagggaggagg
+												gRNA_24_Forward	chr2A	-	746851123	3	ggaacagaataCgaTggTggagg
+												gRNA_24_Forward	chr2A	-	746851123	3	ggaacagaataTgaTggTggagg
+												gRNA_24_Forward	chr2B	+	154192625	3	ggaTcagGaGaggagggaggagg
+												gRNA_24_Forward	chr2B	-	227075887	3	ggaacagaataTgaTggTggagg
+												gRNA_24_Forward	chr2B	-	35998214	3	ggaaGagaaAaggagggagAagg
+												gRNA_24_Forward	chr2B	+	485125809	3	ggaacagaataTgaTggTggagg
+												gRNA_24_Forward	chr2B	+	571744059	3	ggaaGagaatagAaggAaggagg
+gRNA_28_Forward	9	28	Forward	20	CAGAATAGGAGGGAGGAGGA	55.0	70.0	TCCTCCTCCCTCCTATTCTG	AGG	GW2BmRNA		gRNA_28_Forward	chr2B	-	335740617	2	cGgaaAaggagggaggaggaagg
+												gRNA_28_Forward	chr2A	-	146277209	3	cagGCtaCgagggaggaggaagg
+												gRNA_28_Forward	chr2A	+	16905813	3	GagaGtaggaCggaggaggaagg
+												gRNA_28_Forward	chr2A	+	16905813	3	GagaGtaggaTggaggaggaagg
+												gRNA_28_Forward	chr2A	-	212741149	3	cCTaataggagggGggaggaagg
+												gRNA_28_Forward	chr2A	-	223620452	3	cTTaataggagggGggaggaagg
+												gRNA_28_Forward	chr2A	+	326653560	3	GagaGtaggaCggaggaggaagg
+												gRNA_28_Forward	chr2A	+	326653560	3	GagaGtaggaTggaggaggaagg
+												gRNA_28_Forward	chr2A	+	327802999	3	GagaGtaggaCggaggaggaagg
+												gRNA_28_Forward	chr2A	+	327802999	3	GagaGtaggaTggaggaggaagg
+gRNA_32_Forward	13	32	Forward	20	ATAGGAGGGAGGAGGAAGGC	60.0	70.0	GCCTTCCTCCTCCCTCCTAT	CGG	GW2BmRNA		gRNA_32_Forward	chr2A	-	276682345	2	TGaggagggaggaggaaggccgg
+												gRNA_32_Forward	chr2A	+	327802999	2	TGaggagggaggaggaaggccgg
+												gRNA_32_Forward	chr2A	-	384345670	2	ataggaCggaggaggaaggGcgg
+												gRNA_32_Forward	chr2A	-	654995099	2	CGaggagggaggaggaaggccgg
+												gRNA_32_Forward	chr2A	-	655004854	2	CGaggagggaggaggaaggccgg
+												gRNA_32_Forward	chr2A	-	70979777	2	aGGggagggaggaggaaggccgg
+												gRNA_32_Forward	chr2B	+	154192625	2	aAaggagggaggaggGaggccgg
+												gRNA_32_Forward	chr2B	+	154192625	2	TGaggagggaggaggaaggccgg
+												gRNA_32_Forward	chr2B	+	749301702	2	TGaggagggaggaggaaggccgg
+												gRNA_32_Forward	chr2D	+	125307166	2	aAaggagggaggaggGaggccgg
+gRNA_37_Forward	18	37	Forward	20	AGGGAGGAGGAAGGCCGGGG	75.0	80.0	CCCCGGCCTTCCTCCTCCCT	TGG	GW2BmRNA	ScrFI,StyD4I,66,ccngg;MspI,HpaII,13,ccgg;BsaJI,66,ccnngg;NciI,32,ccsgg	gRNA_37_Forward	chr2A	+	258912693	0	agggaggaggaaggccggggtgg
+												gRNA_37_Forward	chr2A	+	145560584	1	agggaggaggaaggccggggCgg
+												gRNA_37_Forward	chr2A	+	240685363	1	agggaggaggaaggccggggCgg
+												gRNA_37_Forward	chr2A	+	240695223	1	agggaggaggaaggccggggCgg
+												gRNA_37_Forward	chr2A	+	262681414	1	agggaggaggaaggccggggCgg
+												gRNA_37_Forward	chr2A	-	384345670	1	agggaggaggaaggccggggCgg
+												gRNA_37_Forward	chr2A	+	254773071	2	agggaggaggaaggccgAggCgg
+												gRNA_37_Forward	chr2A	+	262671964	2	agggaggaggaaggccggAgCgg
+												gRNA_37_Forward	chr2A	-	384345670	2	agggaggaggaaggcAggAgtgg
+												gRNA_37_Forward	chr2A	-	384345670	2	agggaggaggaaggccggACtgg
+gRNA_40_Forward	21	40	Forward	20	GAGGAGGAAGGCCGGGGTGG	75.0	90.0	CCACCCCGGCCTTCCTCCTC	AGG	GW2BmRNA	BsaJI,66,ccnngg	gRNA_40_Forward	chr2A	+	258912696	1	gaggaggaaggccggggtggCgg
+												gRNA_40_Forward	chr2A	+	145560587	2	gaggaggaaggccggggCggCgg
+												gRNA_40_Forward	chr2A	+	240685366	2	gaggaggaaggccggggCggCgg
+												gRNA_40_Forward	chr2A	+	240695226	2	gaggaggaaggccggggCggCgg
+												gRNA_40_Forward	chr2A	+	262681417	2	gaggaggaaggccggggCggCgg
+												gRNA_40_Forward	chr2A	-	612303956	2	gaggaggaaggccggggCggCgg
+												gRNA_40_Forward	chr2B	-	99772398	2	gaggaAgaaggAcggggtggagg
+												gRNA_40_Forward	chr2A	-	170343929	3	gGggaAgaaggccggggtggTgg
+												gRNA_40_Forward	chr2A	+	193547858	3	gaAgaggaaggccgAggAggagg
+												gRNA_40_Forward	chr2A	+	221692299	3	gaggaggCaggccggCgGggagg
+gRNA_45_Forward	26	45	Forward	20	GGAAGGCCGGGGTGGAGGAG	75.0	70.0	CTCCTCCACCCCGGCCTTCC	CGG	GW2BmRNA	MnlI,132,cctc	gRNA_45_Forward	chr2D	-	561489669	1	ggGaggccggggtggaggagcgg
+												gRNA_45_Forward	chr2A	-	701230224	2	ggGaggGcggggtggaggagcgg
+												gRNA_45_Forward	chr2D	+	125307166	2	ggGaCgccggggtggaggagcgg
+												gRNA_45_Forward	chr2A	+	327802999	3	CgaaggcGggggAggaggagcgg
+												gRNA_45_Forward	chr2A	+	582636775	3	CgaaggcGggggAggaggagcgg
+												gRNA_45_Forward	chr2A	-	746851123	3	ggaaggGcggggAgCaggagcgg
+												gRNA_45_Forward	chr2A	-	746851123	3	ggaagTccgggAtggaggagAgg
+												gRNA_45_Forward	chr2B	-	131862062	3	CgaaggcGggggAggaggagcgg
+												gRNA_45_Forward	chr2B	+	154192625	3	CgaaggcGggggAggaggagcgg
+												gRNA_45_Forward	chr2B	-	35887871	3	TgaaggcGggggAggaggagcgg
+gRNA_54_Forward	35	54	Forward	20	GGGTGGAGGAGCGGTACACG	70.0	70.0	CGTGTACCGCTCCTCCACCC	AGG	GW2BmRNA	CviQI,RsaI,34,gtac;Hpy166II,68,gtnnac;Nb.BssSI,BssSαI,68,cacgag	gRNA_54_Forward	chr2A	+	1242044	3	gggtggTggagcAgtacGcgagg
+												gRNA_54_Forward	chr2B	-	134340632	3	gggtggaggagGggCGcacgagg
+												gRNA_54_Forward	chr2B	+	763477011	3	gggtggaggagcggtaGGGgagg
+												gRNA_54_Forward	chr2B	-	800080579	3	gggtggCggGgcggAacacgagg
+												gRNA_54_Forward	chr2A	-	14433515	4	gggCggaggagTggtCGacgagg
+												gRNA_54_Forward	chr2A	-	222115109	4	TggtggagCagcggtTcCcgagg
+												gRNA_54_Forward	chr2A	-	246430713	4	AggtggaggCgcggAacacAagg
+												gRNA_54_Forward	chr2A	+	348695192	4	gggtggaggagcgCtaGaGgTgg
+												gRNA_54_Forward	chr2A	+	366222722	4	gggtggaggagGCgtacaTTagg
+												gRNA_54_Forward	chr2A	+	448530610	4	gggtggaggagcggGTGacgCgg
+gRNA_61_Forward	42	61	Forward	20	GGAGCGGTACACGAGGCCGC	75.0	80.0	GCGGCCTCGTGTACCGCTCC	AGG	GW2BmRNA	HaeIII,20,ggcc	gRNA_61_Forward	chr2B	-	800080572	3	ggGgcggAacacgaggcGgcagg
+												gRNA_61_Forward	chr2A	+	281630031	4	ggagcTgtTcacgaggccgGGgg
+												gRNA_61_Forward	chr2A	+	423311945	4	ggagcTgtTcacgaggTcgcCgg
+												gRNA_61_Forward	chr2A	-	442150269	4	gCagcggCacacgaggcTgcGgg
+												gRNA_61_Forward	chr2A	-	84114896	4	ggagTggtCcacgaggcACcagg
+												gRNA_61_Forward	chr2B	-	39808603	4	AgagcggtGcaTgaggccAcagg
+												gRNA_61_Forward	chr2B	-	470531789	4	AgCgcggtCcacgaggccgcGgg
+												gRNA_61_Forward	chr2B	-	495952109	4	ggaTcggtCcTcgaggccgcCgg
+												gRNA_61_Forward	chr2B	+	683820795	4	gCagcgCtacacgCggcAgcagg
+												gRNA_61_Forward	chr2D	+	125307166	4	ggagAggtaGaGgaggccgTagg
+gRNA_118_Forward	99	118	Forward	20	GCTACGCAAGTTGATCCTCG	55.0	50.0	CGAGGATCAACTTGCGTAGC	AGG	GW2BmRNA	AlwI,Nt.AlwI,132,ggatc;XhoI,PaeR7I,14,ctcgag;MnlI,132,cctc;BsoBI,AvaI,6,cycgrg;SmlI,132,ctyrag	gRNA_118_Forward	chr2D	+	125307166	3	TctacgcCagttgatcctcAagg
+												gRNA_118_Forward	chr2A	+	124763822	4	TctacgcCagttgatcctTAagg
+												gRNA_118_Forward	chr2A	+	124788816	4	TctacgcCagttgatcctTAagg
+												gRNA_118_Forward	chr2A	+	129822393	4	TctacgcCagttgatcctTAagg
+												gRNA_118_Forward	chr2A	+	135917010	4	TctacgcCagttgatcctTAagg
+												gRNA_118_Forward	chr2A	-	140290384	4	TctacgcCagttgatcctTAagg
+												gRNA_118_Forward	chr2A	-	1419477	4	TctacgcCagttgatcctTAagg
+												gRNA_118_Forward	chr2A	-	195393050	4	gACacgcaagttgatccAcgTgg
+												gRNA_118_Forward	chr2A	+	214988928	4	TctacgcCagttgatcctTAagg
+												gRNA_118_Forward	chr2A	-	240633747	4	TctacgcCagttgatcctTAagg
+gRNA_142_Forward	123	142	Forward	20	CAAGCTCGCGCCCTGCTACC	70.0	70.0	GGTAGCAGGGCGCGAGCTTG	CGG	GW2BmRNA		gRNA_142_Forward	chr2A	+	262168836	3	caagctcgGgccTtgctacGcgg
+												gRNA_142_Forward	chr2A	+	536032326	3	caagctcgcgccctgctGGTcgg
+												gRNA_142_Forward	chr2A	-	582636775	3	caagctcgGgccTtgctacGcgg
+												gRNA_142_Forward	chr2D	+	234348370	3	caagctcgcgTcGtgctGcccgg
+												gRNA_142_Forward	chr2D	+	234349575	3	caagctcgcgTcGtgctGcccgg
+												gRNA_142_Forward	chr2A	+	197589291	4	cGagctcgcgcccGgctGGccgg
+												gRNA_142_Forward	chr2A	+	284669483	4	cGagctcgcgccctgctCGTcgg
+												gRNA_142_Forward	chr2A	+	368620382	4	cGagctcgcgcccGgctGGccgg
+												gRNA_142_Forward	chr2A	+	457910153	4	caTgcGcgcgccctgcCaGccgg
+												gRNA_142_Forward	chr2A	+	469812139	4	GaagcCcgcgccTtgctCcccgg
+gRNA_145_Forward	126	145	Forward	20	GCTCGCGCCCTGCTACCCGG	80.0	70.0	CCGGGTAGCAGGGCGCGAGC	GGG	GW2BmRNA	ScrFI,StyD4I,66,ccngg;MspI,HpaII,13,ccgg;BsaJI,66,ccnngg;BsoBI,AvaI,6,cycgrg;SmaI,XmaI,TspMI,31,cccggg;NciI,32,ccsgg	gRNA_145_Forward	chr2A	+	155073268	4	gctcgcgTcctgTGTcccggggg
+												gRNA_145_Forward	chr2A	-	223315142	4	TctcTcTccctgctacccTgggg
+												gRNA_145_Forward	chr2A	-	661248851	4	gcGcgcgcGctgctGccGggggg
+												gRNA_145_Forward	chr2B	-	102841418	4	gctcAcgcccCCcCacccggggg
+												gRNA_145_Forward	chr2B	+	129857824	4	gctcgGCccctgctaGcAggggg
+												gRNA_145_Forward	chr2B	+	142379375	4	ActcgcgccctCctacAcgAggg
+												gRNA_145_Forward	chr2B	+	154192625	4	gGtcgAgGccAgctacccggggg
+												gRNA_145_Forward	chr2B	-	164909410	4	gctcgcgcccGgcAacccTgCgg
+												gRNA_145_Forward	chr2B	-	164909410	4	gctcgcgccctgGtaccGgTTgg
+												gRNA_145_Forward	chr2B	-	164909410	4	gctcgcgTcctgTGTcccggggg
+gRNA_160_Forward	141	160	Forward	20	CCCGGGGGCTGACGACGCCG	85.0	80.0	CGGCGTCGTCAGCCCCCGGG	CGG	GW2BmRNA	MwoI,136,gcnnnnnnngc;BsaHI,32,grcgyc	gRNA_160_Forward	chr2A	+	409863178	3	cccgggTgctgacgaGgccgAgg
+												gRNA_160_Forward	chr2A	-	722732962	3	cGcggggCctgCcgacgccgcgg
+												gRNA_160_Forward	chr2D	+	125307166	3	cccAggAgcCgacgacgccgcgg
+												gRNA_160_Forward	chr2A	-	116428663	4	ccTCggggcCgacgacTccgcgg
+												gRNA_160_Forward	chr2A	+	145446410	4	cccTgAggctgacgacgTGgcgg
+												gRNA_160_Forward	chr2A	+	224283835	4	cccACgggctgacgacgTcAcgg
+												gRNA_160_Forward	chr2A	-	25050991	4	cAcAggggctgGcgacgccgAgg
+												gRNA_160_Forward	chr2A	+	27969674	4	cGcgggAgctgacgGcgGcgcgg
+												gRNA_160_Forward	chr2A	-	304159335	4	ccAgggggAtgGcgacgAcgcgg
+												gRNA_160_Forward	chr2A	-	306010146	4	GccggCggcCgacgGcgccgcgg
+gRNA_163_Forward	144	163	Forward	20	GGGGGCTGACGACGCCGCGG	85.0	90.0	CCGCGGCGTCGTCAGCCCCC	GGG	GW2BmRNA	BsaJI,66,ccnngg;BstUI,60,cgcg;BtgI,63,ccrygg;MspA1I,136,cmgckg;SacII,31,ccgcgg	gRNA_163_Forward	chr2A	-	606817122	3	ggTggTtgacgacgccgcCgggg
+												gRNA_163_Forward	chr2A	-	686796925	3	gTgggctgGcgacgccgcggAgg
+												gRNA_163_Forward	chr2A	-	722732959	3	ggggCctgCcgacgccgcggCgg
+												gRNA_163_Forward	chr2B	+	154192625	3	ggAggcAgacgGcgccgcggggg
+												gRNA_163_Forward	chr2B	+	154192625	3	ggAggcCgacgacgGcgcggggg
+												gRNA_163_Forward	chr2B	+	154192625	3	gggggcGgGcgacgcGgcggggg
+												gRNA_163_Forward	chr2B	+	154192625	3	gTgggAtgacgaAgccgcggggg
+												gRNA_163_Forward	chr2B	+	38810305	3	gggggctgGcgacgcTgcTgggg
+												gRNA_163_Forward	chr2B	-	649669561	3	gTgggctgGcgacgccgcggAgg
+												gRNA_163_Forward	chr2B	-	730082215	3	gggggctgacgacgcTgGCgggg
+gRNA_172_Forward	153	172	Forward	20	CGACGCCGCGGGGGGTGACC	85.0	80.0	GGTCACCCCCCGCGGCGTCG	TGG	GW2BmRNA	BstEII,30,ggtnacc;BstZ17I,67,ggtnacc;HphI,63,ggtga	gRNA_172_Forward	chr2A	+	426722870	3	cgacgccgcggTgggAgaccAgg
+												gRNA_172_Forward	chr2A	-	775100239	3	cgacgccgGggAggCtgacctgg
+												gRNA_172_Forward	chr2B	+	405746049	3	cgacgccgTggggCgtgaActgg
+												gRNA_172_Forward	chr2A	-	12554610	4	cCacgccgGggggggAgGcctgg
+												gRNA_172_Forward	chr2A	+	175345053	4	cgacgccgcAgggggCTCcctgg
+												gRNA_172_Forward	chr2A	+	327802999	4	GgacgccgcTCggggtgacGtgg
+												gRNA_172_Forward	chr2A	-	413147055	4	cgacgccgGCgAggCtgacctgg
+												gRNA_172_Forward	chr2A	+	528104549	4	TgacgccgcggggAgtTTcctgg
+												gRNA_172_Forward	chr2A	-	571036080	4	cgaAgccgAggggggGgacGtgg
+												gRNA_172_Forward	chr2A	-	654266974	4	cgGGgccgcggggCgCgacctgg
+gRNA_175_Forward	156	175	Forward	20	CGCCGCGGGGGGTGACCTGG	85.0	70.0	CCAGGTCACCCCCCGCGGCG	AGG	GW2BmRNA	BstNI,PspGI,19,ccwgg;ScrFI,StyD4I,66,ccngg;BstEII,30,ggtnacc;BstZ17I,67,ggtnacc	gRNA_175_Forward	chr2A	-	118441962	3	cgccgGggCgggGgacctggagg
+												gRNA_175_Forward	chr2A	-	522435636	3	cgAcgcggCgggtgGcctggagg
+												gRNA_175_Forward	chr2B	-	789813728	3	cgccgGCgggCgtgacctggagg
+												gRNA_175_Forward	chr2D	+	125307166	3	cgccCcgTgggTtgacctggagg
+												gRNA_175_Forward	chr2D	+	125307166	3	cgccgGCgTgggtgacctggagg
+												gRNA_175_Forward	chr2A	+	113180105	4	cgccgAggTgggCgTcctggagg
+												gRNA_175_Forward	chr2A	-	177523123	4	cgccgcCggAggAgaTctggagg
+												gRNA_175_Forward	chr2A	+	216919446	4	cgccgGCgggggtgTcTtggagg
+												gRNA_175_Forward	chr2A	-	323728430	4	cgccgcgCggCgtgacTtggTgg
+												gRNA_175_Forward	chr2A	+	347840685	4	cgccAAggggggAgacctgCagg
+gRNA_236_Forward	217	236	Forward	20	CGATCAAAATGTTGCTCGAA	40.0	50.0	TTCGAGCAACATTTTGATCG	AGG	GW2BmRNA	TaqαI,15,tcga	gRNA_236_Forward	chr2A	-	775100239	2	cgatcaaaaAgAtgctcgaaagg
+												gRNA_236_Forward	chr2A	-	775100239	2	cgatcaaaaAgtCgctcgaaagg
+												gRNA_236_Forward	chr2B	+	154192625	2	cgatcaaaaAgtCgctcgaaagg
+												gRNA_236_Forward	chr2B	-	600006363	2	cgatcaaaaAgAtgctcgaaagg
+												gRNA_236_Forward	chr2D	+	125307166	2	cgatcaaaaAgtCgctcgaaagg
+												gRNA_236_Forward	chr2D	-	484380677	2	cgatcaaaaAgAtgctcgaaagg
+												gRNA_236_Forward	chr2A	-	775100239	3	cgatcaaaaAgACgctcgaaagg
+												gRNA_236_Forward	chr2A	-	775100239	3	cgatcaaaaAgAtgctTgaaagg
+												gRNA_236_Forward	chr2A	-	775100239	3	cgatcaaaaAgGCgctcgaaagg
+												gRNA_236_Forward	chr2B	-	154192625	3	cgatcaaaaAgACgctcgaaagg
+gRNA_328_Forward	309	328	Forward	20	CAAAACCCCCAACTATGCTG	50.0	40.0	CAGCATAGTTGGGGGTTTTG	TGG	GW2BmRNA	XcmI,66,ccannnnnnnnntgg	gRNA_328_Forward	chr2B	+	154192625	2	AaaaacccccaactatgAtgtgg
+												gRNA_328_Forward	chr2A	-	582636775	3	caaaaAccccaacCatgctgCgg
+												gRNA_328_Forward	chr2A	-	582636775	3	caaaCcccccaactatgGAgtgg
+												gRNA_328_Forward	chr2A	+	143910576	4	caaaaTGcccaactTtgAtgtgg
+												gRNA_328_Forward	chr2A	-	582636775	4	caaaaAccccaacCatgcCgCgg
+												gRNA_328_Forward	chr2A	-	582636775	4	caaaaAccccaaTtatCctTtgg
+												gRNA_328_Forward	chr2A	-	692729896	4	caaCaTccccaaAtatgAtgtgg
+												gRNA_328_Forward	chr2B	+	154192625	4	caaaacAAcTaacCatgctgtgg
+												gRNA_328_Forward	chr2B	+	154192625	4	caaaacAcTcTactatgAtgtgg
+												gRNA_328_Forward	chr2B	+	154192625	4	caaaaTGcAcaactTtgctgtgg
+gRNA_360_Forward	341	360	Forward	20	GTGTAAAGACAAAGGAGGAA	40.0	40.0	TTCCTCCTTTGTCTTTACAC	AGG	GW2BmRNA	MnlI,132,cctc	gRNA_360_Forward	chr2B	+	588917816	3	gtgtaGagacaaaggTgAaaagg
+												gRNA_360_Forward	chr2A	-	221284455	4	gtgCaaaTaGaaaggaggaGagg
+												gRNA_360_Forward	chr2A	+	447298617	4	gtgtaaGgacTaaggaAgaaGgg
+												gRNA_360_Forward	chr2A	+	4784872	4	gtgGaaagGcaaaggCggaGagg
+												gRNA_360_Forward	chr2A	-	500975150	4	gtgtaCTgCcaaaggaggaaCgg
+												gRNA_360_Forward	chr2A	-	607035064	4	gGAAaaagacaaagAaggaaagg
+												gRNA_360_Forward	chr2A	-	721310322	4	gtgAaaagaAaaaggaAgaGagg
+												gRNA_360_Forward	chr2B	-	147592046	4	gtgGaaagacaaagAGggaTagg
+												gRNA_360_Forward	chr2B	+	148426303	4	gtgGaaagacaaagACggaTagg
+												gRNA_360_Forward	chr2B	+	154192625	4	gAgAaaagaGaaaggagAaaagg
+gRNA_408_Forward	389	408	Forward	20	AAGTCATTGAAGCACAGATG	40.0	50.0	CATCTGTGCTTCAATGACTT	AGG	GW2BmRNA		gRNA_408_Forward	chr2A	+	612825163	3	aagtcattgaaTcCcaCatgagg
+												gRNA_408_Forward	chr2A	-	704738226	4	aGgtTattgaCgcacGgatgagg
+												gRNA_408_Forward	chr2B	+	154192625	4	aGgtTatGgaCgcacagatgagg
+												gRNA_408_Forward	chr2B	-	1817505	4	aaAGcattgaagAacagaGgagg
+												gRNA_408_Forward	chr2B	+	355314044	4	aaAtcattAaagAacTgatgagg
+												gRNA_408_Forward	chr2B	-	496634885	4	aGgtTatGgaagcacGgatgagg
+												gRNA_408_Forward	chr2B	+	723615222	4	TCgtcattgaagcCcagatCagg
+												gRNA_408_Forward	chr2D	+	125307166	4	aaAGcattgaaAcacaCatgagg
+												gRNA_408_Forward	chr2D	+	125307166	4	aGgtTatGgaCgcacagatgagg
+												gRNA_408_Forward	chr2D	+	271565378	4	aGgtTatGgaCgcacagatgagg
+gRNA_439_Forward	420	439	Forward	20	GCAAGCACTTCAAGACGAAG	50.0	50.0	CTTCGTCTTGAAGTGCTTGC	AGG	GW2BmRNA	EarI,126,ctcttc	gRNA_439_Forward	chr2B	+	154192625	3	gAaagcaAttcaagaAgaagagg
+												gRNA_439_Forward	chr2B	-	5274309	3	CcaagcTcttcaagCcgaagagg
+												gRNA_439_Forward	chr2B	+	556089541	3	gcaaCcacttcaTgacgaagTgg
+												gRNA_439_Forward	chr2D	+	125307166	3	gAaagcaAttcaagaAgaagagg
+												gRNA_439_Forward	chr2D	+	271565378	3	gAaagcaAttcaagaAgaagagg
+												gRNA_439_Forward	chr2A	+	108619988	4	gcaagcacCtcaagacAaaCCgg
+												gRNA_439_Forward	chr2A	+	154710115	4	gcaagcactGcTagCcgaGgagg
+												gRNA_439_Forward	chr2A	+	26105832	4	gcaagcaAttcaagaGgaaTTgg
+												gRNA_439_Forward	chr2A	+	279672180	4	gcaaCcacttGaTgacgaagTgg
+												gRNA_439_Forward	chr2A	-	291317607	4	gcaagAaTttcaagacCaaTagg
+gRNA_465_Forward	446	465	Forward	20	AGATGAAAAGAAAACAGAGT	30.0	30.0	ACTCTGTTTTCTTTTCATCT	AGG	GW2BmRNA		gRNA_465_Forward	chr2A	+	637114799	3	agatgaaaagaGaaGagagtGgg
+												gRNA_465_Forward	chr2A	-	77371838	3	agaCTaaaagaaaacagaAtagg
+												gRNA_465_Forward	chr2B	-	147592045	3	agatgaaaagaaaaGagCgGagg
+												gRNA_465_Forward	chr2B	+	154192625	3	agaCTaaaagaaaacagaAtagg
+												gRNA_465_Forward	chr2B	-	195075453	3	agaAAaaaaTaaaacagagtagg
+												gRNA_465_Forward	chr2B	-	294416008	3	aAGtgaaaagaaaacagagAagg
+												gRNA_465_Forward	chr2D	+	125307166	3	agaAAaaaaTaaaacagagtagg
+												gRNA_465_Forward	chr2D	+	125307166	3	agaCTaaaagaaaacagaAtagg
+												gRNA_465_Forward	chr2D	-	256591411	3	aTatgaTaGgaaaacagagtagg
+												gRNA_465_Forward	chr2D	-	441031666	3	TgatgaaaagaCaacagagCagg
+gRNA_505_Forward	486	505	Forward	20	AATCGCTCCAACAACAGAAG	45.0	40.0	CTTCTGTTGTTGGAGCGATT	TGG	GW2BmRNA	CspCI,130,caannnnngtgg	gRNA_505_Forward	chr2A	-	162418779	3	aatcgcCccaaGaacaCaagtgg
+												gRNA_505_Forward	chr2A	+	326653560	3	aatcgcCccaaGaacaCaagtgg
+												gRNA_505_Forward	chr2A	+	327802999	3	aatcgcCccaaGaacaCaagtgg
+												gRNA_505_Forward	chr2A	+	329642309	3	aatcgcCccaaGaacaCaagtgg
+												gRNA_505_Forward	chr2A	+	339656214	3	aatcgcCccaaGaacaCaagtgg
+												gRNA_505_Forward	chr2A	-	5403975	3	aatcgcCccaaGaacaCaagtgg
+												gRNA_505_Forward	chr2A	+	582636775	3	aatcgcCccaaGaacaCaagtgg
+												gRNA_505_Forward	chr2A	-	706997477	3	aatcgcCccaaGaacaCaagtgg
+												gRNA_505_Forward	chr2B	-	117900452	3	aatcgcCccaaGaacaCaagtgg
+												gRNA_505_Forward	chr2B	+	134474230	3	aatcgcCccaaGaacaCaagtgg
+gRNA_607_Forward	588	607	Forward	20	TGAGCCTTCATGTTCTGCTC	50.0	50.0	GAGCAGAACATGAAGGCTCA	AGG	GW2BmRNA		gRNA_607_Forward	chr2B	+	13990271	3	tgagccttcaAgttTtgctGagg
+												gRNA_607_Forward	chr2A	-	381085109	4	tgagcAtCcaGgttctgctAagg
+												gRNA_607_Forward	chr2A	-	776161787	4	tgCgccttcatgGtctCGtcagg
+												gRNA_607_Forward	chr2B	+	154192625	4	tgCgccAtcaCgttcAgctcagg
+												gRNA_607_Forward	chr2B	+	176111490	4	tgagcctGcatgGtctCcCcagg
+												gRNA_607_Forward	chr2B	-	198078549	4	tgagccGtcatCtCcGgctcagg
+												gRNA_607_Forward	chr2B	-	198078549	4	tgagccttcaAgCtTtgctGagg
+												gRNA_607_Forward	chr2B	-	212932399	4	tgCgccttcatgGtctCGtcagg
+												gRNA_607_Forward	chr2B	-	230247138	4	tgCgccttcatgGtctCGtcagg
+												gRNA_607_Forward	chr2B	+	306493795	4	tgagcAtCcatgttctgctATgg
+gRNA_618_Forward	599	618	Forward	20	GTTCTGCTCAGGCTAACATG	50.0	50.0	CATGTTAGCCTGAGCAGAAC	CGG	GW2BmRNA	NlaIII,CviAII,FatI,132,catg	gRNA_618_Forward	chr2B	+	668218081	4	gttctgGtcGggctTacatgTgg
+												gRNA_618_Forward	chr2D	+	307133379	4	gttctCctGaggAAaacatgcgg
+gRNA_633_Forward	614	633	Forward	20	ACATGCGGTCTTTCCATTCT	45.0	30.0	AGAATGGAAAGACCGCATGT	AGG	GW2BmRNA		gRNA_633_Forward	chr2D	-	608375837	3	acatgcggtcttCTcatActagg
+												gRNA_633_Forward	chr2A	-	513206220	4	acatgcgTtcttCTcatActagg
+												gRNA_633_Forward	chr2B	-	422984315	4	aAatTcggtctttcAattGtagg
+												gRNA_633_Forward	chr2B	-	772785700	4	acaAAcggtAtttccatGctagg
+												gRNA_633_Forward	chr2B	-	98363850	4	acatgTggtACttccattcAagg
+												gRNA_633_Forward	chr2D	-	355318927	4	aAatTcggtctttcAattGtagg
+												gRNA_633_Forward	chr2D	-	608375837	4	acatgcggtGtttccGttAGagg
+												gRNA_633_Forward	chr2D	-	608375837	4	acatgcgTtcttCTcatActagg
+												gRNA_633_Forward	chr2D	-	62958919	4	acatgTggtGCttccattcAagg
+gRNA_670_Forward	651	670	Forward	20	TAACATAGACATGAACATAG	30.0	30.0	CTATGTTCATGTCTATGTTA	AGG	GW2BmRNA		gRNA_670_Forward	chr2D	+	125307166	3	tTaAaGagacatgaacatagagg
+												gRNA_670_Forward	chr2A	+	141542337	4	taacatGTacatgaacCGagagg
+												gRNA_670_Forward	chr2A	-	71694357	4	taaAaAagCcatgaacatGgagg
+												gRNA_670_Forward	chr2B	-	110581958	4	taaAaAagCcatgaacatGgagg
+												gRNA_670_Forward	chr2B	+	154192625	4	taacCCagTcatCaacatagagg
+												gRNA_670_Forward	chr2B	+	232322017	4	taacatagacTCAaaGatagagg
+												gRNA_670_Forward	chr2B	-	579236728	4	GaacataAacatgaacaGGgagg
+												gRNA_670_Forward	chr2B	-	713058129	4	GaacataAacatgaacaGGgagg
+												gRNA_670_Forward	chr2B	-	733864534	4	AaacatagaAatTaacatGgagg
+												gRNA_670_Forward	chr2D	+	102570669	4	tTacatGgacatgaCcCtagagg
+gRNA_679_Forward	660	679	Forward	20	CATGAACATAGAGGACATGA	40.0	50.0	TCATGTCCTCTATGTTCATG	TGG	GW2BmRNA	NlaIII,CviAII,FatI,132,catg	gRNA_679_Forward	chr2B	-	154192625	3	catgaacaAagagAaAatgatgg
+												gRNA_679_Forward	chr2B	-	154192625	3	catgaCcatagagAaAatgatgg
+												gRNA_679_Forward	chr2A	+	114578016	4	catgaacataAaTgTcatgaAgg
+												gRNA_679_Forward	chr2A	+	146854360	4	catgaacatCgaggaGaACatgg
+												gRNA_679_Forward	chr2A	-	191416066	4	cCtgaacaAagagAaAatgatgg
+												gRNA_679_Forward	chr2A	-	196081808	4	caAgaacatCgaggaTaAgatgg
+												gRNA_679_Forward	chr2A	-	207348515	4	caAgGacaGagaggacatCatgg
+												gRNA_679_Forward	chr2A	-	236996878	4	catgaacGAagagAaAatgatgg
+												gRNA_679_Forward	chr2A	+	253659234	4	catgaacGAagagAaAatgatgg
+												gRNA_679_Forward	chr2A	+	310310036	4	catgaacGAagagAaAatgatgg
+gRNA_685_Forward	666	685	Forward	20	CATAGAGGACATGATGGTTA	40.0	30.0	TAACCATCATGTCCTCTATG	TGG	GW2BmRNA	BccI,66,ccatc	gRNA_685_Forward	chr2A	+	283481205	3	TatagaggacatgatggttCAgg
+												gRNA_685_Forward	chr2B	+	154192625	3	caGagaTgCcatgatggttatgg
+												gRNA_685_Forward	chr2A	+	147359899	4	catagaggCTatgTtggttTtgg
+												gRNA_685_Forward	chr2A	+	379388252	4	TatagaggacaGgatggttCAgg
+												gRNA_685_Forward	chr2A	-	475551541	4	catagCggTcatgatggCtGtgg
+												gRNA_685_Forward	chr2A	-	727305141	4	cCtGgaggacatgGtggtCatgg
+												gRNA_685_Forward	chr2A	-	727350431	4	cCtGgaggacatgGtggtCatgg
+												gRNA_685_Forward	chr2A	-	733664271	4	caCagaTgaAatgatggttaAgg
+												gRNA_685_Forward	chr2A	-	82438942	4	catagTTgacatgGtggtGatgg
+												gRNA_685_Forward	chr2B	-	101821812	4	cCCagGggacTtgatggttatgg
+gRNA_696_Forward	677	696	Forward	20	TGATGGTTATGGAAGCGATT	40.0	50.0	AATCGCTTCCATAACCATCA	TGG	GW2BmRNA		gRNA_696_Forward	chr2A	-	12241567	3	tgatAgtGatggTagcgatttgg
+												gRNA_696_Forward	chr2B	+	106165849	3	tgatggtGatggTagcgaCttgg
+												gRNA_696_Forward	chr2B	+	793040867	3	tgatggtGatggTagcgaCttgg
+												gRNA_696_Forward	chr2D	-	441031666	3	tgatggtGatggTaCcgatttgg
+												gRNA_696_Forward	chr2D	-	441031666	3	tgatggtGatggTagcgaCttgg
+												gRNA_696_Forward	chr2D	-	4482254	3	tgatggtGatggTagcgaCttgg
+												gRNA_696_Forward	chr2A	+	4644981	4	tgatggtGatgATagcgaCttgg
+												gRNA_696_Forward	chr2A	-	734648053	4	tgGtggtGatggTagcgaCttgg
+												gRNA_696_Forward	chr2A	+	740489151	4	tTatggttaGggTTgcgatttgg
+												gRNA_696_Forward	chr2A	+	775208107	4	tgGtggtGatggTagcgaCttgg
+gRNA_709_Forward	690	709	Forward	20	AGCGATTTGGCGTTCAATTC	45.0	40.0	GAATTGAACGCCAAATCGCT	AGG	GW2BmRNA	MluCI,63,aatt	gRNA_709_Forward	chr2A	-	405147411	4	agAgatttggAgttcaCGtcagg
+												gRNA_709_Forward	chr2B	-	137462908	4	aAcgatAtggcgAtcaTttcagg
+												gRNA_709_Forward	chr2D	+	125307166	4	agAgaCttggAgttcaaGtcagg
+												gRNA_709_Forward	chr2D	+	125307166	4	agTgTtttggGTttcaattcagg
+gRNA_716_Forward	697	716	Forward	20	TGGCGTTCAATTCAGGAGCA	50.0	50.0	TGCTCCTGAATTGAACGCCA	AGG	GW2BmRNA	Hpy188III,132,tcnnga	gRNA_716_Forward	chr2A	+	1885227	4	tggcCttcaattcGggCCcaagg
+												gRNA_716_Forward	chr2A	-	2186994	4	tggcgttTaaCtcaggCCcaagg
+												gRNA_716_Forward	chr2A	-	2217991	4	tggcCttcaaCtcCggaCcaagg
+												gRNA_716_Forward	chr2A	-	2260127	4	tggcCttcaaCtcCggaCcaagg
+												gRNA_716_Forward	chr2A	-	571618571	4	tggcCttTaTttAaggagcaagg
+												gRNA_716_Forward	chr2B	+	481185591	4	tggcgtGcaCttcTggagTaagg
+												gRNA_716_Forward	chr2B	-	571763349	4	tggTgttcGattcaggaCGaagg
+												gRNA_716_Forward	chr2B	-	9105087	4	tggcCttcaaCtcaggGCcaagg
+												gRNA_716_Forward	chr2D	+	125307166	4	tgCTgAtcCattcaggagcaagg
+												gRNA_716_Forward	chr2D	+	125307166	4	tggAgCtcaGttcaggagcCagg
+gRNA_725_Forward	706	725	Forward	20	ATTCAGGAGCAAGGAAGTAT	40.0	30.0	ATACTTCCTTGCTCCTGAAT	AGG	GW2BmRNA		gRNA_725_Forward	chr2A	-	384345670	4	attcagAagcaagAaCgtaAagg
+												gRNA_725_Forward	chr2A	-	529778434	4	GttcTggagcaGggaagtaGagg
+												gRNA_725_Forward	chr2A	-	706467986	4	atAcaTgagcaaTgaagCatagg
+												gRNA_725_Forward	chr2B	-	175171340	4	attTagTagcaaAgTagtatagg
+												gRNA_725_Forward	chr2B	-	460063887	4	attcaTTagcaaggaaAtaAagg
+												gRNA_725_Forward	chr2B	-	460607990	4	attcaAgTgcaagAaagtaAagg
+												gRNA_725_Forward	chr2B	+	649822439	4	attTagTagcaaggTagtatGgg
+												gRNA_725_Forward	chr2B	-	78453560	4	aGGcaggagGaaggaaAtatagg
+												gRNA_725_Forward	chr2D	+	125307166	4	atGcagCaAcaaggaTgtatagg
+												gRNA_725_Forward	chr2D	+	125307166	4	attTaCgaAcaaggaagtaAagg
+gRNA_850_Forward	831	850	Forward	20	TTCTTGTGCTGTTGCTGCTA	45.0	50.0	TAGCAGCAACAGCACAAGAA	TGG	GW2BmRNA	MwoI,136,gcnnnnnnngc	gRNA_850_Forward	chr2A	-	405794711	3	tGcttgCActgttgctgctatgg
+												gRNA_850_Forward	chr2A	-	775105829	3	ttcAtgtTctgttgctTctatgg
+												gRNA_850_Forward	chr2B	+	154192625	3	CtcCtgtgctgGtgctgctatgg
+												gRNA_850_Forward	chr2B	+	154192625	3	tGcttTtgctgttgctgcCatgg
+												gRNA_850_Forward	chr2B	+	154192625	3	ttcttCGgctgttgctgcAatgg
+												gRNA_850_Forward	chr2B	-	16841454	3	ttTttCtgctgttgTtgctatgg
+												gRNA_850_Forward	chr2B	-	505819383	3	ttTttCtgcCgttgctgctatgg
+												gRNA_850_Forward	chr2B	-	792320904	3	ttcGtTtgctgtAgctgctatgg
+												gRNA_850_Forward	chr2D	-	606605088	3	ttcttCtgctgttgTtgctCtgg
+												gRNA_850_Forward	chr2D	-	644874242	3	tAGttgtgctAttgctgctatgg
+gRNA_893_Forward	874	893	Forward	20	ATGGATTTCTCTTACATGAC	35.0	40.0	GTCATGTAAGAGAAATCCAT	TGG	GW2BmRNA	NlaIII,CviAII,FatI,132,catg	gRNA_893_Forward	chr2B	+	154192625	4	aAgAatttAtAttacatgactgg
+												gRNA_893_Forward	chr2B	+	172636568	4	atgTattGctcttTcatgaGtgg
+												gRNA_893_Forward	chr2D	+	19525361	4	atggatttctTttCcatgTGtgg
+												gRNA_893_Forward	chr2D	+	271565378	4	aAgAatttAtAttacatgactgg
+												gRNA_893_Forward	chr2D	-	366127068	4	atgTTtttcActtaGatgactgg
+												gRNA_893_Forward	chr2D	+	384133303	4	atggatttTtAttTcGtgactgg
+												gRNA_893_Forward	chr2D	+	603195659	4	atggatttctctCacatCTcAgg
+gRNA_947_Forward	928	947	Forward	20	CGCCGACCGTGCAACATTGC	65.0	50.0	GCAATGTTGCACGGTCGGCG	TGG	GW2BmRNA	Nb.BsrDI,BsrDI,68,gcaatg	gRNA_947_Forward	chr2A	-	775100239	4	cgccgaccTtgcaCcatAActgg
+												gRNA_947_Forward	chr2A	-	775100239	4	cgccgCccgtgcaacCtCgcCgg
+												gRNA_947_Forward	chr2B	-	15791839	4	AgccCaccgGgcGacattgctgg
+												gRNA_947_Forward	chr2B	+	299459343	4	AgcAgaccgtgcaaGCttgctgg
+												gRNA_947_Forward	chr2B	+	68967845	4	cgccgTccgGgcaacTttTctgg
+												gRNA_947_Forward	chr2B	+	789777915	4	cgccgTccgGgcaacTttTctgg
+												gRNA_947_Forward	chr2D	-	536887302	4	ATccgaccgtgcCacaAtgctgg
+gRNA_950_Forward	931	950	Forward	20	CGACCGTGCAACATTGCTGG	60.0	50.0	CCAGCAATGTTGCACGGTCG	TGG	GW2BmRNA	Nb.BsrDI,BsrDI,68,gcaatg	gRNA_950_Forward	chr2A	-	121589582	4	cgCccCtgcaacattgcATgtgg
+												gRNA_950_Forward	chr2A	+	230964317	4	cgaGcgGgcaacattgGtgCtgg
+												gRNA_950_Forward	chr2A	-	629103435	4	TCaccTtgcaacattgcCggtgg
+												gRNA_950_Forward	chr2A	-	629640091	4	cgacAgAgcaacattTctgTtgg
+												gRNA_950_Forward	chr2B	+	154192625	4	AgaccTtgcaaAatCgctggtgg
+												gRNA_950_Forward	chr2B	-	254090789	4	cgaTcgGgcaacattgGtgCtgg
+												gRNA_950_Forward	chr2B	-	284549886	4	AAaccgtgGaacattgctggAgg
+												gRNA_950_Forward	chr2B	-	669729901	4	cgCccgtgcTCcattgcAggtgg
+												gRNA_950_Forward	chr2B	-	775586059	4	cTaTcAtgcaacattgctTgtgg
+												gRNA_950_Forward	chr2D	+	226289024	4	cTaccgAgcaacatAgTtggtgg
+gRNA_992_Forward	973	992	Forward	20	AGTTCACCAGATAGCTGGAG	50.0	50.0	CTCCAGCTATCTGGTGAACT	CGG	GW2BmRNA	BstXI,66,ccannnnnntgg	gRNA_992_Forward	chr2A	-	384345670	4	agttcaccaTaGagcAggTgcgg
+												gRNA_992_Forward	chr2A	+	586641484	4	agttcaccagGGagctTgaCcgg
+												gRNA_992_Forward	chr2A	+	640405304	4	agttcaccaTaGagcAggTgcgg
+												gRNA_992_Forward	chr2A	+	652384333	4	agttcacGagatagTtgAagTgg
+												gRNA_992_Forward	chr2A	-	671282358	4	agAtcaccagCtagcAggagAgg
+												gRNA_992_Forward	chr2B	-	147592045	4	agttcaccaTaGagcAggTgcgg
+												gRNA_992_Forward	chr2B	+	154192625	4	TgttcaccaTaGagcAggagcgg
+												gRNA_992_Forward	chr2B	+	596801781	4	agttcacGagatagTtgAagTgg
+												gRNA_992_Forward	chr2B	-	81764546	4	agttcaccaTaGagcAggTgcgg
+												gRNA_992_Forward	chr2D	+	125307166	4	TgttcaccaTaGagcAggagcgg
+gRNA_1024_Forward	1005	1024	Forward	20	AAGTTGCAGCAGAAGGGAAG	50.0	50.0	CTTCCCTTCTGCTGCAACTT	TGG	GW2BmRNA		gRNA_1024_Forward	chr2B	+	154192625	3	aaAGtgcagcagGagggaagtgg
+												gRNA_1024_Forward	chr2B	+	154192625	3	aGgtGgcagcagaagTgaagtgg
+												gRNA_1024_Forward	chr2D	+	348379648	3	aagtGgcagcagCagAgaagtgg
+												gRNA_1024_Forward	chr2A	-	129621060	4	aagAGgAagGagaagggaagtgg
+												gRNA_1024_Forward	chr2A	-	141262292	4	aTgtACcagcagaagggCagtgg
+												gRNA_1024_Forward	chr2A	+	14783194	4	aagttgcaTcagaTTgTaagtgg
+												gRNA_1024_Forward	chr2A	-	318569073	4	aaAttTAGgcagaagggaagtgg
+												gRNA_1024_Forward	chr2A	+	326653560	4	aagAGgAagGagaagggaagtgg
+												gRNA_1024_Forward	chr2A	+	327802999	4	aagAGgAagGagaagggaagtgg
+												gRNA_1024_Forward	chr2A	+	329642309	4	aagAGgAagGagaagggaagtgg
+gRNA_1033_Forward	1014	1033	Forward	20	CAGAAGGGAAGTGGTAAGAG	50.0	50.0	CTCTTACCACTTCCCTTCTG	AGG	GW2BmRNA		gRNA_1033_Forward	chr2B	+	154192625	1	cagaGgggaagtggtaagagagg
+												gRNA_1033_Forward	chr2D	+	125307166	1	cagaGgggaagtggtaagagagg
+												gRNA_1033_Forward	chr2A	-	636854464	2	cagaGgggaaAtggtaagagagg
+												gRNA_1033_Forward	chr2B	-	686147719	2	cagaGgggaaAtggtaagagagg
+												gRNA_1033_Forward	chr2B	-	686155536	2	cagaGgggaaAtggtaagagagg
+												gRNA_1033_Forward	chr2D	+	125307166	2	cagaGgggaaAtggtaagagagg
+												gRNA_1033_Forward	chr2B	-	290049365	3	TagaGgggaagtgCtaagagagg
+												gRNA_1033_Forward	chr2B	+	353445564	3	cagaaggCaagtAgCaagagagg
+												gRNA_1033_Forward	chr2B	+	369851978	3	cagaTgggaagtggAaaCagagg
+												gRNA_1033_Forward	chr2D	+	125307166	3	caAaGgggaaAtggtaagagagg
+gRNA_1037_Forward	1018	1037	Forward	20	AGGGAAGTGGTAAGAGAGGA	50.0	40.0	TCCTCTCTTACCACTTCCCT	AGG	GW2BmRNA	MnlI,132,cctc	gRNA_1037_Forward	chr2A	-	256790579	3	agggaagAggGaagTgaggaagg
+												gRNA_1037_Forward	chr2A	+	327802999	3	agggaagGggGaagagagAaagg
+												gRNA_1037_Forward	chr2A	-	373820006	3	agggaagAggGaagGgaggaagg
+												gRNA_1037_Forward	chr2B	-	106824057	3	agggaagAggGaagGgaggaagg
+												gRNA_1037_Forward	chr2B	+	154192625	3	agggaagAggGaagGgaggaagg
+												gRNA_1037_Forward	chr2B	+	154192625	3	agggaagGggGaagagagAaagg
+												gRNA_1037_Forward	chr2B	-	373018433	3	agggaagAggGaagGgaggaagg
+												gRNA_1037_Forward	chr2B	-	557352295	3	GgggaagtggtaaTGgaggaagg
+												gRNA_1037_Forward	chr2B	-	689824454	3	agggaagAggGaagGgaggaagg
+												gRNA_1037_Forward	chr2B	+	749301702	3	agggaagAggGaagGgaggaagg
+gRNA_1213_Forward	1194	1213	Forward	20	AGAACAAATGATGTATTCCA	30.0	30.0	TGGAATACATCATTTGTTCT	TGG	GW2BmRNA		gRNA_1213_Forward	chr2B	+	154192625	3	TgaacaaaGgatgtattccTtgg
+												gRNA_1213_Forward	chr2A	+	138154314	4	aTaaTaaatgatAtattGcatgg
+												gRNA_1213_Forward	chr2A	+	149093953	4	agaacaTatgatAtGttccaAgg
+												gRNA_1213_Forward	chr2A	-	173514698	4	aAaacaaTtgatgtGttccTtgg
+												gRNA_1213_Forward	chr2A	+	243542636	4	agaacaCTtgatgtatGccTtgg
+												gRNA_1213_Forward	chr2A	-	246361007	4	agaacaCTtgatgtatGTcatgg
+												gRNA_1213_Forward	chr2A	-	329508314	4	agaCcTGatgatgAattccatgg
+												gRNA_1213_Forward	chr2A	-	46687355	4	agCacTCatgatgtattcAatgg
+												gRNA_1213_Forward	chr2A	-	513206220	4	agaacaTatgaGAtattccaAgg
+												gRNA_1213_Forward	chr2A	+	588906542	4	agaacaaatgatgGatAGcaAgg
+gRNA_1238_Forward	1219	1238	Forward	20	GTTTCTTTAGCAGAAGCTCA	40.0	50.0	TGAGCTTCTGCTAAAGAAAC	TGG	GW2BmRNA	AluI,66,agct	gRNA_1238_Forward	chr2A	+	686873689	3	gtttctttagAaAaagTtcatgg
+												gRNA_1238_Forward	chr2B	+	154192625	3	CtttTtttagcagTagctcatgg
+												gRNA_1238_Forward	chr2A	+	150459243	4	gtttctGtCgcagaagAtcCtgg
+												gRNA_1238_Forward	chr2A	-	16905814	4	gtttcttAagcCgaaCGtcatgg
+												gRNA_1238_Forward	chr2A	+	188202428	4	gtttGtttagcagCTgctcaAgg
+												gRNA_1238_Forward	chr2A	+	233854765	4	gtttctttagTCgaaCGtcatgg
+												gRNA_1238_Forward	chr2A	-	294500421	4	gttGctttTgcagGaTctcatgg
+												gRNA_1238_Forward	chr2A	-	329642310	4	gtttcttAagcCgaaCGtcatgg
+												gRNA_1238_Forward	chr2A	-	339656215	4	gtttcttAagcCgaaCGtcatgg
+												gRNA_1238_Forward	chr2A	+	358704885	4	gttGctttTgcagGaTctcatgg
+gRNA_1256_Forward	1237	1256	Forward	20	CATGGTAGAACGCACACGCA	55.0	70.0	TGCGTGTGCGTTCTACCATG	AGG	GW2BmRNA		gRNA_1256_Forward	chr2A	+	295279222	4	cTtggtagaaGgcTcGcgcaagg
+												gRNA_1256_Forward	chr2A	-	576930169	4	caGgTtCgaacgcacacgcGagg
+												gRNA_1256_Forward	chr2A	-	576936421	4	caGgTtCgGacgcacacgcaagg
+												gRNA_1256_Forward	chr2B	-	154192625	4	catggtagaTcgAacaGgcGagg
+												gRNA_1256_Forward	chr2B	+	366007338	4	catggtGgaacgcaTCGgcaagg
+												gRNA_1256_Forward	chr2B	+	3837880	4	catggtGgaaTgcacaGgcGagg
+												gRNA_1256_Forward	chr2B	-	40950157	4	catggGagaaGgcacTcAcaagg
+												gRNA_1256_Forward	chr2B	+	4130233	4	catggtGgaaTgcacaGgcGagg
+												gRNA_1256_Forward	chr2D	+	125307166	4	catggCagaCGgcaGacgcaagg
+												gRNA_1256_Forward	chr2D	-	125307166	4	catggtagaaGAcaGaAgcaagg
+gRNA_1261_Forward	1242	1261	Forward	20	TAGAACGCACACGCAAGGGT	55.0	60.0	ACCCTTGCGTGTGCGTTCTA	TGG	GW2BmRNA		gRNA_1261_Forward	chr2A	+	597741227	4	tagaaGgcTcacgcaagCTttgg
+												gRNA_1261_Forward	chr2B	+	154192625	4	tagaacAAaTacgcaagTgttgg
+												gRNA_1261_Forward	chr2B	+	154192625	4	tagaCcAAacacgcaaTggttgg
+												gRNA_1261_Forward	chr2B	+	154192625	4	tCCTacgcacacgcaagTgttgg
+												gRNA_1261_Forward	chr2B	+	168525315	4	CagaacgcacacgTTagTgttgg
+												gRNA_1261_Forward	chr2B	-	414715964	4	CaAaacgcacacgcaagTgGtgg
+												gRNA_1261_Forward	chr2B	-	437918500	4	AagCacgcCcaAgcaagggttgg
+												gRNA_1261_Forward	chr2D	-	58705353	4	GagaaGgAacaGgcaagggttgg
+gRNA_1266_Forward	1247	1266	Forward	20	CGCACACGCAAGGGTTGGCA	65.0	60.0	TGCCAACCCTTGCGTGTGCG	TGG	GW2BmRNA		gRNA_1266_Forward	chr2D	+	139486427	3	cgcacaTgcaaggAttggcTtgg
+												gRNA_1266_Forward	chr2A	+	186849418	4	cgcacacgcaagATttATcatgg
+												gRNA_1266_Forward	chr2A	-	190785942	4	cgcacacgGGagggGtgCcatgg
+												gRNA_1266_Forward	chr2A	+	30891117	4	cgcaGacgcCagggttggAGtgg
+												gRNA_1266_Forward	chr2A	+	30898409	4	cgcaGacgcCagggttggAGtgg
+												gRNA_1266_Forward	chr2A	+	30912719	4	cgcaGacgcCagggttggAGtgg
+												gRNA_1266_Forward	chr2A	-	33456233	4	cgcacTcgcaTgggAGggcatgg
+												gRNA_1266_Forward	chr2A	-	401782346	4	cAcacacgcaTgggtGTgcatgg
+												gRNA_1266_Forward	chr2A	-	401788450	4	cAcacacgcaCgggtGTgcatgg
+												gRNA_1266_Forward	chr2A	-	403779443	4	cAcacacgcaCgggtGTgcatgg
+gRNA_1359_Forward	1340	1359	Forward	20	CTTTTTTGCCACCCCGTGTT	50.0	60.0	AACACGGGGTGGCAAAAAAG	CGG	GW2BmRNA	DraIII,67,cacnnngtg;BslI,63,ccnnnnnnngg	gRNA_1359_Forward	chr2A	-	414185110	3	TttttttgccCcccTgtgttcgg
+												gRNA_1359_Forward	chr2A	-	445762313	3	TttttttgccaAcccCtgttcgg
+												gRNA_1359_Forward	chr2B	-	371248641	3	TttttttgccCcccAgtgttcgg
+												gRNA_1359_Forward	chr2B	-	476787250	3	TttttttgTcCccccgtgttcgg
+												gRNA_1359_Forward	chr2B	-	614990439	3	cttttttgTcCcccAgtgttcgg
+												gRNA_1359_Forward	chr2B	-	691549567	3	TtCttttgTcaccccgtgttcgg
+												gRNA_1359_Forward	chr2D	+	125307166	3	AttttttgccaAcccCtgttcgg
+												gRNA_1359_Forward	chr2D	+	125307166	3	ctCttttgccCcccTgtgttcgg
+												gRNA_1359_Forward	chr2D	+	125307166	3	ctCttttgTcCccccgtgttcgg
+												gRNA_1359_Forward	chr2D	+	125307166	3	cttttCtgccaAcccCtgttcgg
+gRNA_20_Reverse	1	20	Reverse	20	AGAAACAAAACGGCCGAACA	45.0	70.0	TGTTCGGCCGTTTTGTTTCT	CGG	GW2BmRNA	BslI,63,ccnnnnnnngg	gRNA_20_Reverse	chr2A	+	753675129	3	agaaacaaaaAggccgCacaGgg
+												gRNA_20_Reverse	chr2A	+	583178603	4	agGaaGaaaacggcAgaacaGgg
+												gRNA_20_Reverse	chr2A	+	77931982	4	aCaaacaaaacgAAcgaacGcgg
+												gRNA_20_Reverse	chr2B	+	118837833	4	aCaaacaaaacgAAcgaacGcgg
+												gRNA_20_Reverse	chr2B	-	227075887	4	GgaaacaaaacgAccgaTcaAgg
+												gRNA_20_Reverse	chr2B	+	749816878	4	agaaaGaaaacggcGgaaTaGgg
+												gRNA_20_Reverse	chr2D	-	121832405	4	aAaaacaaaGcggccgaTcTcgg
+												gRNA_20_Reverse	chr2D	+	125307166	4	aCaaacaaaCcCAccgaacacgg
+												gRNA_20_Reverse	chr2D	+	125307166	4	GgaaaAaaaacAgccgaaAacgg
+												gRNA_20_Reverse	chr2D	+	125307166	4	TgGaacaaGacggccgaacCcgg
+gRNA_25_Reverse	6	25	Reverse	20	CAAAACGGCCGAACACGGGG	65.0	70.0	CCCCGTGTTCGGCCGTTTTG	TGG	GW2BmRNA	DraIII,67,cacnnngtg;BslI,63,ccnnnnnnngg	gRNA_25_Reverse	chr2A	+	347373139	4	caaaacggccgaTcTcgggTAgg
+												gRNA_25_Reverse	chr2A	-	582636775	4	caaaaAggccgaacacgATCtgg
+												gRNA_25_Reverse	chr2A	-	582636775	4	caaaacggccCaCTaAggggtgg
+												gRNA_25_Reverse	chr2A	-	582636775	4	caaaacggccgaaGaGgggCCgg
+												gRNA_25_Reverse	chr2A	-	582636775	4	caaaacggccgaaGCcggACtgg
+												gRNA_25_Reverse	chr2A	-	582636775	4	caaaacggccgaaGCGgggCtgg
+												gRNA_25_Reverse	chr2A	-	582636775	4	caaaacggccgaaGTGgggCtgg
+												gRNA_25_Reverse	chr2A	-	582636775	4	caaaacggccgaaTCcggCCtgg
+												gRNA_25_Reverse	chr2A	-	582636775	4	caaaaGggccgaaGaGgggCtgg
+												gRNA_25_Reverse	chr2A	-	582636775	4	caaCacggccgCacaGgAggtgg
+gRNA_42_Reverse	23	42	Reverse	20	GGGTGGCAAAAAAGAGCAGA	50.0	40.0	TCTGCTCTTTTTTGCCACCC	AGG	GW2BmRNA		gRNA_42_Reverse	chr2B	+	764911787	3	gggtAgcaaaaaagagGaAaagg
+												gRNA_42_Reverse	chr2D	+	125307166	3	gggAggcaGaaTagagcagaagg
+												gRNA_42_Reverse	chr2D	+	125307166	3	gggtggcaaCCaagagAagaagg
+												gRNA_42_Reverse	chr2A	+	224117195	4	gggtggcTaaaGagagGagGagg
+												gRNA_42_Reverse	chr2A	-	266122788	4	gggAgAAaaaaaagagAagaagg
+												gRNA_42_Reverse	chr2A	-	269763906	4	AgTAggcaaaaaagagAagaagg
+												gRNA_42_Reverse	chr2A	-	269769939	4	AgTAggcaaaaaagagAagaagg
+												gRNA_42_Reverse	chr2A	-	515128741	4	ggAtggGGaaaaagagGagaagg
+												gRNA_42_Reverse	chr2A	-	524183176	4	ggCtggcCCaaCagagcagaagg
+												gRNA_42_Reverse	chr2A	-	524216707	4	ggCtggcCCaaCagagcagaagg
+gRNA_74_Reverse	55	74	Reverse	20	CAACGATAGTGCGGGAGAGA	55.0	70.0	TCTCTCCCGCACTATCGTTG	AGG	GW2BmRNA		gRNA_74_Reverse	chr2A	-	223689798	3	cTacgataAtgcgggagGgaagg
+												gRNA_74_Reverse	chr2B	-	565966393	3	GaaGgatagtgcgggagagaGgg
+												gRNA_74_Reverse	chr2A	+	657522351	4	cCacgatagtgGCAgagagaagg
+												gRNA_74_Reverse	chr2B	-	100656659	4	GaaGgaGagtgcgggGgagaagg
+												gRNA_74_Reverse	chr2B	+	154192625	4	GGacgCtagtgcgggagagaTgg
+												gRNA_74_Reverse	chr2B	-	177153427	4	caaGgaAagtgcgggGgagaGgg
+												gRNA_74_Reverse	chr2B	+	214989059	4	caaGgaAagtgcgggGgagaGgg
+												gRNA_74_Reverse	chr2B	-	23274835	4	GaTcgatagtgcggAaCagaagg
+												gRNA_74_Reverse	chr2B	-	334685812	4	caacAGtagtAcCggagagaagg
+												gRNA_74_Reverse	chr2B	-	340766931	4	caaGgaAagtgcgggGgagaGgg
+gRNA_162_Reverse	143	162	Reverse	20	TTCTGCTAAAGAAACAGCCA	40.0	50.0	TGGCTGTTTCTTTAGCAGAA	TGG	GW2BmRNA		gRNA_162_Reverse	chr2A	-	384345670	3	AtctgctaaagaaGAagccatgg
+												gRNA_162_Reverse	chr2A	+	119609789	4	ttctgcCaaaCaaGAagccatgg
+												gRNA_162_Reverse	chr2A	+	181620328	4	ttctATtaaagaaacCAccatgg
+												gRNA_162_Reverse	chr2A	-	20353465	4	ttctTctaCagGaGcagccatgg
+												gRNA_162_Reverse	chr2A	-	296227525	4	ttctATtaaagaaacCAccatgg
+												gRNA_162_Reverse	chr2A	+	306071691	4	ttctATtaaagaaacCAccatgg
+												gRNA_162_Reverse	chr2A	+	327802999	4	ttctTctaCagGaGcagccatgg
+												gRNA_162_Reverse	chr2A	+	356359358	4	ttctATtaaagaaacCAccatgg
+												gRNA_162_Reverse	chr2A	-	365048796	4	tAGtgctaaaTaaacaTccatgg
+												gRNA_162_Reverse	chr2A	-	379070654	4	ttctATtaaagaaacCAccatgg
+gRNA_193_Reverse	174	193	Reverse	20	ATTTGTTCTTCGATGCTCTC	40.0	60.0	GAGAGCATCGAAGAACAAAT	AGG	GW2BmRNA		gRNA_193_Reverse	chr2A	+	214134936	4	aCttgCtcttcgatgAtctcCgg
+												gRNA_193_Reverse	chr2A	+	297335242	4	aCttgttcttcgTtgctTGcagg
+												gRNA_193_Reverse	chr2A	-	619562862	4	aCttgCtcttcgatgAtctcCgg
+												gRNA_193_Reverse	chr2B	-	134474230	4	atttgAtcttcgatgGATtcagg
+												gRNA_193_Reverse	chr2B	-	195646445	4	aCAtgAtcttcgatgAtctcagg
+												gRNA_193_Reverse	chr2B	+	235667317	4	atttgttcttcgatgTATtcGgg
+												gRNA_193_Reverse	chr2B	-	311611469	4	GCttgttcttcgTtgctcGcagg
+												gRNA_193_Reverse	chr2D	+	125307166	4	atGGgtGcttcTatgctctcagg
+												gRNA_193_Reverse	chr2D	+	288295260	4	TtttgttcttcgatgTtTtTagg
+												gRNA_193_Reverse	chr2D	-	522546557	4	aGttgttcttAAatgctctcTgg
+gRNA_197_Reverse	178	197	Reverse	20	GTTCTTCGATGCTCTCAGGA	50.0	60.0	TCCTGAGAGCATCGAAGAAC	CGG	GW2BmRNA	DdeI,66,ctnag;Hpy188III,132,tcnnga	gRNA_197_Reverse	chr2B	-	21952443	4	CttcttcCatgctctcaggCAgg
+gRNA_203_Reverse	184	203	Reverse	20	CGATGCTCTCAGGACGGAAA	55.0	50.0	TTTCCGTCCTGAGAGCATCG	TGG	GW2BmRNA		gRNA_203_Reverse	chr2A	+	634873273	4	cgatgctctcTgTaGTgaaatgg
+												gRNA_203_Reverse	chr2A	+	657373197	4	cgaGgctctcaggGAggaaGtgg
+												gRNA_203_Reverse	chr2A	+	708153238	4	AgatgctctAaggaAgTaaatgg
+												gRNA_203_Reverse	chr2A	-	753963224	4	cgTtgctctcaCCacggaaaCgg
+												gRNA_203_Reverse	chr2A	-	775100239	4	cgatgctcCcaAgaGAgaaatgg
+												gRNA_203_Reverse	chr2A	-	775100239	4	cgatgctGtcaAgGTggaaatgg
+												gRNA_203_Reverse	chr2B	+	154192625	4	GgatgctctcCTgacggaGatgg
+												gRNA_203_Reverse	chr2B	+	177081082	4	cgatgctGtcaAgGTggaaatgg
+												gRNA_203_Reverse	chr2B	+	192995214	4	cgaGgctctTaggaAggCaatgg
+												gRNA_203_Reverse	chr2B	+	245300861	4	cgatgctcCcaggaGAgaaaCgg
+gRNA_394_Reverse	375	394	Reverse	20	GCTATCCCGCTCCAGCTATC	60.0	50.0	GATAGCTGGAGCGGGATAGC	TGG	GW2BmRNA	BstXI,66,ccannnnnntgg;AluI,66,agct	gRNA_394_Reverse	chr2B	+	154192625	3	gTGatcccgcAccagctatctgg
+												gRNA_394_Reverse	chr2A	-	145758402	4	gctatcTcTctccTTctatctgg
+												gRNA_394_Reverse	chr2A	-	16782853	4	gcAatcccgctccCCctaCctgg
+												gRNA_394_Reverse	chr2A	-	24213298	4	gcAGtccAgctccagTtatctgg
+												gRNA_394_Reverse	chr2A	-	691954672	4	gctatcTcTctccCTctatctgg
+												gRNA_394_Reverse	chr2B	+	154192625	4	gctaGcTcTctccaTctatctgg
+												gRNA_394_Reverse	chr2B	+	154192625	4	gctatcccAGCccagctaActgg
+												gRNA_394_Reverse	chr2B	+	154192625	4	gctCGcGcgctccTgctatctgg
+												gRNA_394_Reverse	chr2B	-	772188544	4	gctatcccAGCccagctaActgg
+gRNA_439_Reverse	420	439	Reverse	20	CTTCCACCAGCAATGTTGCA	50.0	40.0	TGCAACATTGCTGGTGGAAG	CGG	GW2BmRNA		gRNA_439_Reverse	chr2A	+	444792000	4	AttccaccCgcaatgttgTaTgg
+												gRNA_439_Reverse	chr2B	-	119957611	4	cttcGTccCgcaatgGtgcacgg
+												gRNA_439_Reverse	chr2B	+	154192625	4	GttcGaccCgcaatgttgcaTgg
+												gRNA_439_Reverse	chr2B	-	17590748	4	cttccTccaTcGatgttgcaTgg
+												gRNA_439_Reverse	chr2B	-	21764017	4	GttcGaccTgcaatgttgTacgg
+												gRNA_439_Reverse	chr2B	+	402372433	4	AttccaccCgcaatgttgTaTgg
+												gRNA_439_Reverse	chr2B	+	70040463	4	GttcGaccagcaatgttgTaTgg
+												gRNA_439_Reverse	chr2B	+	73337923	4	cttccaccagAaCtCttgcTcgg
+												gRNA_439_Reverse	chr2B	-	9249906	4	GttcGaccagcaatgttgTaTgg
+												gRNA_439_Reverse	chr2D	+	125307166	4	GGtccTccagcaatgttCcacgg
+gRNA_443_Reverse	424	443	Reverse	20	CACCAGCAATGTTGCACGGT	55.0	60.0	ACCGTGCAACATTGCTGGTG	CGG	GW2BmRNA	MwoI,136,gcnnnnnnngc;BsiEI,66,cgrycg	gRNA_443_Reverse	chr2A	-	191608206	4	GTTGagcaatgttgcacggtcgg
+												gRNA_443_Reverse	chr2A	-	327802999	4	caccTgcaatgttgcCcggGGgg
+												gRNA_443_Reverse	chr2A	-	598271533	4	caTGagcaatAttCcacggtcgg
+												gRNA_443_Reverse	chr2B	+	15791837	4	TaccagcaatgtCgcCcggtGgg
+												gRNA_443_Reverse	chr2B	-	365124513	4	cGccagAaatgGtgcacggAcgg
+												gRNA_443_Reverse	chr2B	-	638748732	4	cTccTTcaTtgttgcacggtcgg
+												gRNA_443_Reverse	chr2B	-	66579395	4	GaTGagcaatgttCcacggtcgg
+												gRNA_443_Reverse	chr2D	+	125307166	4	caccaAGaTtgttgcacggtAgg
+												gRNA_443_Reverse	chr2D	+	125307166	4	GaTGagcaatgttCcacggtcgg
+												gRNA_443_Reverse	chr2D	+	125307166	4	GTccagcaTtgtGgcacggtcgg
+gRNA_446_Reverse	427	446	Reverse	20	CAGCAATGTTGCACGGTCGG	60.0	80.0	CCGACCGTGCAACATTGCTG	CGG	GW2BmRNA	MwoI,136,gcnnnnnnngc;BsiEI,66,cgrycg	gRNA_446_Reverse	chr2A	-	191608203	1	Gagcaatgttgcacggtcggcgg
+												gRNA_446_Reverse	chr2A	-	263907957	2	GagcaatgttCcacggtcggcgg
+												gRNA_446_Reverse	chr2A	-	349607976	2	GagcaatgttCcacggtcggcgg
+												gRNA_446_Reverse	chr2A	-	457074889	2	GagcaatgttCcacggtcggcgg
+												gRNA_446_Reverse	chr2B	+	154192625	2	GagcaatgttCcacggtcggcgg
+												gRNA_446_Reverse	chr2B	-	66579392	2	GagcaatgttCcacggtcggcgg
+												gRNA_446_Reverse	chr2D	+	125307166	2	GagcaatgttCcacggtcggcgg
+												gRNA_446_Reverse	chr2D	+	173002746	2	GagcaatgttCcacggtcggcgg
+												gRNA_446_Reverse	chr2D	+	271565378	2	GagcaatgttCcacggtcggcgg
+												gRNA_446_Reverse	chr2D	-	475146811	2	GagcaatgttCcacggtcggcgg
+gRNA_463_Reverse	444	463	Reverse	20	CGGCGGAACATGTCAAAGAC	55.0	40.0	GTCTTTGACATGTTCCGCCG	TGG	GW2BmRNA		gRNA_463_Reverse	chr2A	-	22092830	4	cgCcggaacaGTtcaaaTactgg
+												gRNA_463_Reverse	chr2A	-	242826142	4	cgCcggaacaGTtcaaaTactgg
+												gRNA_463_Reverse	chr2A	+	287755358	4	AAgcggaacatgtTaaagaAtgg
+												gRNA_463_Reverse	chr2A	+	327802999	4	cgCcggaacaGTtcaaaTactgg
+												gRNA_463_Reverse	chr2A	-	605140962	4	cgCcggaacaGTtcaaaTactgg
+												gRNA_463_Reverse	chr2A	-	632278753	4	cgCcggaacaGTtcaaaTactgg
+												gRNA_463_Reverse	chr2A	-	740227623	4	cgCcggaacaGTtcaaaTactgg
+												gRNA_463_Reverse	chr2A	-	769174839	4	cgCcggaacaGTtcaaaTactgg
+												gRNA_463_Reverse	chr2B	+	154192625	4	cgCcggaacaGTtcaaaTactgg
+												gRNA_463_Reverse	chr2B	+	154192625	4	cggcCgCacTtgtcaaaAactgg
+gRNA_553_Reverse	534	553	Reverse	20	ACAGCACAAGAAAATCCACC	45.0	40.0	GGTGGATTTTCTTGTGCTGT	AGG	GW2BmRNA	BstXI,66,ccannnnnntgg;MslI,136,caynnnnrtg	gRNA_553_Reverse	chr2A	-	513206220	3	acagTacaagaaaatccaGcCgg
+												gRNA_553_Reverse	chr2A	-	87713240	3	acaAcacTagaaaatccTccagg
+												gRNA_553_Reverse	chr2A	-	137302688	4	acagcacaGgGGaatccaccTgg
+												gRNA_553_Reverse	chr2A	+	295942686	4	acCAcacaagaaaatccTAcagg
+												gRNA_553_Reverse	chr2A	-	314047163	4	acagTaAaagTaaatccaGcagg
+												gRNA_553_Reverse	chr2A	+	335743602	4	acagcacCagaaaTtTGaccagg
+												gRNA_553_Reverse	chr2A	+	360420711	4	acagAaGaagaaaatcAaGcagg
+												gRNA_553_Reverse	chr2A	+	620028652	4	GcagcacaTgaaaTtcAaccagg
+												gRNA_553_Reverse	chr2A	-	714230726	4	acTCcCcaagaaaatccacTagg
+												gRNA_553_Reverse	chr2B	+	368957999	4	acagAaGaagaaaatcAaGcagg
+gRNA_557_Reverse	538	557	Reverse	20	CACAAGAAAATCCACCAGGA	45.0	60.0	TCCTGGTGGATTTTCTTGTG	TGG	GW2BmRNA	BstNI,PspGI,19,ccwgg;ScrFI,StyD4I,66,ccngg;BstXI,66,ccannnnnntgg;MslI,136,caynnnnrtg;BslI,63,ccnnnnnnngg	gRNA_557_Reverse	chr2A	+	28687454	4	caTTagaaaatccTcTaggatgg
+												gRNA_557_Reverse	chr2A	+	327802999	4	caAGagaaaatAcaccagCatgg
+												gRNA_557_Reverse	chr2A	+	50220699	4	cacCagaaaatGcCccaAgatgg
+												gRNA_557_Reverse	chr2A	-	57032449	4	cacTagaaaaGGcCccaggatgg
+												gRNA_557_Reverse	chr2A	-	765043228	4	cacGagaGaatTGaccaggatgg
+												gRNA_557_Reverse	chr2B	+	154192625	4	caAGagaaaatAcaccagCatgg
+												gRNA_557_Reverse	chr2B	+	154192625	4	GaAaagaaaGtTcaccaggatgg
+												gRNA_557_Reverse	chr2B	-	154325058	4	TGAaagaaaaGccaccaggatgg
+												gRNA_557_Reverse	chr2B	+	19395528	4	cacaGCaaaatccTccaggaAgg
+												gRNA_557_Reverse	chr2B	+	336453342	4	cacaaAaaaatcAaccaCAatgg
+gRNA_746_Reverse	727	746	Reverse	20	CATCACGAGTATGCCTAGAA	45.0	40.0	TTCTAGGCATACTCGTGATG	TGG	GW2BmRNA	BfaI,142,ctag	gRNA_746_Reverse	chr2A	+	110718182	4	catcCcgagtatgTAtagaTtgg
+												gRNA_746_Reverse	chr2A	+	198698269	4	catcacgagGaGTTctagaatgg
+												gRNA_746_Reverse	chr2A	-	274703709	4	catcacTaTtatAcctaAaatgg
+												gRNA_746_Reverse	chr2A	+	305701471	4	caAcacgaAtatgcAtaCaatgg
+												gRNA_746_Reverse	chr2A	-	310343673	4	caGcCcgagtatgcAtagaTtgg
+												gRNA_746_Reverse	chr2A	-	327802999	4	catcCcgagtatgTGtagaTtgg
+												gRNA_746_Reverse	chr2A	-	336389652	4	catcaAgagCatgActaCaatgg
+												gRNA_746_Reverse	chr2A	+	347356600	4	catcCcgagtatgTGtagaTtgg
+												gRNA_746_Reverse	chr2A	+	353248240	4	catcacgagCatgAAGagaatgg
+												gRNA_746_Reverse	chr2A	+	373739363	4	catcCcgagtatgTGtagaTtgg
+gRNA_781_Reverse	762	781	Reverse	20	TTAGCCTGAGCAGAACATGA	45.0	40.0	TCATGTTCTGCTCAGGCTAA	AGG	GW2BmRNA	NlaIII,CviAII,FatI,132,catg	gRNA_781_Reverse	chr2A	-	332476007	4	tGaAcGtgTgcagaacatgaagg
+												gRNA_781_Reverse	chr2A	-	546519511	4	tGaAcctgTgcagaacaCgaagg
+												gRNA_781_Reverse	chr2B	+	154192625	4	ttTgcctgaCGagaCcatgaagg
+												gRNA_781_Reverse	chr2B	-	198534215	4	ttagGctgagcTgaaTaAgaagg
+												gRNA_781_Reverse	chr2B	-	381271534	4	ttaTcAtgagcaTaaTatgaagg
+												gRNA_781_Reverse	chr2B	-	488472916	4	GtagGctgagcTAaacatgaagg
+												gRNA_781_Reverse	chr2B	-	594805940	4	tATgcAtgagTagaacatgaagg
+												gRNA_781_Reverse	chr2B	+	684282431	4	tCagcctgagGagGaAatgaagg
+												gRNA_781_Reverse	chr2D	+	125307166	4	AtaAcctgagTagaacaGgaagg
+												gRNA_781_Reverse	chr2D	+	125307166	4	tGagcctgagGCgaTcatgaagg
+gRNA_840_Reverse	821	840	Reverse	20	TTGGTACGATGGCACTGAAT	45.0	50.0	ATTCAGTGCCATCGTACCAA	AGG	GW2BmRNA	TspRI,72,castg	gRNA_840_Reverse	chr2A	+	15382372	4	ttggtacgatggAacCAaaGagg
+												gRNA_840_Reverse	chr2A	-	37271837	4	ttCgtacgatggcaAtCCatagg
+												gRNA_840_Reverse	chr2B	-	147592048	4	ttggtacgatggcaGtAGatTgg
+												gRNA_840_Reverse	chr2B	-	147592048	4	ttggtacTatgCcGctCaatagg
+												gRNA_840_Reverse	chr2B	-	147592048	4	ttggtCcgatgTcactgaGtTgg
+												gRNA_840_Reverse	chr2B	+	334992308	4	ttggtacTatTgcactgaTAagg
+												gRNA_840_Reverse	chr2B	-	637870522	4	ttggtaTgaACgcactAaatagg
+												gRNA_840_Reverse	chr2B	-	774546724	4	ttggCacTatgCcactCaatagg
+												gRNA_840_Reverse	chr2D	-	326452091	4	ttggtacgatggcaGtAGatTgg
+gRNA_880_Reverse	861	880	Reverse	20	CGATACTCCACTTCTGTTGT	45.0	40.0	ACAACAGAAGTGGAGTATCG	TGG	GW2BmRNA	CspCI,130,caannnnngtgg	gRNA_880_Reverse	chr2A	-	624040328	3	TgaGaGtccacttctgttgttgg
+												gRNA_880_Reverse	chr2B	+	154192625	4	TgatCAtTcacttctgttgttgg
+												gRNA_880_Reverse	chr2B	+	305338909	4	cgGtactccacGtctgtGCttgg
+												gRNA_880_Reverse	chr2B	-	503758280	4	cAaAactccacCtctgttgtGgg
+												gRNA_880_Reverse	chr2D	-	643173826	4	TgataAtccacttcAgGtgttgg
+gRNA_1059_Reverse	1040	1059	Reverse	20	ATACTCCACAGCATAGTTGG	45.0	50.0	CCAACTATGCTGTGGAGTAT	GGG	GW2BmRNA	XcmI,66,ccannnnnnnnntgg	gRNA_1059_Reverse	chr2A	-	384345670	4	atactccacTgTatTgttggTgg
+												gRNA_1059_Reverse	chr2A	-	384345670	4	atactcTacagTatTgttggTgg
+												gRNA_1059_Reverse	chr2A	-	437890621	4	atacCcTacagAatagttAgggg
+												gRNA_1059_Reverse	chr2A	-	464693345	4	TtacAccacTgcatagAtggggg
+												gRNA_1059_Reverse	chr2A	-	466125843	4	atacCcTacagAatagttAgggg
+												gRNA_1059_Reverse	chr2A	-	517506509	4	TtacAccacTgcatagtGggggg
+												gRNA_1059_Reverse	chr2A	-	530153152	4	TtacAccacTgcatagtGggggg
+												gRNA_1059_Reverse	chr2B	+	154192625	4	atacCcTacagTatagttAgggg
+												gRNA_1059_Reverse	chr2B	+	154192625	4	atacCcTaTagTatagttggggg
+												gRNA_1059_Reverse	chr2B	-	183544594	4	aCactccacaAcTtaAttggggg
+gRNA_1072_Reverse	1053	1072	Reverse	20	TAGTTGGGGGTTTTGCAGAA	45.0	30.0	TTCTGCAAAACCCCCAACTA	TGG	GW2BmRNA	MwoI,136,gcnnnnnnngc	gRNA_1072_Reverse	chr2A	-	509675193	4	tTgttTggAgttGtgcagaatgg
+												gRNA_1072_Reverse	chr2A	-	585223121	4	AaTttgggggttttgGagTatgg
+												gRNA_1072_Reverse	chr2A	-	83151109	4	GagttggCAgttttgcagTatgg
+												gRNA_1072_Reverse	chr2A	-	83159060	4	GagttggCAgttttgcagTatgg
+												gRNA_1072_Reverse	chr2B	+	11827733	4	GaCttgggggttttgcagGGtgg
+												gRNA_1072_Reverse	chr2B	+	154192625	4	tagAAggTggttttgcagaGtgg
+												gRNA_1072_Reverse	chr2B	+	154192625	4	tCgttggggCCtttgcaCaatgg
+												gRNA_1072_Reverse	chr2B	+	154192625	4	tGTttggggAttttgcTgaatgg
+												gRNA_1072_Reverse	chr2B	+	154192625	4	tTgttTggAgttGtgcagaatgg
+												gRNA_1072_Reverse	chr2B	+	5628003	4	AagttggggTttttgAaAaatgg
+gRNA_1084_Reverse	1065	1084	Reverse	20	TTGCAGAATGGGCATTGTGT	45.0	50.0	ACACAATGCCCATTCTGCAA	AGG	GW2BmRNA		gRNA_1084_Reverse	chr2A	-	113400152	4	ttgcagCatgTAcatAgtgtagg
+												gRNA_1084_Reverse	chr2A	-	132200383	4	ttgTaAaatgggcatAgtgAagg
+												gRNA_1084_Reverse	chr2A	+	210967548	4	ttgTaAaatgggcattgtAAagg
+												gRNA_1084_Reverse	chr2A	-	486909470	4	ttgTagaatAggAattTtgtagg
+												gRNA_1084_Reverse	chr2A	-	489422458	4	ttgcagCatgTAcatAgtgtagg
+												gRNA_1084_Reverse	chr2A	-	497204639	4	ttgcaCaCtggAcattgtgtGgg
+												gRNA_1084_Reverse	chr2A	-	508492208	4	tCgcagaCtCgAcattgtgtagg
+												gRNA_1084_Reverse	chr2B	+	154192625	4	ttgcagCatgTAcatAgtgtagg
+												gRNA_1084_Reverse	chr2D	+	125307166	4	tAgGagGatgggcatAgtgtagg
+												gRNA_1084_Reverse	chr2D	+	125307166	4	ttgcagCatgTAcatAgtgtagg
+gRNA_1102_Reverse	1083	1102	Reverse	20	GTAGGTCGAGCAGTATGAGT	50.0	40.0	ACTCATACTGCTCGACCTAC	TGG	GW2BmRNA		gRNA_1102_Reverse	chr2A	-	513206221	4	gtagAtcgagcCTtaGgagttgg
+												gRNA_1102_Reverse	chr2A	-	513206221	4	gtaggAcgagcagGaCgagGtgg
+												gRNA_1102_Reverse	chr2A	-	5403976	4	gtagAtcgagcCTtaGgagttgg
+												gRNA_1102_Reverse	chr2A	-	710249317	4	gGaggAcgCgcagtCtgagttgg
+												gRNA_1102_Reverse	chr2A	-	776582601	4	gAaggtGgagcagtaGCagttgg
+												gRNA_1102_Reverse	chr2B	-	117900453	4	gtagAtcgagcCTtaGgagttgg
+												gRNA_1102_Reverse	chr2B	+	140674865	4	gtagAtcgagcCTtaGgagttgg
+												gRNA_1102_Reverse	chr2B	+	248394342	4	gtGggtcgagAaTtatgagAtgg
+												gRNA_1102_Reverse	chr2B	+	358532235	4	gtaggtcgaAcaACatgagGtgg
+												gRNA_1102_Reverse	chr2B	+	375150318	4	gCaggtGgagcagtGGgagttgg
+gRNA_1157_Reverse	1138	1157	Reverse	20	CTTTCGAGCAACATTTTGAT	35.0	20.0	ATCAAAATGTTGCTCGAAAG	CGG	GW2BmRNA		gRNA_1157_Reverse	chr2B	-	302162027	4	ctttcgaCcaTcattttCatTgg
+												gRNA_1157_Reverse	chr2B	-	518185129	4	GtttGgagcaacattttATtcgg
+												gRNA_1157_Reverse	chr2D	+	330865473	4	AtttcTagcaacattttgCtGgg
+												gRNA_1157_Reverse	chr2D	+	604258041	4	ctttcAagcaacCttttTaAcgg
+gRNA_1163_Reverse	1144	1163	Reverse	20	AGCAACATTTTGATCGGTTA	35.0	40.0	TAACCGATCAAAATGTTGCT	AGG	GW2BmRNA		gRNA_1163_Reverse	chr2B	-	147592045	3	agcaacatttAgTtcggtGaagg
+												gRNA_1163_Reverse	chr2B	-	81764546	3	agcaacatttAgTtcggtGaagg
+												gRNA_1163_Reverse	chr2B	-	81764546	3	agcaGcattttgatcTCttaagg
+												gRNA_1163_Reverse	chr2D	-	203326037	3	agcaacatttAgTtcggtGaagg
+												gRNA_1163_Reverse	chr2D	-	326452088	3	agcaacatttAgTtcggtGaagg
+												gRNA_1163_Reverse	chr2A	+	167432646	4	agAaacGttttgGtcggttGagg
+												gRNA_1163_Reverse	chr2A	+	269621057	4	agcaacattttCatcACttCagg
+												gRNA_1163_Reverse	chr2A	-	283652777	4	agcaaGatCttgaGcAgttaagg
+												gRNA_1163_Reverse	chr2A	+	313705819	4	agcaaGatCttgaGcAgttaagg
+												gRNA_1163_Reverse	chr2A	+	399819701	4	CgcaacattttgGtcAgtCaagg
+gRNA_1168_Reverse	1149	1168	Reverse	20	CATTTTGATCGGTTAAGGCT	40.0	50.0	AGCCTTAACCGATCAAAATG	TGG	GW2BmRNA		gRNA_1168_Reverse	chr2A	+	32315870	4	catGAtgatcggttaTggTttgg
+												gRNA_1168_Reverse	chr2A	+	83634870	4	catGAtgatcggttaTggTttgg
+												gRNA_1168_Reverse	chr2B	+	694269393	4	cattAtTatcggtCaaggTttgg
+												gRNA_1168_Reverse	chr2D	-	243660745	4	cTttttgatcggCtaGggctCgg
+												gRNA_1168_Reverse	chr2D	+	33559978	4	cTttttCatcggCtaaggTttgg
+												gRNA_1168_Reverse	chr2D	-	625565530	4	GaAtttgaCcggttaaggAttgg
+gRNA_1178_Reverse	1159	1178	Reverse	20	GGTTAAGGCTTGGGTAGTAC	50.0	50.0	GTACTACCCAAGCCTTAACC	AGG	GW2BmRNA	CviQI,RsaI,34,gtac	gRNA_1178_Reverse	chr2A	-	275076278	4	ggAtaaggcAtggCtagtacCgg
+												gRNA_1178_Reverse	chr2A	-	467053453	4	gCttaaggTAtgggtagtGcagg
+												gRNA_1178_Reverse	chr2A	+	529798309	4	ggtGaagCcttgggtagGTcagg
+												gRNA_1178_Reverse	chr2B	+	527471652	4	ggtGaagActtggCtagtacGgg
+												gRNA_1178_Reverse	chr2D	+	248754700	4	ggAtaaggctGgggGagAacagg
+												gRNA_1178_Reverse	chr2D	-	271565380	4	TgttaaggcttgTgAagtCcagg
+												gRNA_1178_Reverse	chr2D	+	35310959	4	ggttaagActtgggtTgtCAagg
+												gRNA_1178_Reverse	chr2D	-	359867089	4	ggttaGggTttgggtagtGGagg
+gRNA_1188_Reverse	1169	1188	Reverse	20	TGGGTAGTACAGGAAGCAGA	50.0	50.0	TCTGCTTCCTGTACTACCCA	TGG	GW2BmRNA	MwoI,136,gcnnnnnnngc	gRNA_1188_Reverse	chr2A	-	510143127	4	tgggtCTGacaggaagcaCatgg
+												gRNA_1188_Reverse	chr2A	-	557401943	4	tTggtagtaAaggaaTcagaAgg
+												gRNA_1188_Reverse	chr2A	-	774804623	4	tgggtaCtacTggTagcGgatgg
+												gRNA_1188_Reverse	chr2B	-	143971079	4	GgggtGgtacaggaagTagaAgg
+												gRNA_1188_Reverse	chr2B	+	154192625	4	GgggAagtaGaggaagcagGtgg
+												gRNA_1188_Reverse	chr2B	+	154192625	4	tgAgAagtaGaggaagAagatgg
+												gRNA_1188_Reverse	chr2B	+	154192625	4	tgggtaCtaGCggaagcaAatgg
+												gRNA_1188_Reverse	chr2B	+	154192625	4	tgTgAagtaGaggaagAagatgg
+												gRNA_1188_Reverse	chr2B	-	442532964	4	tgCgAagCacaggaagcagCtgg
+												gRNA_1188_Reverse	chr2B	-	45915135	4	tCTgCagtacaggaagGagatgg
+gRNA_1202_Reverse	1183	1202	Reverse	20	AGCAGATGGGGCACTCCTCC	65.0	70.0	GGAGGAGTGCCCCATCTGCT	AGG	GW2BmRNA	MnlI,132,cctc	gRNA_1202_Reverse	chr2D	+	125307166	3	agcCgaGggggcTctcctccagg
+												gRNA_1202_Reverse	chr2A	+	14945768	4	agcagatTgggcactcAtTGagg
+												gRNA_1202_Reverse	chr2A	+	653027882	4	agAagatggggcactGctTcGgg
+												gRNA_1202_Reverse	chr2A	-	703553882	4	CgcagaGggAgcactcctcGagg
+												gRNA_1202_Reverse	chr2A	-	971762	4	TgcagatgTggcTctccGccagg
+												gRNA_1202_Reverse	chr2B	+	154192625	4	TgcCgatggggAactccCccagg
+												gRNA_1202_Reverse	chr2B	-	36847047	4	TgcagatgCgAcactccCccagg
+												gRNA_1202_Reverse	chr2B	-	427853098	4	agAagatgAggTGctcctccagg
+												gRNA_1202_Reverse	chr2B	+	589121714	4	agcagTtgTggcactGAtccagg
+												gRNA_1202_Reverse	chr2B	-	673711571	4	CgcagaGggAgcactcctcGagg
+gRNA_1215_Reverse	1196	1215	Reverse	20	CTCCTCCAGGTCACCCCCCG	75.0	80.0	CGGGGGGTGACCTGGAGGAG	CGG	GW2BmRNA		gRNA_1215_Reverse	chr2A	+	118441960	3	ctcctccaggtcCcccGccCcgg
+												gRNA_1215_Reverse	chr2A	+	246944824	3	ctcctccaTgtcaAccAccgcgg
+												gRNA_1215_Reverse	chr2A	-	653845164	3	ctcctccaTgCcacccAccgcgg
+												gRNA_1215_Reverse	chr2D	+	125307166	3	ctcctccTCgCcaccccccgcgg
+												gRNA_1215_Reverse	chr2D	-	529879320	3	ctcctccaCgCcacccAccgcgg
+												gRNA_1215_Reverse	chr2A	-	147305946	4	ctcctccaCgCcaGccAccgcgg
+												gRNA_1215_Reverse	chr2A	-	170395638	4	ctcctccaCgCcaGccAccgcgg
+												gRNA_1215_Reverse	chr2A	+	177523121	4	ctcctccagAtcTccTccGgcgg
+												gRNA_1215_Reverse	chr2A	-	194409151	4	ctcctccaCgCcaGccAccgcgg
+												gRNA_1215_Reverse	chr2A	-	215603133	4	ctccCccaCgtcaGccAccgcgg
+gRNA_1231_Reverse	1212	1231	Reverse	20	CCCGCGGCGTCGTCAGCCCC	85.0	80.0	GGGGCTGACGACGCCGCGGG	CGG	GW2BmRNA	MwoI,136,gcnnnnnnngc	gRNA_1231_Reverse	chr2D	+	125307166	3	cccgcggcgCcTCcagcccccgg
+												gRNA_1231_Reverse	chr2A	+	103112469	4	cAcgcggcgtcgtcGAccTccgg
+												gRNA_1231_Reverse	chr2A	+	306010145	4	TccgcggcgCcgtcGgccGccgg
+												gRNA_1231_Reverse	chr2A	-	409863179	4	TccTcggcCtcgtcagcAcccgg
+												gRNA_1231_Reverse	chr2A	+	410112752	4	cccgcTgcCtcgCcTgcccccgg
+												gRNA_1231_Reverse	chr2A	-	594745020	4	cTGgGggcgtcgtcagccccAgg
+												gRNA_1231_Reverse	chr2A	+	674493864	4	ccTgcggcCtcgtcTgccccTgg
+												gRNA_1231_Reverse	chr2A	+	677501554	4	ccGgcggcgtcgtcagcGGcGgg
+												gRNA_1231_Reverse	chr2A	+	779168034	4	cccgcgCcgtcgCcGgTccccgg
+												gRNA_1231_Reverse	chr2B	+	118736012	4	cccgcgTcgtcgtcCTcGcccgg
+gRNA_1239_Reverse	1220	1239	Reverse	20	GTCGTCAGCCCCCGGGTAGC	75.0	80.0	GCTACCCGGGGGCTGACGAC	AGG	GW2BmRNA		gRNA_1239_Reverse	chr2B	-	147592046	3	gtcgtcagcccTcgggtCgcCgg
+												gRNA_1239_Reverse	chr2D	-	326452089	3	gtcgtcagcccTcgggtCgcCgg
+												gRNA_1239_Reverse	chr2A	-	102680687	4	gCcgtcagcccccgggCaATagg
+												gRNA_1239_Reverse	chr2A	-	102680687	4	gCcgtcagcccTcgCgCagcagg
+												gRNA_1239_Reverse	chr2A	+	175318124	4	gtcgtcagcccTTgggtCgcCgg
+												gRNA_1239_Reverse	chr2A	+	372078621	4	gtTgtcagcccTcgggtCgcCgg
+												gRNA_1239_Reverse	chr2A	+	425238666	4	gtTgtcagcccTcgggtCgcCgg
+												gRNA_1239_Reverse	chr2B	-	147592046	4	gtcgtcagccccAggAtGgcCgg
+												gRNA_1239_Reverse	chr2B	-	147592046	4	gtcgtcagcccTcgggtCAcCgg
+												gRNA_1239_Reverse	chr2B	-	34042000	4	gGcgtcagcccTcgggtCgcCgg
+gRNA_1251_Reverse	1232	1251	Reverse	20	CGGGTAGCAGGGCGCGAGCT	75.0	80.0	AGCTCGCGCCCTGCTACCCG	TGG	GW2BmRNA	MwoI,136,gcnnnnnnngc;AluI,66,agct	gRNA_1251_Reverse	chr2D	-	234348369	3	cgggCagcaCgAcgcgagcttgg
+												gRNA_1251_Reverse	chr2D	-	234349574	3	cgggCagcaCgAcgcgagcttgg
+												gRNA_1251_Reverse	chr2A	-	118531498	4	TgAgAagAagggcgcgagcttgg
+												gRNA_1251_Reverse	chr2A	+	236923112	4	GgggCagcagggcgcgagGtAgg
+												gRNA_1251_Reverse	chr2A	+	3343392	4	AgggGagcagggcgcgGActtgg
+												gRNA_1251_Reverse	chr2A	-	436364543	4	cgAgtagAagAgcgTgagcttgg
+												gRNA_1251_Reverse	chr2A	+	577480461	4	GgggGagcagggGgcgaActtgg
+												gRNA_1251_Reverse	chr2A	+	652889883	4	cTggtagcaCggcgTgagcAtgg
+												gRNA_1251_Reverse	chr2A	-	701738739	4	cCggGagcGgggcgcgagctAgg
+												gRNA_1251_Reverse	chr2A	+	722565000	4	cggAtagcagggcgcgCgGCtgg
+gRNA_1259_Reverse	1240	1259	Reverse	20	AGGGCGCGAGCTTGGCCTCG	75.0	70.0	CGAGGCCAAGCTCGCGCCCT	AGG	GW2BmRNA	XhoI,PaeR7I,14,ctcgag;MnlI,132,cctc;HaeIII,20,ggcc;BsoBI,AvaI,6,cycgrg;SmlI,132,ctyrag	gRNA_1259_Reverse	chr2A	-	119033118	3	agggcgcgGCcttggcctcgTgg
+												gRNA_1259_Reverse	chr2A	-	384345670	3	agggcCcgagctCggActcgagg
+												gRNA_1259_Reverse	chr2A	-	384345670	3	agggcgcgagctGggTctcgGgg
+												gRNA_1259_Reverse	chr2A	-	384345670	3	agggcTcgagctCggActcgagg
+												gRNA_1259_Reverse	chr2A	-	407577255	3	CgTgcTcgagcttggcctcgagg
+												gRNA_1259_Reverse	chr2A	-	59995494	3	TggTcgcgagcttggcctcgCgg
+												gRNA_1259_Reverse	chr2B	-	100722827	3	agggcgcAaAcAtggcctcgagg
+												gRNA_1259_Reverse	chr2B	-	34594617	3	TggTcgcgagcttggcctcgCgg
+												gRNA_1259_Reverse	chr2D	+	125307166	3	agAgcTcgagctCggcctcgagg
+												gRNA_1259_Reverse	chr2D	+	125307166	3	agggcgcCagGttggcctTgagg
+gRNA_1283_Reverse	1264	1283	Reverse	20	TCAACTTGCGTAGCTTCTTC	45.0	40.0	GAAGAAGCTACGCAAGTTGA	TGG	GW2BmRNA		gRNA_1283_Reverse	chr2A	+	292257197	4	tcaaGttCcgtagctActtTtgg
+												gRNA_1283_Reverse	chr2A	-	321052426	4	tcaacttCcTtagctActtTtgg
+												gRNA_1283_Reverse	chr2A	-	370810365	4	tcGaGttgcgtagcGtcGtctgg
+												gRNA_1283_Reverse	chr2A	+	374414054	4	tcaaGttCcgtagctActtTtgg
+												gRNA_1283_Reverse	chr2B	+	118413040	4	CcaaGttgcgtagcAtcGtctgg
+												gRNA_1283_Reverse	chr2B	+	154192625	4	CcaaGCtgcgtagcGtcttctgg
+												gRNA_1283_Reverse	chr2B	+	154192625	4	tTaaGttgAgtagcttcAtctgg
+												gRNA_1283_Reverse	chr2B	+	510460875	4	tGTacttgcgtagcAtcGtctgg
+												gRNA_1283_Reverse	chr2D	+	252689522	4	CcaacCtgcgtagcGtcGtctgg
+												gRNA_1283_Reverse	chr2D	-	454371713	4	tcaTcttgAgtaTcttcttTtgg
+gRNA_1341_Reverse	1322	1341	Reverse	20	CGTGTACCGCTCCTCCACCC	70.0	70.0	GGGTGGAGGAGCGGTACACG	CGG	GW2BmRNA		gRNA_1341_Reverse	chr2A	+	14540593	3	cgtgtaccTctccGccaAcccgg
+												gRNA_1341_Reverse	chr2A	+	585806387	3	cgtgtaccTctccGccaAcccgg
+												gRNA_1341_Reverse	chr2A	-	617946788	3	cAtgtaccTctcctccaAcccgg
+												gRNA_1341_Reverse	chr2A	+	661392160	3	cgtgtaccTctccGccaAcccgg
+												gRNA_1341_Reverse	chr2A	+	747327285	3	cgtgtaccTctccGccaAcccgg
+												gRNA_1341_Reverse	chr2B	-	27953633	3	cAtgGaccgcAcctccaccccgg
+												gRNA_1341_Reverse	chr2B	-	306895667	3	cgtgtaccTctccGccaAcccgg
+												gRNA_1341_Reverse	chr2B	-	5530499	3	cgtgtaccTctccAccaAcccgg
+												gRNA_1341_Reverse	chr2B	-	5530499	3	cgtgtaccTctccGccaAcccgg
+												gRNA_1341_Reverse	chr2B	-	634156127	3	cAtgtaccTctcctccaAcccgg

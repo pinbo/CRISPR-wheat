@@ -59,7 +59,7 @@ chrom = "" # chromosome name if target only one specific chromosome; seprated wi
 chr_group = 0 # chromsome group, such as 1, meaning 1A, 1B, 1D
 
 #reference = "/Library/WebServer/Documents/blast/db/nucleotide/161010_Chinese_Spring_v1.0_pseudomolecules.fasta"
-reference = "/Volumes/DATA3/users/junli/wheat_Refseqv1/" # the batmis indexed chromosomes locations
+reference = "/Volumes/DATA3/users/junli/wheat_Refseqv1" # the batmis indexed chromosomes locations
 
 cut_pos = 17 # NGG is 17, TTN is about 18
 

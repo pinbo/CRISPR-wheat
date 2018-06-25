@@ -241,8 +241,8 @@ for i in specific_reverse_grnas:
 call('echo "gRNA\tChromosome\tStrand\tPosition\tMismatches\tPotential_target" > blast_out.txt', shell=True)
 if blast:
 	grna_dict = prepare_blast_file(specific_forward_grnas + specific_reverse_grnas) # output is for_blast.fa
-	off_target_check("for_blast.fa", reference, getcaps_path + "/mybatmap") # output is out-test-whole.txt
-	parse_mismatches("out-test-whole.txt", pam, pam_pos, grna_dict)
+	dum1 = off_target_check("for_blast.fa", reference, getcaps_path + "/mybatmap") # output is out-test-whole.txt
+	dum2 = parse_mismatches("out-test-whole.txt", pam, pam_pos, grna_dict)
 	call('cat sorted.out.temp.txt >> blast_out.txt', shell=True)
 
 ## Print output files

@@ -2,6 +2,12 @@
 SCRPATH=$(cd ${0%/*} && echo $PWD/${0##*/})
 CPATH=`dirname "$SCRPATH"`
 
+echo $PATH
+echo $HOME
+source $CPATH/pathfile
+
+echo new path is $PATH
+
 while getopts 'q:o:n:m:d:' OPTION
 do
   case $OPTION in

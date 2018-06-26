@@ -399,8 +399,39 @@ def off_target_check(query, reference, mybatmap):
 	call(cmd, shell=True)
 	return 0
 
+## check gene names
+def check_gene(infile, gff):
+	outfile="for.gene.check.bed"
+	out = open(outfile, 'w')
+	chrloc = {} # dictionary of chromosome locations
+	with open(infile) as file_one:
+		for line in file_one:
+			li=line.strip()
+			ll = li.split("\t")
+			chrloc[":".join([ll[1], ll[3]])] = "" # chr1A:12345 as key
+			end = int(ll[3]) + len(ll[5])
+			out.write('\t'.join([ll[1], ll[3], str(end)]) + "\n")
+	out.close()
+	# bedtools interact
+	bedfile = "sorted." + outfile
+	cmd1 = "bedtools sort -i " + outfile + " > " + bedfile
+	print cmd1
+	call(cmd1, shell=True)
+	checkfile = "check.result.txt"
+	cmd2 = "bedtools intersect  -sorted -wao -a " + bedfile + " -b " + gff + " > " + checkfile
+	print cmd2
+	call(cmd2, shell=True)
+	# process the check results
+	with open(checkfile) as file_two:
+		for line in file_two:
+			li=line.strip()
+			ll = li.split("\t")
+			chrloc[":".join(ll[0:2])] = "; ".join([ll[5], ll[11], ll[12]])
+	# return check information
+	return chrloc
+
 ## parse batmis output for mismatch search
-def parse_mismatches(infile, pam, pam_pos, grna_dict):
+def parse_mismatches(infile, pam, pam_pos, grna_dict, gff):
 	# 1. reformat the output
 	# 2. filter out these without intact pam
 	grna_name = ""
@@ -452,12 +483,23 @@ def parse_mismatches(infile, pam, pam_pos, grna_dict):
 	#out2.close()
 	cmd1 = "sort -k1,1 -k5,5n " + outfile + " | awk 'a[$1]++ < 10' >> " + outfile2
 	call(cmd1, shell=True)
+	
+	# get locations on genes
+	genecheck = check_gene(outfile2, gff)
+	
 	# get the list of off targets for gRNA objects
 	with open(outfile2) as file_two:
 		for line in file_two:
-			grna_name = line.split("\t")[0]
+			line = line.strip()
+			ll = line.split("\t")
+			grna_name = ll[0]
+			genename = genecheck[ll[1] + ":" + ll[3]]
+			if genename.startswith("gene"):
+				genename = genename.replace("gene", "intron")
+			elif genename.startswith("."):
+				genename = "intergenic"
 			pp = grna_dict[grna_name]
-			pp.blast +=  line + "\t" * 12
+			pp.blast +=  line + "\t" + genename + "\n" + "\t" * 12
 	return 0
 
 ## test parse_mismatches

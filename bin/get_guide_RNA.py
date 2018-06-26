@@ -42,6 +42,7 @@ get_guide_RNA.py
 	-h <print the help>
 	-r <reference location>
 	-c <Cas9 etc cut position, for testing restriction enzymes>
+	-f <gff3 file>
 """
 
 # parameters
@@ -60,6 +61,7 @@ chr_group = 0 # chromsome group, such as 1, meaning 1A, 1B, 1D
 
 #reference = "/Library/WebServer/Documents/blast/db/nucleotide/161010_Chinese_Spring_v1.0_pseudomolecules.fasta"
 reference = "/Volumes/DATA3/users/junli/wheat_Refseqv1" # the batmis indexed chromosomes locations
+gff = "/Volumes/DATA3/users/junli/wheat_Refseqv1/filtered_sorted_HC.gff3" # sorted
 
 cut_pos = 17 # NGG is 17, TTN is about 18
 
@@ -67,7 +69,7 @@ cut_pos = 17 # NGG is 17, TTN is about 18
 # steps
 
 try:
-	opts, args = getopt.getopt(sys.argv[1:], "i:a:t:o:l:p:q:b:r:c:h", ["help"])
+	opts, args = getopt.getopt(sys.argv[1:], "i:a:t:o:l:p:q:b:r:c:f:h", ["help"])
 except getopt.GetoptError as err:
 	# print help information and exit:
 	print str(err)  # will print something like "option -a not recognized"
@@ -101,6 +103,8 @@ for o, a in opts:
 		reference = a
 	elif o in ("-c"):
 		cut_pos = int(a)
+	elif o in ("-f"):
+		gff = a
 	else:
 		assert False, "unhandled option"
 print "Options done"

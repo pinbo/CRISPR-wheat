@@ -246,7 +246,7 @@ call('echo "gRNA\tChromosome\tStrand\tPosition\tMismatches\tPotential_target" > 
 if blast:
 	grna_dict = prepare_blast_file(specific_forward_grnas + specific_reverse_grnas) # output is for_blast.fa
 	dum1 = off_target_check("for_blast.fa", reference, getcaps_path + "/mybatmap") # output is out-test-whole.txt
-	dum2 = parse_mismatches("out-test-whole.txt", pam, pam_pos, grna_dict)
+	dum2 = parse_mismatches("out-test-whole.txt", pam, pam_pos, grna_dict, gff)
 	call("sort -k1,1 -k5,5n out.temp.txt | awk 'a[$1]++ < 20' >> blast_out.txt", shell=True)
 
 ## Print output files

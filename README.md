@@ -46,6 +46,12 @@ get_guide_RNA.py
 ```
 ------
 
+## Example
+``` sh
+cd GW2mRNAs
+../bin/get_guide_RNA.py -i GW2_reference.fas -t ALL -p NGG -q right -l 20 -c 17 -o selected_gRNAs.txt -b 1
+```
+
 ## Output
 
 **ID**: gRNA sequence ID

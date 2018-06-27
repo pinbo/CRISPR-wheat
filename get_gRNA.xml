@@ -12,7 +12,7 @@
         <option value="right">right</option>
         <option value="left">left</option>
     </param>
-    <param name="blast" type="select" label="Blast the output gRNAs in the wheat genome?" help="If yes, will blast against Chinese_Spring_v1.0_pseudomolecules">
+    <param name="blast" type="select" label="Check off target in the wheat genome?" help="If yes, will search the CS-RefSeqv1 for sequences with no more than 4 mismatches">
         <option value="0">No</option>
 	    <option value="1">Yes</option>
     </param>
@@ -20,14 +20,22 @@
 
   <outputs>
 	  <data format="tabular" name="gRNA" from_work_dir="selected_gRNAs.txt" label="${tool.id} output"/>
-	  <data format="tabular" name="blast_out" from_work_dir="blast_out.txt" label="${tool.id} BLAST output"/>
+	  <data format="tabular" name="blast_out" from_work_dir="blast_out.txt" label="${tool.id} off target output"/>
   </outputs>
 
   <help>
 
 **OVERVIEW**
 
-Design group specific guide RNAs (gRNAs) in wheat. You can set the targeting chromosomes, so the gRNAs are only target these chromosomes.
+Design group specific guide RNAs (gRNAs) in wheat. You can set the targeting sequence names, so the gRNAs are only target these sequences.
+
+There are good websites for doing the same job, but right now they do not have wheat genome. If they provided wheat genome someday, then you can ignore this tool.
+
+Two good websites:
+
+**CRISPR-P 2.0**: http://crispr.hzau.edu.cn/CRISPR2/
+
+**CRISPR-GE**: http://skl.scau.edu.cn/
 
 ------
 
@@ -39,9 +47,15 @@ A fasta file with all the homeolog sequences. Both cDNA and genomic DNA sequence
 
 1. targets: default value is "ALL" (have to be capital), means to design gRNAs targeting all the sequences in the input file. If your input file have 3 sequences named as gene-1A, gene-1B, gene-1D, you can set the value to "gene-1A,gene-1B" (no quotes, and NO space after ",") to design gRNAs specific to only 1A and 1B homeologs.
 
-2. PAM: choose the PAM type. Will add more types later.
+2. PAM: give the pam sequences
 
-3. BLAST: whether to blast the selected gRNAs against the genome to look for potential off-targets. If yes, will blast, and output the off-target scores (0 to 1, 0 is not possible at all, 1 is perfect match) of the first 4 best hits.
+3. sgRNA length: NGG usually 20, TTN usually 24 etc
+
+4. Potential cut position: cut position of the Cas9 or other enzyme on the sgRNA counting from 5'. Used for finding good restriction enzymes. NGG usually 17 and TTN usually 18 (correct me if this is not true)
+
+5. PAM location: left or right.
+
+3. Check off target: whether to blast the selected gRNAs against the genome to look for potential off-targets. If yes, will check and output top 10 potential targets.
 
 ------
 
@@ -69,18 +83,9 @@ A fasta file with all the homeolog sequences. Both cDNA and genomic DNA sequence
 
 **Template used**: the sequence that was used to search for potential gRNAs
 
-**On_target_score**: on target score based on human study. May not help much for wheat.
-
 **Restriction Enzyme**: restriction enzyme sites that may be destroyed by the deletion.
 
-**Off target score of BLAST top 4 hits**: top 4 blast hits and their off target scores based on human study. I think this would help, because it seems to be consistent with rules to check mismatches.
-
-**Example output:**
-
-ID	Start	End	Strand	Length	Sequence (5' -> 3')	GC_content_All	GC_content_first_10nt	Reverse Complement (5' -> 3')	PAM	Template used	On_target_score	Restriction Enzyme	Off target score of BLAST top 4 hits
-
-gRNA_381_Forward	362	381	Forward	20	TGCTGTTCCAGCAACTAGGC	55	60	GCCTAGTTGCTGGAACAGCA	AGG	gene-1A	0.43	BfaI,142,ctag	chr1A: 1.0; chr1B: 1.0; chr1D: 1.0; chr4B: 0.5; 
-
+and more for off target checking (top 10 potential targets in the genome and their gene location: exon or intron etc)
 
 ------
 

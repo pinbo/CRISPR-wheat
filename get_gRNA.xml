@@ -85,7 +85,7 @@ A fasta file with all the homeolog sequences. Both cDNA and genomic DNA sequence
 
 **Restriction Enzyme**: restriction enzyme sites that may be destroyed by the deletion.
 
-and more for off target checking (top 10 potential targets in the genome and their gene location: exon or intron etc)
+and more for off target checking [top 10 potential targets in the genome (captical nt are mismatches) and their gene location: exon or intron etc]
 
 ------
 

@@ -1,10 +1,10 @@
-<tool id="Get_gRNA" name="gRNAs from Wheat Homeologs">
+<tool id="Get_sgRNA" name="sgRNAs from Wheat Homeologs">
   <description>for homeolog sequences in a fasta file</description>
   <command>/usr/local/bin/python '$__tool_directory__/bin/get_guide_RNA.py' -i $input -t $targets -p $pam -q $pam_pos -l $grna_length -c $cut_pos -o selected_gRNAs.txt -b $blast</command>
   
   <inputs>
     <param format="fasta" name="input" type="data" label="Homeolog sequences (a fasta file with all the homeolog sequences)"/>
-    <param name="targets" size="100" type="text" value="ALL" label="gRNA target sequence name(s) (Separated with commas, for example, GW2A,GW2B ). Default targeting all sequences!"/>
+    <param name="targets" size="100" type="text" value="ALL" label="sgRNA target sequence name(s) (Separated with commas, for example, GW2A,GW2B ). Default targeting all sequences!"/>
     <param name="pam" size="100" type="text" value="NGG" label="PAM sequence, such as NGG, TTN etc"/>
     <param name="grna_length" size="100" type="text" value="20" label="sgRNA length, default 20 for NGG"/>
     <param name="cut_pos" size="100" type="text" value="17" label="Potential cut position for cas9/cpf1 etc for restriction enzyme selection. 17 for NGG and about 18 for cpf1"/>
@@ -27,7 +27,7 @@
 
 **OVERVIEW**
 
-Design group specific guide RNAs (gRNAs) in wheat. You can set the targeting sequence names, so the gRNAs are only target these sequences.
+Design group specific single guide RNAs (sgRNAs) in wheat. You can set the targeting sequence names, so the sgRNAs are only target these sequences.
 
 There are good websites for doing the same job, but right now they do not have wheat genome. If they provided wheat genome someday, then you can ignore this tool.
 
@@ -45,7 +45,7 @@ A fasta file with all the homeolog sequences. Both cDNA and genomic DNA sequence
 
 **Parameters**
 
-1. targets: default value is "ALL" (have to be capital), means to design gRNAs targeting all the sequences in the input file. If your input file have 3 sequences named as gene-1A, gene-1B, gene-1D, you can set the value to "gene-1A,gene-1B" (no quotes, and NO space after ",") to design gRNAs specific to only 1A and 1B homeologs.
+1. targets: default value is "ALL" (have to be capital), means to design sgRNAs targeting all the sequences in the input file. If your input file have 3 sequences named as gene-1A, gene-1B, gene-1D, you can set the value to "gene-1A,gene-1B" (no quotes, and NO space after ",") to design sgRNAs specific to only 1A and 1B homeologs.
 
 2. PAM: give the pam sequences
 
@@ -55,13 +55,13 @@ A fasta file with all the homeolog sequences. Both cDNA and genomic DNA sequence
 
 5. PAM location: left or right.
 
-3. Check off target: whether to blast the selected gRNAs against the genome to look for potential off-targets. If yes, will check and output top 10 potential targets.
+3. Check off target: whether to blast the selected sgRNAs against the genome to look for potential off-targets. If yes, will check and output top 10 potential targets.
 
 ------
 
 **Output**
 
-**ID**: gRNA sequence ID
+**ID**: sgRNA sequence ID
 
 **Start**: start position on the template
 
@@ -69,19 +69,19 @@ A fasta file with all the homeolog sequences. Both cDNA and genomic DNA sequence
 
 **Strand**: forward or reverse strand of the template
 
-**Length**: length of the gRNAs
+**Length**: length of the sgRNAs
 
-**Sequence (5' -> 3')**: gRNA 5' -> 3'sequence without PAM
+**Sequence (5' -> 3')**: sgRNA 5' -> 3'sequence without PAM
 
-**GC_content_All**: GC content of the whole gRNA sequence
+**GC_content_All**: GC content of the whole sgRNA sequence
 
-**GC_content_first_10nt**: GC content of the first 10nts from the PAM of the whole gRNA sequence
+**GC_content_first_10nt**: GC content of the first 10nts from the PAM of the whole sgRNA sequence
 
-**Reverse Complement (5' -> 3')**: Reverse complement sequence of the gRNAs
+**Reverse Complement (5' -> 3')**: Reverse complement sequence of the sgRNAs
 
 **PAM**: PAM sequence on the template
 
-**Template used**: the sequence that was used to search for potential gRNAs
+**Template used**: the sequence that was used to search for potential sgRNAs
 
 **Restriction Enzyme**: restriction enzyme sites that may be destroyed by the deletion.
 
@@ -93,15 +93,15 @@ and more for off target checking [top 10 potential targets in the genome (captic
 
 Based on the review paper (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4877526/), for Cas9:
 
-(1) In most cases, Cas9/gRNA cannot recognize a DNA site bearing more than three mismatches;
+(1) In most cases, Cas9/sgRNA cannot recognize a DNA site bearing more than three mismatches;
  
-(2) Cas9/gRNA cannot recognize and edit a DNA site with any number of mismatches near a PAM (within 10–12 bp);
+(2) Cas9/sgRNA cannot recognize and edit a DNA site with any number of mismatches near a PAM (within 10–12 bp);
 
 Cpf1 has low off-target editing rates. Based on Kim et al. (http://www.ncbi.nlm.nih.gov/pubmed/27272384) and Kleinstiver et al. (http://dx.doi.org/10.1101/057802):
 
 1. Double mismatches ablated Cpf1 activity, except when they were present in the 3’ end of the target sequence (bases 19-23)
 
-2. Kleinstiver et al. reported that Cpf1 can tolerate mismatches at gRNA positions 1, 8, 9, and 19-23.
+2. Kleinstiver et al. reported that Cpf1 can tolerate mismatches at sgRNA positions 1, 8, 9, and 19-23.
 
 3. Kim et al. found that Cpf1 could tolerate single or double mismatches in the 3' PAM-distal region, but not in the 5' PAM-proximal region.
 

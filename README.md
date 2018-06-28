@@ -23,6 +23,8 @@ Two good websites:
 
 - **bedtools**: bedtools.readthedocs.io/
 
+------
+
 ## Input
 
 A fasta file with all the homeolog sequences. Both cDNA and genomic DNA sequences are okay, but I would recommend cDNAs.
@@ -51,6 +53,7 @@ get_guide_RNA.py
 cd GW2mRNAs
 ../bin/get_guide_RNA.py -i GW2_reference.fas -t ALL -p NGG -q right -l 20 -c 17 -o selected_gRNAs.txt -b 1
 ```
+------
 
 ## Output
 
@@ -79,6 +82,29 @@ cd GW2mRNAs
 **Restriction Enzyme**: restriction enzyme sites that may be destroyed by the deletion.
 
 and more for off target checking (top 10 potential targets in the genome and their gene location: exon or intron etc)
+
+
+------
+
+## Off target consideration
+
+Based on the review paper (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4877526/), for Cas9:
+
+1. In most cases, Cas9/gRNA cannot recognize a DNA site bearing more than three mismatches;
+ 
+2. Cas9/gRNA cannot recognize and edit a DNA site with any number of mismatches near a PAM (within 10–12 bp);
+
+Cpf1 has low off-target editing rates. Based on Kim et al. (http://www.ncbi.nlm.nih.gov/pubmed/27272384) and Kleinstiver et al. (http://dx.doi.org/10.1101/057802):
+
+1. Double mismatches ablated Cpf1 activity, except when they were present in the 3’ end of the target sequence (bases 19-23)
+
+2. Kleinstiver et al. reported that Cpf1 can tolerate mismatches at gRNA positions 1, 8, 9, and 19-23.
+
+3. Kim et al. found that Cpf1 could tolerate single or double mismatches in the 3' PAM-distal region, but not in the 5' PAM-proximal region.
+
+So overall, it seems that mismatches close to the PAM are not tolerable, but distal of PAM is for both Cas9 and Cpf1.
+
+------
 
 ## Acknowledgements
 

@@ -408,7 +408,7 @@ def check_gene(infile, gff):
 		for line in file_one:
 			li=line.strip()
 			ll = li.split("\t")
-			chrloc[":".join([ll[1], ll[3]])] = "" # chr1A:12345 as key
+			#chrloc[":".join([ll[1], ll[3]])] = "" # chr1A:12345 as key
 			end = int(ll[3]) + len(ll[5])
 			out.write('\t'.join([ll[1], ll[3], str(end)]) + "\n")
 	out.close()
@@ -428,7 +428,7 @@ def check_gene(infile, gff):
 			ll = li.split("\t")
 			kk = ":".join(ll[0:2]) # key
 			if kk not in chrloc or ll[5] != "gene":
-				chrloc[":".join(ll[0:2])] = "; ".join([ll[5], ll[11], ll[12]])
+				chrloc[kk] = "; ".join([ll[5], ll[11], ll[12]])
 	# return check information
 	return chrloc
 

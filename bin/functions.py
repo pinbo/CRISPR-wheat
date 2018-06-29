@@ -483,7 +483,7 @@ def parse_mismatches(infile, pam, pam_pos, grna_dict, gff):
 	#out2 = open(outfile2, 'w')
 	#out2.write("\t".join(["gRNA", "Chromosome", "Strand", "Position", "Mismatches", "Potential_target"]) + "\n")
 	#out2.close()
-	cmd1 = "sort -k1,1 -k5,5n " + outfile + " | awk 'a[$1]++ < 10' >> " + outfile2
+	cmd1 = "sort -k1,1 -k5,5n " + outfile + " | awk 'a[$1]++ < 10' > " + outfile2
 	call(cmd1, shell=True)
 	
 	# get locations on genes

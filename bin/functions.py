@@ -145,7 +145,8 @@ def seq2pattern(seq):
 			seq2 += i
 		else:
 			seq2 += iupac[i]
-	return seq2.lower()
+	# r'(?=([atgc]gg))' for searching overlappig patterns
+	return '(?=(' +  seq2 + '))'
 
 # test whether an enzyme can be modifed to fit a dCAPS
 def test_enzyme(enzyme_name, enzyme_seq, seq):

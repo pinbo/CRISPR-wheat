@@ -42,9 +42,9 @@ get_guide_RNA.py
 	-p <PAM sequence. default is NGG>
 	-q <PAM position: left or right>
 	-h <print the help>
-	-r <reference location>
+	-r <reference location: BatMis processed files>
 	-c <Cas9 etc cut position, for testing restriction enzymes>
-	-f <gff3 file for gene locations>
+	-f <gff3 file for gene locations: a bedtools sorted and filtered gff3 file which only kept "gene", "exon", "five_prime_UTR", and "three_prime_UTR".>
 ```
 ------
 
@@ -83,7 +83,6 @@ cd GW2mRNAs
 
 and more for off target checking (top 10 potential targets in the genome and their gene location: exon or intron etc)
 
-
 ------
 
 ## Off target consideration
@@ -91,7 +90,7 @@ and more for off target checking (top 10 potential targets in the genome and the
 Based on the review paper (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4877526/), for Cas9:
 
 1. In most cases, Cas9/gRNA cannot recognize a DNA site bearing more than three mismatches;
- 
+
 2. Cas9/gRNA cannot recognize and edit a DNA site with any number of mismatches near a PAM (within 10–12 bp);
 
 Cpf1 has low off-target editing rates. Based on Kim et al. (http://www.ncbi.nlm.nih.gov/pubmed/27272384) and Kleinstiver et al. (http://dx.doi.org/10.1101/057802):
@@ -105,7 +104,22 @@ Cpf1 has low off-target editing rates. Based on Kim et al. (http://www.ncbi.nlm.
 So overall, it seems that mismatches close to the PAM are not tolerable, but distal of PAM is for both Cas9 and Cpf1.
 
 ------
+## Commands used to prepare BatMis input and gff3 file
+I installed **BatMis** and **Bedtools** in my PATH. Please also make sure they are in your PATH, otherwise you need to update the commands in the script with the full path of the two tools.
+```sh
+## BatMis
+# wheat genome is too big for BatMis to index, so I have to split them into chromosomes
+splitfasta.pl 161010_Chinese_Spring_v1.0_pseudomolecules.fasta
+# then index each chromosome: some chromosomes did not complete the whole process, but we already get the files needed later. So no worry.
+cat chrlist.txt | xargs -n 1 -P 5  -I % sh -c 'build_index %' > tempout.txt
 
+## Prepare gff3 used for the tool
+# sort first
+bedtools sort -i iwgsc_refseqv1.0_HighConf_2017Mar13.gff3 > sorted_HC.gff3
+# filter out CDS and mRNA terms
+awk '!/CDS/ && !/mRNA/' sorted_HC.gff3 > filtered_sorted_HC.gff3
+```
+------
 ## Acknowledgements
 
 I borrowed a lot of ideas from CRISPR-P 2.0. Free software used in the package includes:

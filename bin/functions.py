@@ -172,8 +172,8 @@ def Calc_GC(seq):
 # find PAM positions
 def find_pam(seq, pam, pam_pos, grna_length, direction):
 	# seq is the template, direction is the seq orientation
-	# pam is the pam seqeuence
-	# pam_pos is the postion of the pam, left or right
+	# pam is the pam sequence
+	# pam_pos is the position of the pam, left or right
 	allpos = find_substring(seq2pattern(pam), seq)
 	grna_list = []
 	for i in allpos:
@@ -202,6 +202,12 @@ def find_pam(seq, pam, pam_pos, grna_length, direction):
 		else:
 			grna.forblast = grna.seq + grna.pam
 		#grna.seq4score = seq[seq4score_start:(seq4score_end + 1)].upper()
+		if pam == "NGG":
+			seq4score_start = i - grna_length - 4
+			seq4score_end = i + 5
+			if seq4score_start < 0 or seq4score_end >= len(seq):
+				continue
+			grna.seq4score = seq[seq4score_start:(seq4score_end + 1)].upper()
 		grna_list.append(grna)
 	return grna_list
 

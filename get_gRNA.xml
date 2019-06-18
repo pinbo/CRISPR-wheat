@@ -89,6 +89,27 @@ and more for off target checking [top 10 potential targets in the genome (captic
 
 ------
 
+**Efficiency consideration**
+
+Based on Doench et al. 2014 (Rational design of highly active sgRNAs for CRISPR-Cas9–mediated gene inactivation), good sgRNAs have features below:
+
+1. At position 20, the nucleotide immediately adjacent to the PAM, G was strongly preferred, and C was strongly unfavorable.
+
+2. Position 16 prefers C and against G.
+
+3. Consistent preference for A in the middle of the sgRNA,
+
+4. C was disfavored at position 3
+
+5. A strong bias against G immediately 3′ of the PAM: NGGG is not favored.
+
+6. PAM: CGG is favored, and TGG is against.
+
+.. image:: nt_favor_by_position.png
+
+
+------
+
 **Off target consideration**
 
 Based on the review paper (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4877526/), for Cas9:

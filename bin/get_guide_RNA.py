@@ -163,7 +163,7 @@ call(alignmentcmd, shell=True)
 #wild_seq = fasta[mainID].replace("-","") # remove all gaps
 #wild_seq_RC = ReverseComplement(wild_seq)
 
-## Get restriciton enzyme information
+## Get restriction enzyme information
 # step 1: read the enzyme file
 RE_file = getcaps_path + "/NEB_parsed_REs.txt" # this one removed some duplicated cuttings
 REs = parse_RE_file(RE_file) # get the list of restriction enzymes
@@ -212,7 +212,8 @@ print "Specific reverse gRNA number ", len(specific_reverse_grnas)
 ## only REs with recognization site overlap with the 4th position from the end of sg-RNA
 for i in specific_forward_grnas:
 	cut_pos2 = i.start + cut_pos - 1
-	#i.on_target_score = get_on_target_score(i.seq4score) # just to add score here to save time
+	if i.seq4score:
+		i.on_target_score = get_on_target_score(i.seq4score) # just to add score here to save time
 	#print "cut pos is ", cut_pos, i.seq
 	for j in caps_list_forward:
 		allpos = j.allpos
@@ -260,10 +261,10 @@ outfile = open(out, 'w')
 #for i in specific_reverse_grnas:
 	#outfile.write("\t".join([i.name, str(template_length - i.start), str(template_length - i.end), i.direction, str(i.length), i.seq, str(i.gc), str(i.gc10), ReverseComplement(i.seq), i.pam, mainID, "{0:.2f}".format(i.on_target_score), ";".join(i.REs), i.blast]) + "\n")
 
-outfile.write("ID\tStart\tEnd\tStrand\tLength\tSequence (5' -> 3')\tGC_content_All\tGC_content_first_10nt\tReverse Complement (5' -> 3')\tPAM\tTemplate used\tRestriction Enzyme\t" + "\t".join(["gRNA", "Chromosome", "Strand", "Position", "Mismatches", "Potential_target"]) + "\n")
+outfile.write("ID\tStart\tEnd\tStrand\tLength\tOn_target_score\tSequence (5' -> 3')\tGC_content_All\tGC_content_first_10nt\tReverse Complement (5' -> 3')\tPAM\tTemplate used\tRestriction Enzyme\t" + "\t".join(["gRNA", "Chromosome", "Strand", "Position", "Mismatches", "Potential_target"]) + "\n")
 template_length = len(wild_seq)
 for i in specific_forward_grnas + specific_reverse_grnas:
-	outfile.write("\t".join([i.name, str(i.start + 1), str(i.end + 1), i.direction, str(i.length), i.seq, str(i.gc), str(i.gc10), ReverseComplement(i.seq), i.pam, mainID, ";".join(i.REs), i.blast.strip()]) + "\n")
+	outfile.write("\t".join([i.name, str(i.start + 1), str(i.end + 1), i.direction, str(i.length), str(i.on_target_score), i.seq, str(i.gc), str(i.gc10), ReverseComplement(i.seq), i.pam, mainID, ";".join(i.REs), i.blast.strip()]) + "\n")
 
 
 

@@ -105,7 +105,7 @@ Based on Doench et al. 2014 (Rational design of highly active sgRNAs for CRISPR-
 
 6. PAM: CGG is favored, and TGG is against.
 
-.. image::  ${__tool_directory__}/nt_favor_by_position.png
+.. image::  '$__tool_directory__/nt_favor_by_position.png'
 
 
 ------

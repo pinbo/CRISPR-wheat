@@ -225,7 +225,8 @@ for i in specific_forward_grnas:
 
 for i in specific_reverse_grnas:
 	cut_pos2 = i.start + cut_pos - 1
-	#i.on_target_score = get_on_target_score(i.seq4score)
+	if i.seq4score:
+		i.on_target_score = get_on_target_score(i.seq4score)
 	for j in caps_list_reverse:
 		allpos = j.allpos
 		for k in allpos:

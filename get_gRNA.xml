@@ -71,6 +71,8 @@ A fasta file with all the homeolog sequences. Both cDNA and genomic DNA sequence
 
 **Length**: length of the sgRNAs
 
+**On_target_score**: Editing efficiency based on human cell study for NGG pam. Higher is better.
+
 **Sequence (5' -> 3')**: sgRNA 5' -> 3'sequence without PAM
 
 **GC_content_All**: GC content of the whole sgRNA sequence

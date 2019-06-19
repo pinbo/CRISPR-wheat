@@ -205,9 +205,10 @@ def find_pam(seq, pam, pam_pos, grna_length, direction):
 		if pam == "NGG":
 			seq4score_start = i - grna_length - 4
 			seq4score_end = i + 5
-			if seq4score_start < 0 or seq4score_end >= len(seq):
-				continue
-			grna.seq4score = seq[seq4score_start:(seq4score_end + 1)].upper()
+			#if seq4score_start < 0 or seq4score_end >= len(seq):
+			#	continue
+			if seq4score_start >= 0 and seq4score_end < len(seq):
+				grna.seq4score = seq[seq4score_start:(seq4score_end + 1)].upper()
 		grna_list.append(grna)
 	return grna_list
 

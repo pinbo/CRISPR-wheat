@@ -71,7 +71,7 @@ A fasta file with all the homeolog sequences. Both cDNA and genomic DNA sequence
 
 **Length**: length of the sgRNAs
 
-**On_target_score**: Editing efficiency based on human cell study for NGG pam. Higher is better.
+**On_target_score**: Editing efficiency based on human cell study for NGG pam. Higher is better. Other studies found this is not really reliable, low scores could also have high efficiency, so just a reference.
 
 **Sequence (5' -> 3')**: sgRNA 5' -> 3'sequence without PAM
 
@@ -91,7 +91,7 @@ and more for off target checking [top 10 potential targets in the genome (captic
 
 ------
 
-**Efficiency consideration**
+**Efficiency consideration (not really reliable)**
 
 Based on Doench et al. 2014 (Rational design of highly active sgRNAs for CRISPR-Cas9–mediated gene inactivation), good sgRNAs have features below:
 

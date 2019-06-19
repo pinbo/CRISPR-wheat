@@ -214,6 +214,8 @@ for i in specific_forward_grnas:
 	cut_pos2 = i.start + cut_pos - 1
 	if i.seq4score:
 		i.on_target_score = get_on_target_score(i.seq4score) # just to add score here to save time
+	else:
+		i.on_target_score = "NA"
 	#print "cut pos is ", cut_pos, i.seq
 	for j in caps_list_forward:
 		allpos = j.allpos
@@ -227,6 +229,8 @@ for i in specific_reverse_grnas:
 	cut_pos2 = i.start + cut_pos - 1
 	if i.seq4score:
 		i.on_target_score = get_on_target_score(i.seq4score)
+	else:
+		i.on_target_score = "NA"
 	for j in caps_list_reverse:
 		allpos = j.allpos
 		for k in allpos:

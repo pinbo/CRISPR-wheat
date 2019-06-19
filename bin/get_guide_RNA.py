@@ -268,9 +268,13 @@ outfile = open(out, 'w')
 
 outfile.write("ID\tStart\tEnd\tStrand\tLength\tOn_target_score\tSequence (5' -> 3')\tGC_content_All\tGC_content_first_10nt\tReverse Complement (5' -> 3')\tPAM\tTemplate used\tRestriction Enzyme\t" + "\t".join(["gRNA", "Chromosome", "Strand", "Position", "Mismatches", "Potential_target"]) + "\n")
 template_length = len(wild_seq)
-for i in specific_forward_grnas + specific_reverse_grnas:
+for i in specific_forward_grnas:
 	outfile.write("\t".join([i.name, str(i.start + 1), str(i.end + 1), i.direction, str(i.length), str(i.on_target_score), i.seq, str(i.gc), str(i.gc10), ReverseComplement(i.seq), i.pam, mainID, ";".join(i.REs), i.blast.strip()]) + "\n")
 
+# change the positions of the reverse complement sequence
+seqlen = len(wild_seq)
+for i in specific_reverse_grnas:
+	outfile.write("\t".join([i.name, str(seqlen - i.end), str(seqlen - i.start), i.direction, str(i.length), str(i.on_target_score), i.seq, str(i.gc), str(i.gc10), ReverseComplement(i.seq), i.pam, mainID, ";".join(i.REs), i.blast.strip()]) + "\n")
 
 
 #print "example score for on target ", get_on_target_score("ATGGGGAACAGAATAGGAGGGAGGAGGAAG")

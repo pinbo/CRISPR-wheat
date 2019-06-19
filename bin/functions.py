@@ -510,7 +510,7 @@ def parse_mismatches(infile, pam, pam_pos, grna_dict, gff):
 			elif genename.startswith("."):
 				genename = "intergenic"
 			pp = grna_dict[grna_name]
-			pp.blast +=  line + "\t" + genename + "\n" + "\t" * 12
+			pp.blast +=  line + "\t" + genename + "\n" + "\t" * 13
 	return 0
 
 ## test parse_mismatches

@@ -236,7 +236,7 @@ for i in specific_reverse_grnas:
 		for k in allpos:
 			rr = range(k, k + j.length)
 			if cut_pos2 in rr:
-				i.REs.append(j.name + "," + j.seq)
+				i.REs.append(j.name + "," + j.seq + ":" + ','.join(str(x) for x in allpos))
 
 ## blast against the genome
 # create a blank blast output file for galaxy output

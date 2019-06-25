@@ -25,6 +25,12 @@
 
   <help>
 
+**Updates**
+
+2019-06-24: add all recognization positions of an enzyme. For example, BsaI,66,ggtctc:11,720 means BsaI cut at positions 11 and 720 on the template.
+
+2019-06-17: add an efficiency prediction score, not very accurate, just a prediction.
+
 **OVERVIEW**
 
 Design group specific single guide RNAs (sgRNAs) in wheat. You can set the targeting sequence names, so the sgRNAs are only target these sequences.

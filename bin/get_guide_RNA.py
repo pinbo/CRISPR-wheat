@@ -225,6 +225,8 @@ for i in specific_forward_grnas:
 				#print j.name, j.seq, j.allpos
 				i.REs.append(j.name + "," + j.seq + ":" + ','.join(str(x) for x in allpos))
 
+seqlen = len(wild_seq)
+
 for i in specific_reverse_grnas:
 	cut_pos2 = i.start + cut_pos - 1
 	if i.seq4score:
@@ -236,7 +238,7 @@ for i in specific_reverse_grnas:
 		for k in allpos:
 			rr = range(k, k + j.length)
 			if cut_pos2 in rr:
-				i.REs.append(j.name + "," + j.seq + ":" + ','.join(str(x) for x in allpos))
+				i.REs.append(j.name + "," + j.seq + ":" + ','.join(str(seqlen - x) for x in allpos))
 
 ## blast against the genome
 # create a blank blast output file for galaxy output
@@ -272,7 +274,6 @@ for i in specific_forward_grnas:
 	outfile.write("\t".join([i.name, str(i.start + 1), str(i.end + 1), i.direction, str(i.length), str(i.on_target_score), i.seq, str(i.gc), str(i.gc10), ReverseComplement(i.seq), i.pam, mainID, ";".join(i.REs), i.blast.strip()]) + "\n")
 
 # change the positions of the reverse complement sequence
-seqlen = len(wild_seq)
 for i in specific_reverse_grnas:
 	outfile.write("\t".join([i.name, str(seqlen - i.end), str(seqlen - i.start), i.direction, str(i.length), str(i.on_target_score), i.seq, str(i.gc), str(i.gc10), ReverseComplement(i.seq), i.pam, mainID, ";".join(i.REs), i.blast.strip()]) + "\n")
 

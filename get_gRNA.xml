@@ -29,6 +29,8 @@
 
 2019-06-24: add all recognization positions of an enzyme. For example, BsaI,66,ggtctc:11,720 means BsaI cut at positions 11 and 720 on the template.
 
+2019-06-21: the positions of sgRNAs from the reverse strand are also based on the positive strand.
+
 2019-06-17: add an efficiency prediction score, not very accurate, just a prediction.
 
 **OVERVIEW**

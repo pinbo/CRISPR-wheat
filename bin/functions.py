@@ -156,7 +156,7 @@ def test_enzyme(enzyme_name, enzyme_seq, seq):
 	wild_seq = seq.lower()
 	wild_allpos = find_substring(seq2pattern(enzyme_seq), wild_seq)
 	wild_allpos += find_substring(seq2pattern(enzyme_seq_RC), wild_seq) # also check reverse complement sequences of enzyme
-	enzyme.allpos = list(set(wild_allpos))
+	enzyme.allpos = list(set(wild_allpos)).sort()
 	if enzyme.allpos:
 		enzyme.caps = "Yes"
 	return enzyme

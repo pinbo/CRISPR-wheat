@@ -223,7 +223,7 @@ for i in specific_forward_grnas:
 			rr = range(k, k + j.length)
 			if cut_pos2 in rr:
 				#print j.name, j.seq, j.allpos
-				i.REs.append(j.name + "," + j.seq)
+				i.REs.append(j.name + "," + j.seq + ":" + ','.join(str(x) for x in allpos))
 
 for i in specific_reverse_grnas:
 	cut_pos2 = i.start + cut_pos - 1
